@@ -1,0 +1,53 @@
+import React from 'react'
+import styles from './Home.module.scss'
+export default function Home() {
+  return (
+    <div className={styles.homeBody}>
+      <video className={styles.bgVideo} autoPlay loop muted>
+      <source src={require('../../assets/images/chrisDai-bg-video.mp4')} type="video/mp4" />
+        您的浏览器不支持视频标签。
+      </video>
+      <div className={styles['home-container']}>
+        <div className={styles['home-content']}>
+          <div className={styles['home-inner']}>
+            <div className={styles['intro-left']}>
+              <div className={styles['intro-logo']}><img src={require('../../assets/images/logo.png')} alt=""/></div>
+              <div className={styles['intro-head']}>
+                <span>
+                  <b>光影感</b>
+                  <i>LUMINOSITY</i>
+                </span>
+                <span>
+                  <b>雕塑感</b>
+                  <i>SCULPTURE</i>
+                </span>
+                <span>
+                  <b>⽣命⼒</b>
+                  <i>VITALITY</i>
+                </span>
+              </div>
+            </div>
+
+            <div className={styles['intro-right']}>
+              <div><b>品牌故事</b><i>BRAND STORY</i></div>
+              <div><b>艺术珠宝</b><i>ART JEWEL</i></div>
+              <div><b>品牌纪事</b><i>BRAND HERITAGE</i></div>
+              <div><b>视频</b><i>VIDEO</i></div>
+              <div><b>全球媒体</b><i>GLOBAL EVENTS</i></div>
+              <div><b>联系我们</b><i>CONTACT US</i></div>
+            </div>
+          </div>
+        </div>
+        <div className={styles['home-bottom']}>
+          <div className={styles.shortlink}>
+            <img src={require('../../assets/images/wb.png')} alt='微博'/>
+            <img src={require('../../assets/images/wx.png')} alt='微信'/>
+            <img src={require('../../assets/images/xhs.png')} alt='小红书'/>
+            <img src={require('../../assets/images/instagram.png')} alt=''/>
+          </div>
+          <span>沪ICP备2022010059号-1 | Copyright © 2023 Chirstine Dai</span>
+        </div>
+      </div>
+    </div>
+  )
+}
