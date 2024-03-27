@@ -1,6 +1,19 @@
 import React from 'react'
 import styles from './Home.module.scss'
+import { useSelector } from 'react-redux'
+import { getStoryInfos, setTitle } from '../../store/modules/story'
+import { useAppDispatch } from '../../store'
+import type { RootState } from '../../store'
 export default function Home() {
+  const year = useSelector((state: RootState) => state.story.year)
+  const dispatch = useAppDispatch()
+
+  dispatch(getStoryInfos({ id: 1 })).then(res => {
+    console.log(res)
+  })
+
+  dispatch(setTitle('CHRISTINE DAI'))
+
   return (
     <div className={styles.homeBody}>
       <video className={styles.bgVideo} autoPlay loop muted>
@@ -45,7 +58,7 @@ export default function Home() {
             <img src={require('../../assets/images/xhs.png')} alt='小红书'/>
             <img src={require('../../assets/images/instagram.png')} alt=''/>
           </div>
-          <span>沪ICP备2022010059号-1 | Copyright © 2023 Chirstine Dai</span>
+          <span>沪ICP备2022010059号-1 | Copyright © {year} Chirstine Dai</span>
         </div>
       </div>
     </div>
