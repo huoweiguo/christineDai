@@ -28,7 +28,7 @@ export default function Story() {
           </div>
           <div className={styles['brand-btn']}>
             <div className={styles['btn-img']}>
-              <img src={require('./images/story-bg.jpg')} alt="" />
+              <img src={require('../../assets/images/story-bg.jpg')} alt="" />
             </div>
             <div className={styles['btn-txtBox']}>
               <p>
@@ -53,7 +53,7 @@ export default function Story() {
           </div>
         </div>
         <div className={styles['story-word']}>
-          <img src={require('./images/story-word.jpg')} alt="" />
+          <img src={require('../../assets/images/story-word.jpg')} alt="" />
         </div>
         <div className={styles['story-art']}>
           <div className={styles['art-text']}>
@@ -69,7 +69,7 @@ export default function Story() {
           </div>
           <div className={styles['art-btn']}>
             <div className={styles['art-btn-img']}>
-              <img src={require('./images/art.jpg')} alt="" />
+              <img src={require('../../assets/images/art.jpg')} alt="" />
             </div>
             <div className={styles['art-txtBox']}>
               <p>

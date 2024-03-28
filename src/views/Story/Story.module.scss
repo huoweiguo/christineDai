@@ -189,7 +189,7 @@
         height: .39rem;
         content: '';
         position: absolute;
-        background: url(./images/i2.png) no-repeat;
+        background: url(../../assets/images/i2.png) no-repeat;
         background-size: contain;
         bottom: 0;
         right: 0;
@@ -202,7 +202,7 @@
       height: .39rem;
       content: '';
       position: absolute;
-      background: url(./images/i2.png) no-repeat;
+      background: url(../../assets/images/i2.png) no-repeat;
       background-size: contain;
     }
     p{
@@ -217,7 +217,7 @@
 }
 
 .story-bom{
-  background-image: url('./images/bom.jpg');
+  background-image: url('../../assets/images/bom.jpg');
   visibility: visible;
   animation-name: fadeInUp;
   padding: 10.5% 0;
@@ -298,7 +298,7 @@
           height: .59rem;
           content: '';
           position: absolute;
-          background: url(./images/i2.png) no-repeat;
+          background: url(../../assets/images/i2.png) no-repeat;
           background-size: contain;
           bottom: 0;
           right: 0.3rem;
@@ -311,7 +311,7 @@
           height: .59rem;
           content: '';
           position: absolute;
-          background: url(./images/i2.png) no-repeat;
+          background: url(../../assets/images/i2.png) no-repeat;
           background-size: contain;
         }
 
