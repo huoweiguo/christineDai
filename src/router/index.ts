@@ -10,6 +10,8 @@ const Video = lazy(() => import('../views/Video/Video'))
 const GlobalMedia = lazy(() => import('../views/GlobalMedia/GlobalMedia'))
 const ContactUs = lazy(() => import('../views/ContactUs/ContactUs'))
 const TheJewelry = lazy(() => import('../views/TheJewelry/TheJewelry'))
+const JewelryList = lazy(() => import('../views/JewelryList/JewelryList'))
+const JewelryDetail = lazy(() => import('../views/JewelryDetail/JewelryDetail'))
 const Layout = lazy(() => import('../views/Layout/Layout'))
 const BeforeEach = lazy(() => import('../components/BeforeEach/BeforeEach'))
 
@@ -97,6 +99,20 @@ export const routes: RouteObject[] = [
       {
         path: 'theJewelry',
         element: React.createElement(TheJewelry),
+        meta: {
+          title: '珠宝分类'
+        }
+      },
+      {
+        path: 'jewelryList',
+        element: React.createElement(JewelryList),
+        meta: {
+          title: '珠宝列表'
+        }
+      },
+      {
+        path: 'jewelryDetail',
+        element: React.createElement(JewelryDetail),
         meta: {
           title: '珠宝详情'
         }

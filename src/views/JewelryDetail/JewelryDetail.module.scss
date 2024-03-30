@@ -1,0 +1,83 @@
+.detail-top{
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding-bottom: 4.1rem;
+  position: relative;
+}
+.detail-prevBtn{
+  width: .3rem;
+  padding-left: .3rem;
+  text-align: center;
+  font-size: .16rem;
+  display: block;
+  position: absolute;
+  left: .28rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.detail-prevBtn::before{
+  width: .19rem;
+  height: .3rem;
+  content: '';
+  background: url(../../assets/images/i3.png) no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -.15rem;
+  transition: .3s;
+}
+
+.detail-prevBtn:hover:before{
+  left: -0.05rem;
+
+}
+
+.detail-nextBtn{
+  width: .3rem;
+  padding-right: .3rem;
+  text-align: center;
+  font-size: .16rem;
+  display: block;
+  position: absolute;
+  right: .28rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.detail-nextBtn::before {
+  width: .19rem;
+  height: .3rem;
+  content: '';
+  background: url(../../assets/images/i3.png) no-repeat;
+  background-size: contain;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -.15rem;
+  transition: .3s;
+  transform: rotate(180deg);
+}
+
+.detail-nextBtn:hover:before{
+  right: -0.05rem;
+}
+
+.detail-txtBox{
+  color: #fff;
+  position: absolute;
+  top: 55%;
+  left: 10%;
+  font-size: .4rem;
+  transform: translateY(-50%);
+  line-height: 1.5;
+}

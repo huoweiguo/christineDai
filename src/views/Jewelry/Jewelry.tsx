@@ -2,7 +2,13 @@ import React from 'react'
 import styles from './Jewelry.module.scss'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import { useNavigate } from 'react-router-dom';
 export default function Jewelry() {
+  const navigate = useNavigate();
+  const handleButtonClick = (url:string) => {
+    // 使用 navigate() 方法进行路由跳转
+    navigate(url);
+  };
   return (
     <div className={styles.Jewelry}>
       <Header></Header>
@@ -11,7 +17,7 @@ export default function Jewelry() {
            <ul className={styles['jewe-list']}>
             <li className={styles['jewe-item']}>
               <h5>High Jewel</h5>
-              <div className={styles['jewe-down']}>
+              <div onClick={()=>handleButtonClick('/layout/theJewelry')} className={styles['jewe-down']}>
                 <div>
                   即刻探索
                 </div>
@@ -21,7 +27,7 @@ export default function Jewelry() {
             </li>
             <li className={styles['jewe-item']}>
               <h5>Art Jewel</h5>
-              <div className={styles['jewe-down']}>
+              <div onClick={()=>handleButtonClick('/layout/theJewelry')} className={styles['jewe-down']}>
                 <div>
                   即刻探索
                 </div>
@@ -31,7 +37,7 @@ export default function Jewelry() {
             </li>
             <li className={styles['jewe-item']}>
               <h5>Fien Jewel</h5>
-              <div className={styles['jewe-down']}>
+              <div onClick={()=>handleButtonClick('/layout/theJewelry')} className={styles['jewe-down']}>
                 <div>
                   即刻探索
                 </div>

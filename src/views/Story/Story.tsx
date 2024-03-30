@@ -11,7 +11,7 @@ export default function Story() {
   // },2000)
   return (
     <div className={styles.storyBody}>
-      <Header></Header>
+      <Header titleObj={{title:'品牌故事',name:'BRAND STORY'}}></Header>
       <div className={styles['story-banner']}>
         <h5>
           品牌故事<br/>

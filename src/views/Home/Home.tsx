@@ -4,16 +4,19 @@ import { useSelector } from 'react-redux'
 import { getStoryInfos, setTitle } from '../../store/modules/story'
 import { useAppDispatch } from '../../store'
 import type { RootState } from '../../store'
+import { useNavigate } from 'react-router-dom';
 export default function Home() {
   const year = useSelector((state: RootState) => state.story.year)
   const dispatch = useAppDispatch()
-
+  const navigate = useNavigate();
+  const handleButtonClick = (url:string) => {
+    // 使用 navigate() 方法进行路由跳转
+    navigate(url);
+  };
   dispatch(getStoryInfos({ id: 1 })).then(res => {
     console.log(res)
   })
-
   dispatch(setTitle('CHRISTINE DAI'))
-
   return (
     <div className={styles.homeBody}>
       <video className={styles.bgVideo} autoPlay loop muted>
@@ -42,8 +45,8 @@ export default function Home() {
             </div>
 
             <div className={styles['intro-right']}>
-              <div><b>品牌故事</b><i>BRAND STORY</i></div>
-              <div><b>艺术珠宝</b><i>ART JEWEL</i></div>
+              <div onClick={()=>handleButtonClick('/layout/story')}><b>品牌故事</b><i>BRAND STORY</i></div>
+              <div onClick={()=>handleButtonClick('/layout/jewelry')}><b>艺术珠宝</b><i>ART JEWEL</i></div>
               <div><b>品牌纪事</b><i>BRAND HERITAGE</i></div>
               <div><b>视频</b><i>VIDEO</i></div>
               <div><b>全球媒体</b><i>GLOBAL EVENTS</i></div>

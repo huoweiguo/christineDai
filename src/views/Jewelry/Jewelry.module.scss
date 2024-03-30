@@ -39,6 +39,7 @@
     color: #635a50;
     font-size: 0.16rem;
     cursor: pointer;
+    text-decoration: none;
   }
   .jewe-line{
     width: 100%;
@@ -49,4 +50,16 @@
   .jewe-txt{
     margin-right: 0.1rem;
   }
+}
+
+@media screen and (max-width: 750px) {
+  .jewe-list{
+    display: flex;
+    flex-direction: column;
+    .jewe-item{
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+
 }
