@@ -8,10 +8,12 @@
   align-items: center;
   transition: .3s;
   z-index: 99;
-  background: #000;
   box-sizing: border-box;
   padding: 0 .7rem;
   height: 1rem;
+}
+.onFix{
+  background: #000;
 }
 
 .header-logo{

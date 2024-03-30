@@ -9,6 +9,7 @@ const Documentary = lazy(() => import('../views/Documentary/Documentary'))
 const Video = lazy(() => import('../views/Video/Video'))
 const GlobalMedia = lazy(() => import('../views/GlobalMedia/GlobalMedia'))
 const ContactUs = lazy(() => import('../views/ContactUs/ContactUs'))
+const TheJewelry = lazy(() => import('../views/TheJewelry/TheJewelry'))
 const Layout = lazy(() => import('../views/Layout/Layout'))
 const BeforeEach = lazy(() => import('../components/BeforeEach/BeforeEach'))
 
@@ -91,6 +92,13 @@ export const routes: RouteObject[] = [
         element: React.createElement(ContactUs),
         meta: {
           title: '联系我们'
+        }
+      },
+      {
+        path: 'theJewelry',
+        element: React.createElement(TheJewelry),
+        meta: {
+          title: '珠宝详情'
         }
       }
     ]

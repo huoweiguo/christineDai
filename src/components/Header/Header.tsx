@@ -1,8 +1,12 @@
 import React from 'react'
 import styles from './Header.module.scss'
-export default function Hrader() {
+interface HeaderProps {
+  type?:Boolean
+}
+export default function Hrader(props:HeaderProps) {
+  let { type } = props;
   return (
-    <div className={styles.headerBody}>
+    <div className={type?`${styles.headerBody}`:`${styles.headerBody} ${styles.onFix}`}>
         <img className={styles['header-logo']} src={require('../../assets/images/header-logo.png')} alt="" />
         <div className={styles['header-right']}>
            <p className={styles['header-name']}>
