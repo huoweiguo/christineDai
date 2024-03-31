@@ -12,10 +12,12 @@ const ContactUs = lazy(() => import('../views/ContactUs/ContactUs'))
 const TheJewelry = lazy(() => import('../views/TheJewelry/TheJewelry'))
 const JewelryList = lazy(() => import('../views/JewelryList/JewelryList'))
 const JewelryDetail = lazy(() => import('../views/JewelryDetail/JewelryDetail'))
+const WholeVideo = lazy(() => import('../views/WholeVideo/WholeVideo'))
+const MediaDetail = lazy(() => import('../views/MediaDetail/MediaDetail'))
 const Layout = lazy(() => import('../views/Layout/Layout'))
 const BeforeEach = lazy(() => import('../components/BeforeEach/BeforeEach'))
 
-declare module 'react-router' {
+declare module 'react-router-dom' {
   interface IndexRouteObject {
     meta?: {
       menu?: boolean
@@ -115,6 +117,20 @@ export const routes: RouteObject[] = [
         element: React.createElement(JewelryDetail),
         meta: {
           title: '珠宝详情'
+        }
+      },
+      {
+        path: 'wholeVideo/:name',
+        element: React.createElement(WholeVideo),
+        meta: {
+          title: '视频分类'
+        }
+      },
+      {
+        path: 'mediaDetail',
+        element: React.createElement(MediaDetail),
+        meta: {
+          title: '媒体详情'
         }
       }
     ]

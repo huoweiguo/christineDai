@@ -47,10 +47,10 @@ export default function Home() {
             <div className={styles['intro-right']}>
               <div onClick={()=>handleButtonClick('/layout/story')}><b>品牌故事</b><i>BRAND STORY</i></div>
               <div onClick={()=>handleButtonClick('/layout/jewelry')}><b>艺术珠宝</b><i>ART JEWEL</i></div>
-              <div><b>品牌纪事</b><i>BRAND HERITAGE</i></div>
-              <div><b>视频</b><i>VIDEO</i></div>
-              <div><b>全球媒体</b><i>GLOBAL EVENTS</i></div>
-              <div><b>联系我们</b><i>CONTACT US</i></div>
+              <div onClick={()=>handleButtonClick('/layout/documentary')}><b>品牌纪事</b><i>BRAND HERITAGE</i></div>
+              <div onClick={()=>handleButtonClick('/layout/video')}><b>视频</b><i>VIDEO</i></div>
+              <div onClick={()=>handleButtonClick('/layout/globalMedia')}><b>全球媒体</b><i>GLOBAL EVENTS</i></div>
+              <div onClick={()=>handleButtonClick('/layout/contactUs')}><b>联系我们</b><i>CONTACT US</i></div>
             </div>
           </div>
         </div>
