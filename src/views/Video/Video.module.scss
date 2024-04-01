@@ -32,6 +32,7 @@
         margin-right: 0;
       }
       .imgBox{
+        cursor: pointer;
         overflow: hidden;
         figure{
           padding-bottom: 2.34rem;
@@ -39,6 +40,9 @@
           background-size: cover;
           background-position: center center;
           transition: 4s;
+        }
+        figure:hover {
+          transform: scale(1.2); /* 鼠标移入时将图片放大为原来的1.2倍 */
         }
       }
       h3{

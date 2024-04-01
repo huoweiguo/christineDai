@@ -3,6 +3,7 @@ import styles from './WholeVideo.module.scss'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 export default function WholeVideo() {
   const { name } = useParams();
@@ -10,6 +11,11 @@ export default function WholeVideo() {
     title: '',
     word: ''
   }) 
+  const navigate = useNavigate();
+  const handleButtonClick = (url:string) => {
+    // 使用 navigate() 方法进行路由跳转
+    navigate(url);
+  };
 
   const [videoData, setVideoData] = useState([
     {
@@ -112,10 +118,10 @@ export default function WholeVideo() {
         </h5>
       </div>
       {
-        name=='media' ? 
+        name==='media' ? 
         <div className={styles['wv-main']}>
           { videoData[0].children && videoData[0].children.map((em, i)=>(
-            <div className={`${styles.card} ${styles['m-b-4']}`} key={i}>
+            <div onClick={()=>handleButtonClick('/layout/videoDetail')} className={`${styles.card} ${styles['m-b-4']}`} key={i}>
               <div className={`${styles.imgBox} ${styles['m-b-2']}`}>
                 <img src={em.imgUrl} alt=""/>
               </div>
@@ -130,7 +136,7 @@ export default function WholeVideo() {
               <div className={styles.title}>{ item.title }</div>
                 <div className={styles.listBox} >
                 { item.children && item.children.map((em, i)=>(
-                  <div className={styles.card} key={i}>
+                  <div onClick={()=>handleButtonClick('/layout/videoDetail')} className={styles.card} key={i}>
                     <div className={styles.imgBox}>
                       <img src={em.imgUrl} alt=""/>
                     </div>

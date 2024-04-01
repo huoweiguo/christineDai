@@ -40,11 +40,17 @@
       width: 100%;
       background-color: #000;
       min-height: 300px;
+      img{
+        border: 0;
+        width: 100%;
+        min-height: 100%;
+        vertical-align: middle;
+      }
     }
     .wx-fixed{
-      position: absolute;
-      right: -170px;
-      top: 0;
+      position: fixed;
+      right: 230px;
+      top: 60px;
       width: 140px;
       padding: 16px;
       border: 1px solid #D9DADC;

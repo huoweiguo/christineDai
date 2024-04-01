@@ -14,6 +14,7 @@ const JewelryList = lazy(() => import('../views/JewelryList/JewelryList'))
 const JewelryDetail = lazy(() => import('../views/JewelryDetail/JewelryDetail'))
 const WholeVideo = lazy(() => import('../views/WholeVideo/WholeVideo'))
 const MediaDetail = lazy(() => import('../views/MediaDetail/MediaDetail'))
+const VideoDetail = lazy(() => import('../views/VideoDetail/VideoDetail'))
 const Layout = lazy(() => import('../views/Layout/Layout'))
 const BeforeEach = lazy(() => import('../components/BeforeEach/BeforeEach'))
 
@@ -131,6 +132,13 @@ export const routes: RouteObject[] = [
         element: React.createElement(MediaDetail),
         meta: {
           title: '媒体详情'
+        }
+      },
+      {
+        path: 'videoDetail',
+        element: React.createElement(VideoDetail),
+        meta: {
+          title: '视频详情'
         }
       }
     ]

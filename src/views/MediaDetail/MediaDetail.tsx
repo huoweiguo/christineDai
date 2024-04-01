@@ -49,7 +49,9 @@ export default function MediaDetail() {
           <span className={styles.meta}>2023-10-04 21:00</span>
           <span className={styles.meta}>上海</span>
         </div>
-        <div className={styles.content}></div>
+        <div className={styles.content}>
+          <img src={require('../../assets/images/docImg.jpg')} alt="" />
+        </div>
         { pcShow && <div className={styles['wx-fixed']}>
           <img src={require('../../assets/images/wx-2.bmp')} alt=""/>
           <p>

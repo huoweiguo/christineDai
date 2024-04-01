@@ -17,6 +17,12 @@
     align-items: center;
     font-size: .18rem;
     color: #666666;
+    li{
+      cursor: pointer;
+    }
+    li:hover{
+      color: #fff;
+    }
   }
   .footer-soc{
     width: 19%;

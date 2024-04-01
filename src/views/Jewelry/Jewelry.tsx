@@ -18,8 +18,9 @@ export default function Jewelry() {
             <li className={styles['jewe-item']}>
               <h5>High Jewel</h5>
               <div onClick={()=>handleButtonClick('/layout/theJewelry')} className={styles['jewe-down']}>
-                <div>
+                <div className={styles['jewe-icon']}>
                   即刻探索
+                  <img src={require('../../assets/images/rightIcon.png')} alt="" />
                 </div>
                 <div className={styles['jewe-line']}></div>
                 <div><span className={styles['jewe-txt']}>Series</span>collection</div>
@@ -28,8 +29,9 @@ export default function Jewelry() {
             <li className={styles['jewe-item']}>
               <h5>Art Jewel</h5>
               <div onClick={()=>handleButtonClick('/layout/theJewelry')} className={styles['jewe-down']}>
-                <div>
+                <div className={styles['jewe-icon']}>
                   即刻探索
+                  <img src={require('../../assets/images/rightIcon.png')} alt="" />
                 </div>
                 <div className={styles['jewe-line']}></div>
                 <div><span className={styles['jewe-txt']}>Series</span>collection</div>
@@ -38,8 +40,9 @@ export default function Jewelry() {
             <li className={styles['jewe-item']}>
               <h5>Fien Jewel</h5>
               <div onClick={()=>handleButtonClick('/layout/theJewelry')} className={styles['jewe-down']}>
-                <div>
+                <div className={styles['jewe-icon']}>
                   即刻探索
+                  <img src={require('../../assets/images/rightIcon.png')} alt="" />
                 </div>
                 <div className={styles['jewe-line']}></div>
                 <div><span className={styles['jewe-txt']}>Series</span>collection</div>
