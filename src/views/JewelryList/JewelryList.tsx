@@ -10,8 +10,8 @@ export default function JewelryList() {
     navigate(url);
   };
   return (
-    <div>
-      <Header></Header>
+    <div className={styles.listBody}>
+      <Header titleObj={{title:'艺术珠宝',name:'ART JEWEL'}}></Header>
       <div className={styles['jewelry-top']}>
       </div>
       <div className={styles['jewelry-brandVid']}>

@@ -11,7 +11,7 @@ export default function Documentary() {
   };
   return (
     <div>
-      <Header></Header>
+      <Header go></Header>
       <div className={styles['doc-banner']}>
         <h5>
           品牌纪事<br/>

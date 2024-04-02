@@ -2,7 +2,8 @@ import React,{ useState, useEffect }from 'react'
 import styles from './Header.module.scss'
 import { useNavigate } from 'react-router-dom';
 interface HeaderProps {
-  type?:Boolean
+  type?:Boolean,
+  go?:Boolean,
   titleObj?:{
     title:string,
     name:string
@@ -27,7 +28,7 @@ export default function Hrader(props:HeaderProps) {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  let { type,titleObj} = props;
+  let { type,titleObj,go} = props;
   return (
     <div className={(type&&!isScrolled)||!isScrolled?`${styles.headerBody}`:`${styles.headerBody} ${styles.onFix}`}>
         <img onClick={()=>handleButtonClick('/')} className={styles['header-logo']} src={require('../../assets/images/header-logo.png')} alt="" />
@@ -39,6 +40,11 @@ export default function Hrader(props:HeaderProps) {
                 <span>{titleObj.name}</span>
               </p>:''
            }
+           {go?<div className={styles.retBtn}>
+            返回上一页
+            <br/>
+            return
+           </div>:''}
            <div>
             <p className={styles['header-menu']}></p>
            </div>

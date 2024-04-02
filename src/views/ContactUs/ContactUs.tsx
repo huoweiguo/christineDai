@@ -39,18 +39,19 @@ export default function ContactUs() {
     bgData.forEach((item)=>{
       preloadImage(item)
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className={ styles.contactUs }>
-      <Header></Header>
+      <Header titleObj={{title:'联系我们',name:'CONTACT US'}}></Header>
       <div className={ styles['cu-container'] } style={{backgroundImage: 'url('+bgData[activeIndex]+')'}}>
-        <div className={`${styles.itemBox} ${selectIndex && selectIndex != 1 ? styles.narrow : ''}`} onMouseEnter={()=>handleMouseEnter(0)}>
-          <div className={`${styles.wrapper} ${selectIndex == 1 ? styles.showWrapper : ''}`}>
+        <div className={`${styles.itemBox} ${selectIndex && selectIndex !== 1 ? styles.narrow : ''}`} onMouseEnter={()=>handleMouseEnter(0)}>
+          <div className={`${styles.wrapper} ${selectIndex === 1 ? styles.showWrapper : ''}`}>
             <div className={styles.title}>
               巴黎<br/>Paris
             </div>
-            <div className={`${styles.content } ${selectIndex == 1 ? styles.showContent : ''}`}>
+            <div className={`${styles.content } ${selectIndex === 1 ? styles.showContent : ''}`}>
               <p>Art Jewelry Appreciation Room</p>
               <p>Reservation Appreciation</p>
               <p className={styles['mg-25']}>Email:official@christine-dai.com</p>
@@ -58,12 +59,12 @@ export default function ContactUs() {
             </div>
           </div>
         </div>
-        <div className={`${styles.itemBox} ${selectIndex && selectIndex != 2 ? styles.narrow : ''}`} onMouseEnter={()=>handleMouseEnter(1)}>
-          <div className={`${styles.wrapper} ${selectIndex == 2 ? styles.showWrapper : ''}`}>
+        <div className={`${styles.itemBox} ${selectIndex && selectIndex !== 2 ? styles.narrow : ''}`} onMouseEnter={()=>handleMouseEnter(1)}>
+          <div className={`${styles.wrapper} ${selectIndex === 2 ? styles.showWrapper : ''}`}>
             <div className={styles.title}>
               巴黎<br/>Paris
             </div>
-            <div className={`${styles.content } ${selectIndex == 2 ? styles.showContent : ''}`}>
+            <div className={`${styles.content } ${selectIndex === 2 ? styles.showContent : ''}`}>
               <p>Art Jewelry Appreciation Room</p>
               <p>Reservation Appreciation</p>
               <p className={styles['mg-25']}>Email:official@christine-dai.com</p>
@@ -71,12 +72,12 @@ export default function ContactUs() {
             </div>
           </div>
         </div>
-        <div className={`${styles.itemBox} ${selectIndex && selectIndex != 3 ? styles.narrow : ''}`} onMouseEnter={()=>handleMouseEnter(2)}>
-          <div className={`${styles.wrapper} ${selectIndex == 3 ? styles.showWrapper : ''}`}>
+        <div className={`${styles.itemBox} ${selectIndex && selectIndex !== 3 ? styles.narrow : ''}`} onMouseEnter={()=>handleMouseEnter(2)}>
+          <div className={`${styles.wrapper} ${selectIndex === 3 ? styles.showWrapper : ''}`}>
             <div className={styles.title}>
               巴黎<br/>Paris
             </div>
-            <div className={`${styles.content } ${selectIndex == 3 ? styles.showContent : ''}`}>
+            <div className={`${styles.content } ${selectIndex === 3 ? styles.showContent : ''}`}>
               <p>Art Jewelry Appreciation Room</p>
               <p>Reservation Appreciation</p>
               <p className={styles['mg-25']}>Email:official@christine-dai.com</p>

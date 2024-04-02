@@ -11,7 +11,7 @@ export default function GlobalMedia() {
   };
   return (
     <div className={styles.GlobalMedia}>
-      <Header></Header>
+      <Header go></Header>
       <div className={styles.banner}>
         <h5>
           全球媒体<br/>

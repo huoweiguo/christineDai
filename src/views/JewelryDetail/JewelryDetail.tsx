@@ -346,8 +346,8 @@ export default function JewelryDetail() {
     setIsObj(arr[addNum])
  }
   return (
-    <div>
-      <Header></Header>
+    <div className={styles.detailBody}>
+      <Header go></Header>
       <div className={styles['detail-top']}>
         <div onClick={()=>PrevPage()} className={styles['detail-prevBtn']}>
           上一页

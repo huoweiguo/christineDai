@@ -5,8 +5,8 @@ import Footer from '../../components/Footer/Footer'
 
 export default function VideoDetail() {
   return (
-    <div>
-       <Header></Header>
+    <div className={styles.videoBody}>
+       <Header go></Header>
        <div className={styles.videoDetail}>
          <div className={styles.videoPlay}>
          <video controls>

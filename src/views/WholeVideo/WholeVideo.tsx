@@ -110,7 +110,7 @@ export default function WholeVideo() {
   
   return (
     <div className={styles.wholeVideo}>
-      <Header></Header>
+      <Header titleObj={{title:'品牌视频',name:'VIDEO'}}></Header>
       <div className={styles.banner}>
         <h5>
           {bannerData.title}<br/>

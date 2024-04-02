@@ -70,8 +70,11 @@
   .GlobalMedia{
     .gw-container{
       .content-box{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         .card{
-          width: 49%;
+          width: 46%;
           margin-right: 2% !important;
           &:nth-child(3n){
             margin-right: 2% !important;

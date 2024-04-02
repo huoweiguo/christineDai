@@ -1,3 +1,8 @@
+.videoBody{
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+}
 .videoDetail{
   background: #000;
   padding: 1.5rem 5% 0.5rem;
@@ -16,5 +21,12 @@
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .videoDetail{
+    background: #000;
+    padding: 2.5rem 5% 0.5rem;
   }
 }

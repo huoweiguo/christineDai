@@ -137,3 +137,24 @@
     transform: translate(-50%, -50%);
   }
 }
+
+@media screen and (max-width: 750px) {
+  .DocBody{
+    padding: 7% 2%;
+  }
+  .doc-nav{
+    display: none;
+  }
+  .doc-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .doc-left{
+      width: 100%;
+    }
+    .doc-right{
+      width: 100%;
+    }
+  }
+  
+}

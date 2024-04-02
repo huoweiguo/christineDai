@@ -1,3 +1,8 @@
+.detailBody{
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+}
 .detail-top{
   background-color: #000;
   background-repeat: no-repeat;
@@ -273,6 +278,92 @@
     }
     p{
       font-size: 32px;
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .detail-txtBox{
+    color: #fff;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+  }
+  .detail-demo1{
+    display: flex;
+    flex-direction: column;
+    padding: 3% 0;
+    .demo1-txtBox{
+      width: 100%;
+      text-align: center;
+    }
+    .title:before {
+      left: 50%;
+      margin-left: -.35rem;
+    }
+  }
+  .detail-demo3{
+    display: flex;
+    flex-direction: column;
+    padding: 3% 0;
+    .demo3-left{
+      width: 100%;
+    }
+    .demo3-right{
+      width: 100%;
+    }
+    .demo3-txtBox{
+      width: 100%;
+      text-align: center;
+    }
+    .title:before {
+      left: 50%;
+      margin-left: -.35rem;
+    }
+  }
+  .detail-demo4{
+    padding: 3% 0;
+    .demo4-txtBox{
+      width: 100%;
+      text-align: center;
+    }
+    .title:before {
+      left: 50%;
+      margin-left: -.35rem;
+    }
+    .demo4-down{
+      width: 100%;
+    }
+    .demo4-top{
+      width: 100%;
+    }
+  }
+  .detail-demo5{
+    padding: 3% 0;
+    .demo5-txtBox{
+      width: 100%;
+      text-align: center;
+    }
+    .title:before {
+      left: 50%;
+      margin-left: -.35rem;
+    }
+    .demo5-top{
+      width: 100%;
+    }
+  }
+  .detail-demo7{
+    display: flex;
+    flex-direction: column;
+    padding: 3% 0;
+    .demo7-left{
+      width: 100%;
+    }
+    .demo7-right{
+      width: 100%;
+      margin: 5% 0;
     }
   }
 }

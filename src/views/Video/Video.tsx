@@ -40,7 +40,7 @@ export default function Video() {
 
   return (
     <div className={styles.videoBody}>
-      <Header></Header>
+      <Header titleObj={{title:'品牌视频',name:'VIDEO'}}></Header>
       <div className={styles.bgVideo}>
         <video className={styles.bgVideo} autoPlay loop muted>
           <source src={require('../../assets/images/v-bg-video.mp4')} type="video/mp4" />
