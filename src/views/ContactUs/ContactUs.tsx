@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './ContactUs.module.scss'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
@@ -13,15 +13,9 @@ export default function ContactUs() {
   const [ selectIndex, setSelectIndex ] = useState<number|null>(null)
   
   const bgData: any[] = [
-    {
-      backgroundImage: 'url('+require('../../assets/images/cu-bg1.jpeg')+')',
-    },
-    {
-      backgroundImage: 'url('+require('../../assets/images/cu-bg2.png')+')',
-    },
-    {
-      backgroundImage: 'url('+require('../../assets/images/cu-bg3.jpeg')+')',
-    }
+    require('../../assets/images/cu-bg1.jpeg'),
+    require('../../assets/images/cu-bg2.png'),
+    require('../../assets/images/cu-bg3.jpeg')
   ] 
 
   const handleMouseEnter = (index: number) => {
@@ -36,10 +30,21 @@ export default function ContactUs() {
     setSelectIndex(0)
   }
 
+  const preloadImage = (src: string) => {  //预加载图片，防止切换背景图片出现空白情况
+    const img = new Image();
+    img.src = src;
+  };
+
+  useEffect(() => {
+    bgData.forEach((item)=>{
+      preloadImage(item)
+    })
+  }, []);
+
   return (
     <div className={ styles.contactUs }>
       <Header></Header>
-      <div className={ styles['cu-container'] } style={bgData[activeIndex]}>
+      <div className={ styles['cu-container'] } style={{backgroundImage: 'url('+bgData[activeIndex]+')'}}>
         <div className={`${styles.itemBox} ${selectIndex && selectIndex != 1 ? styles.narrow : ''}`} onMouseEnter={()=>handleMouseEnter(0)}>
           <div className={`${styles.wrapper} ${selectIndex == 1 ? styles.showWrapper : ''}`}>
             <div className={styles.title}>
