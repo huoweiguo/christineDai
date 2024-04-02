@@ -54,8 +54,45 @@
       }
     }
     .contact-form{
-      height: 4rem;
+      min-height: 4rem;
       background-color: #fff;
+      .title{
+        text-align: center;
+        font-size: .35rem;
+        color: #000;
+        margin-bottom: 0.2rem;
+        position: relative;
+        span{
+          display: none;
+          font-size: .16rem;
+          color: #999;
+          position: absolute;
+          top: 50%;
+          font-weight: bold;
+          transform: translateY(-50%);
+          left: 0;
+
+        }
+      }
+      .txt{
+        border: none;
+        border-bottom: 1px solid #eee;
+        font-size: .14rem;
+        padding: 3px 0;
+        span{
+          padding: 0;
+        }
+      }
+      .cbox{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .sub{
+          display: block;
+          font-size: .2rem;
+          color: #000;
+        }
+      }
     }
   }
 }
@@ -78,15 +115,41 @@
   }
 }
 
+@keyframes enlarge-leave {
+  0%{
+    flex: 1.5;
+  }
+  100%{
+    flex: 0;
+  }
+}
+
+@keyframes narrow-leave {
+  0%{
+    flex: 0;
+  }
+  100%{
+    flex: 1;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .contactUs{
     .cu-container{
+      overflow: hidden;
       flex-direction: row;
       .enlarge{
-        animation: enlarge 1s forwards;
+        animation-name: enlarge !important;
+        padding: 1% .2rem;
       }
       .narrow{
-        animation: narrow 1s forwards;
+        animation-name: narrow !important;
+      }
+      .enlarge-leave{
+        animation-name: enlarge-leave !important;
+      }
+      .narrow-leave{
+        animation-name: narrow-leave !important;
       }
       .showWrapper{
         -webkit-transition-delay: 0s;
@@ -102,9 +165,12 @@
       }
       .itemBox{
         flex: 1;
-        height: calc( 100vh - 1rem );
+        height: 100vh;
         border-top: 0;
         border-left: 1px solid hsla(0,0%,100%,.2);
+        animation-name: none;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
         &:first-child{
           border-left: 0;
         }
@@ -153,9 +219,17 @@
         }
       }
       .contact-form{
-        flex: 0;
-        height: calc( 100vh - 1rem );
+        width: 0;
+        height: 100vh;
         background-color: #fff;
+        animation-name: none;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        span{
+          display: inline-block !important;
+          z-index: 9999;
+          cursor: pointer;
+        }
       }
     }
   }

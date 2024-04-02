@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import styles from './ContactUs.module.scss'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import { Col, Row, Button, Form, Input, Checkbox } from 'antd';
+import { log } from 'console';
+
+const { TextArea } = Input;
 
 export default function ContactUs() {
 
   const [ activeIndex, setactiveIndex ] = useState<number>(0)
-  const [ selectIndex, setSelectIndex ] = useState<number>(0)
+  const [ selectIndex, setSelectIndex ] = useState<number|null>(null)
   
   const bgData: any[] = [
     {
@@ -26,6 +30,10 @@ export default function ContactUs() {
 
   const openContactForm = (index: number) => {
     setSelectIndex(index)
+  }
+
+  const onBack = () => {
+    setSelectIndex(0)
   }
 
   return (
@@ -71,7 +79,67 @@ export default function ContactUs() {
             </div>
           </div>
         </div>
-        <div className={`${styles['contact-form']} ${selectIndex ? styles.enlarge : ''}`}></div>
+        <div className={`${styles['contact-form']} ${selectIndex ? styles.enlarge : (selectIndex === 0 ? styles['enlarge-leave'] : '')}`}>
+          <div className={styles.title}>联络我们 <span onClick={()=>onBack()}>返回上一页</span></div>
+          <Form name="trigger" style={{ padding: 20 }} layout="vertical" autoComplete="off">
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                label="姓名"
+                name="field_a"
+                validateTrigger="onBlur"
+                rules={[{ max: 3 }]}
+              >
+                <Input placeholder="姓名" className={styles.txt} />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                label="电子邮箱"
+                name="field_a"
+                validateTrigger="onBlur"
+                rules={[{ max: 3 }]}
+              >
+                <Input placeholder="电子邮箱" className={styles.txt} />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                label="电话"
+                name="field_a"
+                validateTrigger="onBlur"
+                rules={[{ max: 3 }]}
+              >
+                <Input placeholder="电话" className={styles.txt} />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                label="地区"
+                name="field_a"
+                validateTrigger="onBlur"
+                rules={[{ max: 3 }]}
+              >
+                <Input placeholder="地区" className={styles.txt} />
+              </Form.Item>
+            </Col>
+            <Col span={24}>
+              <Form.Item
+                label="您的留言"
+                name="field_a"
+                validateTrigger="onBlur"
+                rules={[{ max: 3 }]}
+              >
+                <TextArea rows={4} placeholder="maxLength is 6" maxLength={6} />
+              </Form.Item>
+            </Col>
+            <Col span={24} className={styles.cbox}>
+              <Checkbox value="1">我已阅读并接受CHRISTINE DAI网站的隐私权条款</Checkbox>
+              <span className={styles.sub}>发送</span>
+            </Col>
+          </Row>
+          </Form>
+        </div>
       </div>
       <Footer></Footer>
     </div>  
