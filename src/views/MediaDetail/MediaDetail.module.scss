@@ -1,0 +1,124 @@
+.mediaDetail{
+  width: 100%;
+  padding: 20px 0;
+  .container{
+    max-width: 677px;
+    margin: 0 auto;
+    position: relative;
+    .title{
+      font-size: 22px;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+    .info{
+      margin-bottom: 22px;
+      line-height: 20px;
+      font-size: 0;
+      word-wrap: break-word;
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+      .meta{
+        color: rgba(0, 0, 0, .3);
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 10px 10px 0;
+        font-size: 15px;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+      }
+      .richName{
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 10px 10px 0;
+        font-size: 15px;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        position: relative;
+        cursor: pointer;
+      }
+    }
+    .content{
+      width: 100%;
+      background-color: #000;
+      min-height: 300px;
+      img{
+        border: 0;
+        width: 100%;
+        min-height: 100%;
+        vertical-align: middle;
+      }
+    }
+    .wx-fixed{
+      position: fixed;
+      right: 230px;
+      top: 60px;
+      width: 140px;
+      padding: 16px;
+      border: 1px solid #D9DADC;
+      background-color: #fff;
+      word-wrap: break-word;
+      -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+      box-sizing: border-box;
+      img{
+        width: 102px;
+        height: 102px;
+      }
+      p{
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.profile_inner{
+  background-color: #fff;
+  min-height: 100px;
+  overflow: hidden;
+  width: 535px;
+  .left{
+    float: left;
+    img{
+      width: 100px;
+      height: 100px;
+    }
+  }
+  .right{
+    float: right;
+    width: 400px;
+    .profile_name{
+      display: block;
+      margin-top: 12px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .profile_meta{
+      overflow: hidden;
+      .label{
+        float: left;
+        width: 4.3em;
+        margin-right: 1em;
+      }
+      .val{
+        display: block;
+        overflow: hidden;
+        color: #adadad;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .mediaDetail{
+    width: 100%;
+    padding: 20px 20px;
+    box-sizing: border-box;
+  }
+  .wx-fixed{
+    display: none;
+  }
+
+
+}

@@ -1,0 +1,10 @@
+.slideInFrom {
+  opacity: 0;
+  margin-top: 200px;
+  transition: 0.5s;
+}
+
+.visible {
+  opacity: 1;
+  margin-top: 0;
+}

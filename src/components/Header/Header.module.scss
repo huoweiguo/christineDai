@@ -8,15 +8,18 @@
   align-items: center;
   transition: .3s;
   z-index: 99;
-  background: #000;
   box-sizing: border-box;
   padding: 0 .7rem;
   height: 1rem;
+}
+.onFix{
+  background: #000;
 }
 
 .header-logo{
   max-width: 2.4rem;
   min-height: .52rem;
+  cursor: pointer;
 }
 
 .header-right{
@@ -44,4 +47,30 @@
 
 .header-menu:hover{
   background-image: url(../../assets/images/menu_a.png);
+}
+.retBtn{
+  color: #fff;
+  position: relative;
+  padding: .03rem 0;
+  color: #fff;
+  font-size: 0.14rem;
+  line-height: 1.42857143;
+  cursor: pointer;
+  :hover {
+    color: #fff;
+  }
+}
+.retBtn::after,
+.retBtn::before {
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  background-color: #fff;
+  bottom: -3px;
+  left: 0;
+  content: "";
+  -webkit-transition: -webkit-transform .3s cubic-bezier(.39,.575,.565,1);
+  transition: -webkit-transform .3s cubic-bezier(.39,.575,.565,1);
+  transition: transform .3s cubic-bezier(.39,.575,.565,1);
+  transition: transform .3s cubic-bezier(.39,.575,.565,1), -webkit-transform .3s cubic-bezier(.39,.575,.565,1);
 }

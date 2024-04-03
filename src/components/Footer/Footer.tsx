@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styles from './Footer.module.scss'
+import type { RootState } from '../../store'
 export default function Footer() {
+  const year = useSelector((state: RootState) => state.story.year)
   return (
     <div className={styles.footerBody}>
       <div className={styles['footer-top']}>
@@ -25,7 +28,7 @@ export default function Footer() {
       <div className={styles['footer-copy']}>
         <span>沪ICP备2022010059号-1</span>
         <span className={styles['footer-line']}>|</span>
-        Copyright © 2023 Chirstine Dai
+        Copyright © {year} Chirstine Dai
       </div>
     </div>
   )

@@ -1,0 +1,62 @@
+.listBody{
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+}
+.jewelry-top{
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding-bottom: 4.1rem;
+}
+
+.jewelry-brandVid{
+  padding: 1rem 4%;
+  background: #fff;
+}
+.jewelry-box{
+  border-left: 1px solid #000;
+  padding: .3rem 0 .3rem .55rem;
+}
+
+.jewelry-year{
+  padding: .2rem 0;
+  position: relative;
+  font-size: .4rem;
+  color: #000;
+  font-weight: bold;
+}
+.jewelry-year::before {
+  width: .29rem;
+  height: .26rem;
+  content: '';
+  background: url(../../assets/images/i4.png) no-repeat;
+  background-size: contain;
+  background-position: center center;
+  position: absolute;
+  left: -.7rem;
+  top: 0;
+}
+
+.jewelry-listBox{
+  li{
+    float: none;
+    width: 100%;
+    margin-bottom: 2%;
+    padding-bottom: 2%;
+    border-bottom: 1px solid #ddd;
+    margin-right: 8%;
+    margin-top: .2rem;
+  }
+  h5 {
+      font-weight: normal;
+      color: #000;
+      font-size: .2rem;
+      cursor: pointer;
+  }
+  h5:hover{
+    color: #8d7249;
+  }
+
+}

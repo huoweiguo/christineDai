@@ -9,10 +9,16 @@ const Documentary = lazy(() => import('../views/Documentary/Documentary'))
 const Video = lazy(() => import('../views/Video/Video'))
 const GlobalMedia = lazy(() => import('../views/GlobalMedia/GlobalMedia'))
 const ContactUs = lazy(() => import('../views/ContactUs/ContactUs'))
+const TheJewelry = lazy(() => import('../views/TheJewelry/TheJewelry'))
+const JewelryList = lazy(() => import('../views/JewelryList/JewelryList'))
+const JewelryDetail = lazy(() => import('../views/JewelryDetail/JewelryDetail'))
+const WholeVideo = lazy(() => import('../views/WholeVideo/WholeVideo'))
+const MediaDetail = lazy(() => import('../views/MediaDetail/MediaDetail'))
+const VideoDetail = lazy(() => import('../views/VideoDetail/VideoDetail'))
 const Layout = lazy(() => import('../views/Layout/Layout'))
 const BeforeEach = lazy(() => import('../components/BeforeEach/BeforeEach'))
 
-declare module 'react-router' {
+declare module 'react-router-dom' {
   interface IndexRouteObject {
     meta?: {
       menu?: boolean
@@ -91,6 +97,48 @@ export const routes: RouteObject[] = [
         element: React.createElement(ContactUs),
         meta: {
           title: '联系我们'
+        }
+      },
+      {
+        path: 'theJewelry',
+        element: React.createElement(TheJewelry),
+        meta: {
+          title: '珠宝分类'
+        }
+      },
+      {
+        path: 'jewelryList',
+        element: React.createElement(JewelryList),
+        meta: {
+          title: '珠宝列表'
+        }
+      },
+      {
+        path: 'jewelryDetail',
+        element: React.createElement(JewelryDetail),
+        meta: {
+          title: '珠宝详情'
+        }
+      },
+      {
+        path: 'wholeVideo/:name',
+        element: React.createElement(WholeVideo),
+        meta: {
+          title: '视频分类'
+        }
+      },
+      {
+        path: 'mediaDetail',
+        element: React.createElement(MediaDetail),
+        meta: {
+          title: '媒体详情'
+        }
+      },
+      {
+        path: 'videoDetail',
+        element: React.createElement(VideoDetail),
+        meta: {
+          title: '视频详情'
         }
       }
     ]

@@ -1,3 +1,325 @@
-.StoryBody{
-  padding-top: 1rem;
+
+.storyBody{
+  width: 100%;
+  box-sizing: border-box;
+}
+.story-banner{
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding-bottom: 4.1rem;
+  position: relative;
+}
+
+.story-banner h5{
+  color: #fff;
+  position: absolute;
+  bottom: 43%;
+  left: 7%;
+  font-size: .4rem;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+.story-warp{
+  background: #fff;
+  padding: 7% 0 0 0;
+}
+
+.story-brand{
+  width: 100%;
+  padding: 0 4%;
+  box-sizing: border-box;
+  font-size: 0.14rem;
+  margin-bottom: 5%;
+  // font-weight: bold;
+  .brand-text{
+    width: 28%;
+    margin-left: auto;
+  }
+  .brand-title{
+    padding-top: .5rem;
+    position: relative;
+    margin-bottom: .4rem;
+  }
+  .brand-title:before {
+      width: .6rem;
+      height: .06rem;
+      content: '';
+      background: #333333;
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  .brand-title h1{
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    line-height: 2;
+  }
+  .brand-title h2{
+    display: block;
+    font-size: 1.5em;
+    line-height: 1.5;
+    font-weight: bold;
+    unicode-bidi: isolate;
+  }
+  .brand-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .btn-img{
+      width: 64%;
+      img{
+        border: 0;
+        max-width: 100%;
+        vertical-align: middle;
+        overflow-clip-margin: content-box;
+        overflow: clip;
+      }
+    }
+    .btn-txtBox{
+      width: 28%;
+      p{
+        color: #333;
+        font-size:0.13rem;
+        line-height:1.5;
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+}
+
+.story-word{
+  width: 100%;
+  position: relative;
+  padding: 0.8rem;
+  margin-bottom: 7%;
+  background: #f9f9f9;
+  box-sizing: border-box;
+  font-size: .22rem;
+  line-height: .34rem;
+  position: relative;
+  text-align: center;
+  img{
+    border: 0;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+}
+
+.story-art{
+  width: 100%;
+  padding: 0 4%;
+  box-sizing: border-box;
+  font-size: 0.14rem;
+  margin-bottom: 5%;
+  .art-text{
+    width: 73%;
+    margin-left: auto;
+  }
+  .art-title{
+    padding-top: .5rem;
+    position: relative;
+    margin-bottom: .4rem;
+  }
+  .art-title:before {
+      width: .6rem;
+      height: .06rem;
+      content: '';
+      background: #333333;
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  .art-title h1{
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    line-height: 2;
+  }
+  .art-title h2{
+    display: block;
+    font-size: 1.5em;
+    line-height: 1.5;
+    font-weight: bold;
+    unicode-bidi: isolate;
+  }
+  .art-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    .art-btn-img{
+      width: 19.5%;
+      img{
+        border: 0;
+        max-width: 100%;
+        vertical-align: middle;
+        overflow-clip-margin: content-box;
+        overflow: clip;
+      }
+    }
+    .art-txtBox{
+      width: 73%;
+      p{
+        color: #333;
+        font-size:0.13rem;
+        line-height:1.5;
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+  .art-intr{
+    padding: .8rem 16%;
+    background: #f9f9f9;
+  }
+  .intr-txt{
+    position: relative;
+    padding: 0 .8rem;
+    font-size: 0.18rem;
+    line-height: .4rem;
+    text-align: center;
+    color: #666666;
+    :after{
+        width: .51rem;
+        height: .39rem;
+        content: '';
+        position: absolute;
+        background: url(../../assets/images/i2.png) no-repeat;
+        background-size: contain;
+        bottom: 0;
+        right: 0;
+        transform: rotate(180deg);
+    }
+    :before{
+      top: 0;
+      left: 0;
+      width: .51rem;
+      height: .39rem;
+      content: '';
+      position: absolute;
+      background: url(../../assets/images/i2.png) no-repeat;
+      background-size: contain;
+    }
+    p{
+      color: #8b7149;
+    }
+    .intr-name{
+      color: #8b7149;
+      text-align: right;
+    }
+  }
+
+}
+
+.story-bom{
+  background-image: url('../../assets/images/bom.jpg');
+  visibility: visible;
+  animation-name: fadeInUp;
+  padding: 10.5% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+@media screen and (max-width: 750px) {
+   .story-brand{
+      .brand-text{
+        width: 100%;
+        margin-left: auto;
+      }
+      .brand-btn{
+        display: block;
+        .btn-img{
+          width: 100%;
+          text-align: center;
+          margin-bottom: .3rem;
+        }
+        .btn-txtBox{
+          width: 100%;
+          p{
+            color: #333;
+            font-size:12px;
+            line-height:1.5;
+            margin-bottom: 0.3rem;
+          }
+        }
+      }
+   }
+   .story-word{
+      width: 90%;
+      padding: 0.3rem;
+      margin: 0 5% 7%;
+      box-sizing: border-box;
+   }
+   .story-art{
+    .art-text{
+      width: 100%;
+      margin-left: auto;
+    }
+    // .art-title h2{
+    //   font-size: 2.5em;
+    // }
+    // .art-title h2{
+    //   font-size: 1.8em;
+    // }
+    .art-btn{
+      display: block;
+      .art-btn-img{
+        width: 100%;
+        text-align: center;
+        margin-bottom: .3rem;
+      }
+      .art-txtBox{
+        width: 100%;
+        p{
+          color: #333;
+          font-size:12px;
+          line-height:1.5;
+          margin-bottom: 0.3rem;
+        }
+      }
+    }
+    .art-intr{
+      padding: .4rem;
+      background: #f9f9f9;
+      .intr-txt{
+        position: relative;
+        padding: 0 1.4rem;
+        font-size: 12px;
+        line-height: .50rem;
+        text-align: left;
+        :after{
+          width: .71rem;
+          height: .59rem;
+          content: '';
+          position: absolute;
+          background: url(../../assets/images/i2.png) no-repeat;
+          background-size: contain;
+          bottom: 0;
+          right: 0.3rem;
+          transform: rotate(180deg);
+        }
+        :before{
+          top: 0;
+          left: 0.3rem;
+          width: .71rem;
+          height: .59rem;
+          content: '';
+          position: absolute;
+          background: url(../../assets/images/i2.png) no-repeat;
+          background-size: contain;
+        }
+
+      }
+      .intr-name{
+        font-size: 12px;
+      }
+    }
+   }
+
 }
