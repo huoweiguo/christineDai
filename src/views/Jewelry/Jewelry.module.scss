@@ -5,9 +5,10 @@
   box-sizing: border-box;
 }
 .JewelryBody{
+  display: flex;
+  align-items: center;
   background-color: #000;
-  padding:1.9rem 0 .9rem;
-  height: 100%;
+  height: calc(100vh - 2.1rem);
 }
 
 .jewe-box{
@@ -29,10 +30,9 @@
     align-items: center;
     flex-direction:column;
     justify-content:space-between;
-    height: 3rem;
     h5{
       font-size: 0.6rem;
-      margin-top: 0.3rem;
+      margin: 0.5rem 0 1rem;
     }
     .jewe-icon{
       display: flex;
@@ -46,7 +46,7 @@
   }
   .jewe-down{
     color: #8d7249;
-    font-size: 0.16rem;
+    font-size: 0.18rem;
     cursor: pointer;
     text-decoration: none;
   }
@@ -62,13 +62,40 @@
 }
 
 @media screen and (max-width: 750px) {
+  .JewelryBody{
+    height: calc(100vh - 1.8rem);
+  }
   .jewe-list{
     display: flex;
     flex-direction: column;
     .jewe-item{
       width: 100%;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.3rem;
     }
   }
 
+}
+
+@media screen and (min-width: 750px) and (max-width: 768px) {
+  .JewelryBody{
+    height: calc(100vh - 2.06rem);
+  }
+  
+  .jewe-list{
+    .jewe-item{
+      h5{
+        font-size: 0.38rem;
+        margin-top: 0.3rem;
+      }
+      .jewe-icon{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img{
+          width: 0.3rem;
+          height: 0.3rem;
+        }
+      }
+    }
+  }
 }
