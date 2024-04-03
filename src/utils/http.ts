@@ -10,7 +10,7 @@ declare module 'axios' {
 }
 
 const instance = axios.create({
-  baseURL: 'https://40d758v734.vicp.fun/terminal',
+  baseURL: '/api',
   timeout: 10000
 })
 

@@ -1,22 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Home.module.scss'
 import { useSelector } from 'react-redux'
-import { getStoryInfos, setTitle } from '../../store/modules/story'
+import { getHomeInfos } from '../../store/modules/home'
 import { useAppDispatch } from '../../store'
 import type { RootState } from '../../store'
 import { useNavigate } from 'react-router-dom';
 export default function Home() {
+
+  interface RuleData {
+    bg_video: string
+    logo_img: string
+    placard: string
+  }
   const year = useSelector((state: RootState) => state.story.year)
   const dispatch = useAppDispatch()
   const navigate = useNavigate();
+  const [homeData, setHomeData] = useState<RuleData>({
+    bg_video: '',
+    logo_img: '',
+    placard: ''
+  })
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
     navigate(url);
   };
-  dispatch(getStoryInfos({ id: 1 })).then(res => {
-    console.log(res)
-  })
-  dispatch(setTitle('CHRISTINE DAI'))
+  
+  useEffect(() => {
+    getHomeInfos().then(res => {
+      if (res.data.code === 200) {
+        const { bg_video, placard, logo_img } = res.data.data
+        setHomeData({
+          bg_video, logo_img, placard
+        })
+      } 
+    })
+  }, [])
+
   return (
     <div className={styles.homeBody}>
       <video className={styles.bgVideo} autoPlay loop muted>
