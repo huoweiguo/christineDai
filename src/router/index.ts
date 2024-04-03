@@ -1,4 +1,4 @@
-import { createHashRouter } from 'react-router-dom'
+import { createHashRouter, createBrowserRouter } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 import React, { lazy } from 'react'
 
