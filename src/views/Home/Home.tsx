@@ -25,16 +25,16 @@ export default function Home() {
     navigate(url);
   };
   
-  useEffect(() => {
-    getHomeInfos().then(res => {
-      if (res.data.code === 200) {
-        const { bg_video, placard, logo_img } = res.data.data
-        setHomeData({
-          bg_video, logo_img, placard
-        })
-      } 
-    })
-  }, [])
+  // useEffect(() => {
+  //   getHomeInfos().then(res => {
+  //     if (res.data.code === 200) {
+  //       const { bg_video, placard, logo_img } = res.data.data
+  //       setHomeData({
+  //         bg_video, logo_img, placard
+  //       })
+  //     } 
+  //   })
+  // }, [])
 
   return (
     <div className={styles.homeBody}>

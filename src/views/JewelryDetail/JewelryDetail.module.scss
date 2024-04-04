@@ -267,10 +267,10 @@
 }
 
 .Default{
-  margin: 3% 0;
-  padding: 5% 0;
+  margin: 10% 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   .default-box{
     font-weight: 500;
     h5{
@@ -365,5 +365,9 @@
       width: 100%;
       margin: 5% 0;
     }
+  }
+  .Default{
+    height: calc(100vh - 7.6rem);
+
   }
 }

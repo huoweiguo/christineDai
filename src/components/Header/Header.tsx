@@ -45,7 +45,7 @@ export default function Hrader(props:HeaderProps) {
             <br/>
             return
            </div>:''}
-           <div>
+           <div onClick={()=>handleButtonClick('/')}>
             <p className={styles['header-menu']}></p>
            </div>
         </div>
