@@ -33,23 +33,33 @@
           width: 5rem;
         }
         .intro-head {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          // display: flex;
+          // justify-content: center;
+          // align-items: center;
           font-size: 0.14rem;
           color: #8d7249;
           margin-top: 0.3rem;
-          span {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
+          p:nth-child(1){
             margin: 0 0.2rem;
-            b {
-              font-size: 0.34rem;
-              margin-bottom: 0.2rem;
-            }
+            font-size: 0.34rem;
+            line-height: 1.5;
           }
+          p:nth-child(2){
+            font-size: 0.14rem;
+            margin-bottom: 0.2rem;
+
+          }
+          // span {
+          //   display: flex;
+          //   flex-direction: column;
+          //   justify-content: center;
+          //   text-align: center;
+          //   margin: 0 0.2rem;
+          //   b {
+          //     font-size: 0.34rem;
+          //     margin-bottom: 0.2rem;
+          //   }
+          // }
         }
       }
       .intro-right {

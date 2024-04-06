@@ -11,6 +11,9 @@ export default function Home() {
     bg_video: string
     logo_img: string
     placard: string
+    weibo:string
+    xiaohongshu:string
+    ins:string
   }
   const year = useSelector((state: RootState) => state.story.year)
   const dispatch = useAppDispatch()
@@ -18,23 +21,26 @@ export default function Home() {
   const [homeData, setHomeData] = useState<RuleData>({
     bg_video: '',
     logo_img: '',
-    placard: ''
+    placard: '',
+    weibo:'',
+    xiaohongshu:'',
+    ins:'',
   })
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
     navigate(url);
   };
   
-  // useEffect(() => {
-  //   getHomeInfos().then(res => {
-  //     if (res.data.code === 200) {
-  //       const { bg_video, placard, logo_img } = res.data.data
-  //       setHomeData({
-  //         bg_video, logo_img, placard
-  //       })
-  //     } 
-  //   })
-  // }, [])
+  useEffect(() => {
+    getHomeInfos().then(res => {
+      if (res.data.code === 200) {
+        const { bg_video, placard, logo_img,weibo,xiaohongshu,ins} = res.data.data
+        setHomeData({
+          bg_video, logo_img, placard,weibo,xiaohongshu,ins
+        })
+      } 
+    })
+  }, [])
 
   return (
     <div className={styles.homeBody}>
@@ -47,8 +53,8 @@ export default function Home() {
           <div className={styles['home-inner']}>
             <div className={styles['intro-left']}>
               <div className={styles['intro-logo']}><img src={require('../../assets/images/logo.png')} alt=""/></div>
-              <div className={styles['intro-head']}>
-                <span>
+              <div className={styles['intro-head']} dangerouslySetInnerHTML={{ __html: homeData.placard }} />
+                {/* <span>
                   <b>光影感</b>
                   <i>LUMINOSITY</i>
                 </span>
@@ -59,8 +65,7 @@ export default function Home() {
                 <span>
                   <b>⽣命⼒</b>
                   <i>VITALITY</i>
-                </span>
-              </div>
+                </span> */}
             </div>
 
             <div className={styles['intro-right']}>
@@ -75,10 +80,16 @@ export default function Home() {
         </div>
         <div className={styles['home-bottom']}>
           <div className={styles.shortlink}>
-            <img src={require('../../assets/images/wb.png')} alt='微博'/>
+            <a href={homeData.weibo} target="_blank" rel="noreferrer">
+             <img src={require('../../assets/images/wb.png')} alt='微博'/>
+            </a>
             <img src={require('../../assets/images/wx.png')} alt='微信'/>
-            <img src={require('../../assets/images/xhs.png')} alt='小红书'/>
+            <a href={homeData.xiaohongshu} target="_blank" rel="noreferrer">
+             <img src={require('../../assets/images/xhs.png')} alt='小红书'/>
+            </a>
+            <a href={homeData.ins} target="_blank" rel="noreferrer">
             <img src={require('../../assets/images/instagram.png')} alt=''/>
+            </a>
           </div>
           <span>沪ICP备2022010059号-1 | Copyright © {year} Chirstine Dai</span>
         </div>
