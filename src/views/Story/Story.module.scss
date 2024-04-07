@@ -70,9 +70,9 @@
   .brand-btn{
     display: flex;
     justify-content: space-between;
-    align-items: center;
     .btn-img{
       width: 64%;
+      margin-top: 0.3rem;
       img{
         border: 0;
         width: 100%;
@@ -152,10 +152,10 @@
   .art-btn{
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 0.5rem;
     .art-btn-img{
       width: 19.5%;
+      margin-top: 0.3rem;
       img{
         border: 0;
         max-width: 100%;
@@ -212,6 +212,8 @@
     .intr-name{
       color: #8b7149;
       text-align: right;
+      display: flex;
+      justify-content: flex-end;
     }
   }
 

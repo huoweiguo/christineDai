@@ -78,7 +78,7 @@
   right: 0.5rem;
   .nav-line{
     position: absolute;
-    width: 2px;
+    width: 1px;
     min-height: 100%;
     left: 50%;
     transform: translateX(-50%);
@@ -130,8 +130,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background-color: black;
     border-radius: 50%; /* 将矩形变成圆形 */
     transform: translate(-50%, -50%);

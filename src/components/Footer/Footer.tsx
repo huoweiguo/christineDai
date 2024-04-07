@@ -1,21 +1,27 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styles from './Footer.module.scss'
+import { useNavigate } from 'react-router-dom';
 import type { RootState } from '../../store'
 export default function Footer() {
   const year = useSelector((state: RootState) => state.story.year)
+  const navigate = useNavigate();
+  const handleButtonClick = (url:string) => {
+    // 使用 navigate() 方法进行路由跳转
+    navigate(url);
+  };
   return (
     <div className={styles.footerBody}>
       <div className={styles['footer-top']}>
         <div className={styles['footer-nav']}>
           <ul>
-            <li>首页</li>
-            <li>品牌故事</li>
-            <li>艺术珠宝</li>
-            <li>品牌纪事</li>
-            <li>视频</li>
-            <li>全球媒体</li>
-            <li>联系我们</li>
+            <li onClick={()=>handleButtonClick('/')}>首页</li>
+            <li onClick={()=>handleButtonClick('/layout/story')}>品牌故事</li>
+            <li onClick={()=>handleButtonClick('/layout/jewelry')}>艺术珠宝</li>
+            <li onClick={()=>handleButtonClick('/layout/documentary')}>品牌纪事</li>
+            <li onClick={()=>handleButtonClick('/layout/video')}>视频</li>
+            <li onClick={()=>handleButtonClick('/layout/globalMedia')}>全球媒体</li>
+            <li onClick={()=>handleButtonClick('/layout/contactUs')}>联系我们</li>
           </ul>
         </div>
         <div className={styles['footer-soc']}>

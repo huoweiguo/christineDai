@@ -1,9 +1,32 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import styles from './Documentary.module.scss'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import { useNavigate } from 'react-router-dom';
+import { getBrandEvent } from '../../store/modules/home'
 export default function Documentary() {
+  interface RuleData {
+    title: string
+    intro: string
+    brand_img: string
+    brief:string
+    founder_title:string
+    founder_intro:string
+    founder_img:string
+    founder_message:string
+    bottom_img:string
+  }
+  const [homeData, setHomeData] = useState<RuleData>({
+    title: '',
+    intro: '',
+    brand_img: '',
+    brief:'',
+    founder_title:'',
+    founder_intro:'',
+    founder_img:'',
+    founder_message:'',
+    bottom_img:''
+  })
   const navigate = useNavigate();
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转

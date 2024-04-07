@@ -17,7 +17,7 @@ export default function Story() {
     founder_message:string
     bottom_img:string
   }
-  const [homeData, setHomeData] = useState<RuleData>({
+  const [storyData, setStoryData] = useState<RuleData>({
     title: '',
     intro: '',
     brand_img: '',
@@ -32,7 +32,7 @@ export default function Story() {
     getBrandInfos().then(res => {
       if (res.data.code === 200) {
         const { title, intro, brand_img,brief,founder_title,founder_intro,founder_img,founder_message,bottom_img} = res.data.data
-        setHomeData({
+        setStoryData({
           title, intro, brand_img,brief,founder_title,founder_intro,founder_img,founder_message,bottom_img
         })
       } 
@@ -56,8 +56,7 @@ export default function Story() {
           <div className={styles['story-brand']}>
               <div className={styles['brand-text']}>
                   <div className={styles['brand-title']}>
-                      <h1>
-                        {homeData.title}
+                      <h1 dangerouslySetInnerHTML={{ __html: storyData.title }}>
                       </h1>
                       <h2>
                         品牌故事<br/>
@@ -67,11 +66,10 @@ export default function Story() {
               </div>
               <div className={styles['brand-btn']}>
                 <div className={styles['btn-img']}>
-                  <img src={homeData.brand_img||require('../../assets/images/story-bg.jpg')} alt="" />
+                  <img src={storyData.brand_img} alt="" />
                 </div>
                 <div className={styles['btn-txtBox']}>
-                  <p>
-                    {homeData.brief}
+                  <p dangerouslySetInnerHTML={{ __html: storyData.brief }}>
                   </p>
                   {/* <p>
                     Christine Dai的珠宝艺术品，融合了古董珠宝的玫瑰切割工艺和18世纪欧洲传统的古典蜡雕技术。无论是在金属的质感、宝石的色彩还是镶嵌结构上，都彰显出Christine Dai对于珠宝艺术的极致追求。
@@ -101,8 +99,7 @@ export default function Story() {
         <div className={styles['story-art']}>
           <div className={styles['art-text']}>
               <div className={styles['art-title']}>
-                  <h1>
-                    {homeData.founder_title}
+                  <h1 dangerouslySetInnerHTML={{ __html: storyData.founder_title }}>
                   </h1>
                   <h2>
                     艺术家<br/>
@@ -112,12 +109,9 @@ export default function Story() {
           </div>
           <div className={styles['art-btn']}>
             <div className={styles['art-btn-img']}>
-              <img src={homeData.founder_img || require('../../assets/images/art.jpg')} alt="" />
+              <img src={storyData.founder_img || require('../../assets/images/art.jpg')} alt="" />
             </div>
-            <div className={styles['art-txtBox']}>
-              {
-                homeData.founder_intro
-              }
+            <div className={styles['art-txtBox']} dangerouslySetInnerHTML={{ __html: storyData.founder_intro }}>
               {/* <p>
                 Christine Dai,一位宝石艺术家,出生于中国香港。自幼沉浸于艺术氛围的熏陶。她深感艺术的力量，以宝石多维度的美传递了生命的张力。为了表达对自然与艺术之美的追求，她以宝石为载体，呈现艺术的无限可能性。
               </p>
@@ -140,11 +134,10 @@ export default function Story() {
           </div>
           <div className={styles['art-intr']}>
             <div className={styles['intr-txt']}>
-              <p>
-              {homeData.founder_message}
+              <p dangerouslySetInnerHTML={{ __html: storyData.founder_message }}>
               </p>
               <div className={styles['intr-name']}>
-              —CHRISTINE DAI
+              —<div dangerouslySetInnerHTML={{ __html: storyData.founder_title }}></div>
               </div>
               <p>
                 <br/>
@@ -153,7 +146,7 @@ export default function Story() {
           </div>
         </div>
         <div className={styles['story-bom']}>
-          <img src={homeData.bottom_img || require('../../assets/images/bom.jpg')} alt="" />
+          <img src={storyData.bottom_img} alt="" />
         </div>
       </div>
       <Footer></Footer>

@@ -9,3 +9,8 @@ export const getHomeInfos = () => {
 export const getBrandInfos = () => {
   return http.get('/brand-info', {})
 }
+
+
+export const getBrandEvent = () => {
+  return http.get('/brand-event', {})
+}

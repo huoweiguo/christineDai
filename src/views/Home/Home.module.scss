@@ -43,11 +43,12 @@
             margin: 0 0.2rem;
             font-size: 0.34rem;
             line-height: 1.5;
+            display: flex;
+            justify-content: space-around;
           }
           p:nth-child(2){
             font-size: 0.14rem;
             margin-bottom: 0.2rem;
-
           }
           // span {
           //   display: flex;
