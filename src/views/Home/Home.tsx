@@ -14,6 +14,7 @@ export default function Home() {
     weibo:string
     xiaohongshu:string
     ins:string
+    wxqr:string
   }
   const year = useSelector((state: RootState) => state.story.year)
   const dispatch = useAppDispatch()
@@ -25,6 +26,7 @@ export default function Home() {
     weibo:'',
     xiaohongshu:'',
     ins:'',
+    wxqr:''
   })
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
@@ -34,9 +36,9 @@ export default function Home() {
   useEffect(() => {
     getHomeInfos().then(res => {
       if (res.data.code === 200) {
-        const { bg_video, placard, logo_img,weibo,xiaohongshu,ins} = res.data.data
+        const { bg_video, placard, logo_img,weibo,xiaohongshu,ins,wxqr} = res.data.data
         setHomeData({
-          bg_video, logo_img, placard,weibo,xiaohongshu,ins
+          bg_video, logo_img, placard,weibo,xiaohongshu,ins,wxqr
         })
       } 
     })
@@ -83,7 +85,12 @@ export default function Home() {
             <a href={homeData.weibo} target="_blank" rel="noreferrer">
              <img src={require('../../assets/images/wb.png')} alt='微博'/>
             </a>
-            <img src={require('../../assets/images/wx.png')} alt='微信'/>
+            <div className={styles['home-wx']}>
+             <img src={require('../../assets/images/wx.png')} alt='微信'/>
+             <div className={styles['home-ewm']}>
+              <img src={homeData.wxqr} alt="" />
+             </div>
+            </div>
             <a href={homeData.xiaohongshu} target="_blank" rel="noreferrer">
              <img src={require('../../assets/images/xhs.png')} alt='小红书'/>
             </a>

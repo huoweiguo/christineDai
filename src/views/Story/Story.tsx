@@ -1,10 +1,43 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import styles from './Story.module.scss'
+import { getBrandInfos } from '../../store/modules/home'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import SlideInFromBottom from '../../components/SlideInFromBottom/SlideInFromBottom'
 
 export default function Story() {
+  interface RuleData {
+    title: string
+    intro: string
+    brand_img: string
+    brief:string
+    founder_title:string
+    founder_intro:string
+    founder_img:string
+    founder_message:string
+    bottom_img:string
+  }
+  const [homeData, setHomeData] = useState<RuleData>({
+    title: '',
+    intro: '',
+    brand_img: '',
+    brief:'',
+    founder_title:'',
+    founder_intro:'',
+    founder_img:'',
+    founder_message:'',
+    bottom_img:''
+  })
+  useEffect(() => {
+    getBrandInfos().then(res => {
+      if (res.data.code === 200) {
+        const { title, intro, brand_img,brief,founder_title,founder_intro,founder_img,founder_message,bottom_img} = res.data.data
+        setHomeData({
+          title, intro, brand_img,brief,founder_title,founder_intro,founder_img,founder_message,bottom_img
+        })
+      } 
+    })
+  }, [])
   // const [isVisible, setIsVisible] = useState(false);
   // setTimeout(()=>{
   //   setIsVisible(true)
@@ -24,7 +57,7 @@ export default function Story() {
               <div className={styles['brand-text']}>
                   <div className={styles['brand-title']}>
                       <h1>
-                        CHRISTINE DAI
+                        {homeData.title}
                       </h1>
                       <h2>
                         品牌故事<br/>
@@ -34,10 +67,13 @@ export default function Story() {
               </div>
               <div className={styles['brand-btn']}>
                 <div className={styles['btn-img']}>
-                  <img src={require('../../assets/images/story-bg.jpg')} alt="" />
+                  <img src={homeData.brand_img||require('../../assets/images/story-bg.jpg')} alt="" />
                 </div>
                 <div className={styles['btn-txtBox']}>
                   <p>
+                    {homeData.brief}
+                  </p>
+                  {/* <p>
                     Christine Dai的珠宝艺术品，融合了古董珠宝的玫瑰切割工艺和18世纪欧洲传统的古典蜡雕技术。无论是在金属的质感、宝石的色彩还是镶嵌结构上，都彰显出Christine Dai对于珠宝艺术的极致追求。
                   </p>
                   <p>
@@ -54,7 +90,7 @@ export default function Story() {
                   </p>
                   <p>
                   Across the global jewelry art field, Christine Dai is highly sought after by art collectors for her unique artistic style and craftsmanship. In terms of artistic breadth and depth, Christine Dai’s jewelry comprises a magnificent collection of timeless value.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -66,7 +102,7 @@ export default function Story() {
           <div className={styles['art-text']}>
               <div className={styles['art-title']}>
                   <h1>
-                    CHRISTINE DAI
+                    {homeData.founder_title}
                   </h1>
                   <h2>
                     艺术家<br/>
@@ -76,10 +112,13 @@ export default function Story() {
           </div>
           <div className={styles['art-btn']}>
             <div className={styles['art-btn-img']}>
-              <img src={require('../../assets/images/art.jpg')} alt="" />
+              <img src={homeData.founder_img || require('../../assets/images/art.jpg')} alt="" />
             </div>
             <div className={styles['art-txtBox']}>
-              <p>
+              {
+                homeData.founder_intro
+              }
+              {/* <p>
                 Christine Dai,一位宝石艺术家,出生于中国香港。自幼沉浸于艺术氛围的熏陶。她深感艺术的力量，以宝石多维度的美传递了生命的张力。为了表达对自然与艺术之美的追求，她以宝石为载体，呈现艺术的无限可能性。
               </p>
               <p>
@@ -96,13 +135,13 @@ export default function Story() {
               </p>
               <p>
                 In 2021, Christine Dai opened the first Art Jewellery Private Appreciation Room in Mainland China, offering art lovers an immersive sensory experience and a close-up view of the splendour of jewellery art.
-              </p>
+              </p> */}
             </div>
           </div>
           <div className={styles['art-intr']}>
             <div className={styles['intr-txt']}>
               <p>
-              Framing light and shadow in the work, the magnificent shadows of the gems take on a sculpturalquality, a melding of inheritance and creation, a continuation of growth and life ......
+              {homeData.founder_message}
               </p>
               <div className={styles['intr-name']}>
               —CHRISTINE DAI
@@ -113,7 +152,9 @@ export default function Story() {
             </div>
           </div>
         </div>
-        <div className={styles['story-bom']}></div>
+        <div className={styles['story-bom']}>
+          <img src={homeData.bottom_img || require('../../assets/images/bom.jpg')} alt="" />
+        </div>
       </div>
       <Footer></Footer>
     </div>
