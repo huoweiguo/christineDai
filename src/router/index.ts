@@ -121,7 +121,7 @@ export const routes: RouteObject[] = [
         }
       },
       {
-        path: 'wholeVideo/:name',
+        path: 'wholeVideo/:id',
         element: React.createElement(WholeVideo),
         meta: {
           title: '视频分类'

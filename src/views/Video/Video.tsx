@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Video.module.scss'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import { useNavigate } from 'react-router-dom';
+import { getVideoCat } from '../../store/modules/video'
 
 type videoType = {
-  backgroundImage: string,
-  word: string,
+  id: number,
+  parent_id: number,
+  cover: string,
+  title_en: string,
   title: string
 }
 
@@ -20,23 +23,17 @@ export default function Video() {
     backgroundImage: 'url('+require('../../assets/images/video-gb.png')+')'
   })
 
-  const [videoData, setVideoData] = useState<videoType[]>([
-    {
-      backgroundImage: 'url('+require('../../assets/images/video-b1.jpeg')+')',
-      word: 'PRODUCT HIGHLIGHT',
-      title: '作品视频'
-    },
-    {
-      backgroundImage: 'url('+require('../../assets/images/video-b2.png')+')',
-      word: 'EVENT',
-      title: '纪事视频'
-    },
-    {
-      backgroundImage: 'url('+require('../../assets/images/video-b3.jpeg')+')',
-      word: 'PRESS',
-      title: '媒体视频'
-    }
-  ])
+  const [videoData, setVideoData] = useState<videoType[]>([])
+
+  useEffect(()=>{
+    getVideoCat().then(res=>{
+      if(res.data.code===200){
+        console.log(res.data.data);
+        
+        setVideoData([...res.data.data])
+      }
+    })
+  },[])
 
   return (
     <div className={styles.videoBody}>
@@ -49,13 +46,13 @@ export default function Video() {
         <figure style={bgWord}></figure>
       </div>
       <div className={styles['video-container']}>
-        { videoData.length && videoData.map((item: videoType,index: number)=>(
-          <div onClick={()=>handleButtonClick('/layout/WholeVideo/media')} className={styles.box} key={index}>
+        { videoData.length > 0 && videoData.map((item: videoType,index: number)=>(
+          <div onClick={()=>handleButtonClick(`/layout/WholeVideo/${item.id}`)} className={styles.box} key={index}>
             <div className={styles.imgBox}>
-              <figure style={{backgroundImage: item.backgroundImage}}></figure>
+              <figure style={{backgroundImage: `url(${item.cover})`}}></figure>
             </div>
             <h3>{item.title}</h3>
-            <h4>{item.word}</h4>
+            <h4>{item.title_en}</h4>
           </div>
         )) }
       </div>

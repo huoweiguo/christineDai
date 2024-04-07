@@ -4,9 +4,20 @@ import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
+import { getVideoList } from '../../store/modules/video'
+
+interface videoData{
+  title: string,
+  cover_img: string,
+  video_url: string
+}
+interface classData<T>{
+  catname: string,
+  list: T[]
+}
 
 export default function WholeVideo() {
-  const { name } = useParams();
+  const { id } = useParams();
   const [bannerData, setBannerData] = useState({
     title: '',
     word: ''
@@ -14,99 +25,30 @@ export default function WholeVideo() {
   const navigate = useNavigate();
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
-    navigate(url);
+    // navigate(url);
+    window.location.href = url
   };
 
-  const [videoData, setVideoData] = useState([
-    {
-      title: '印象⼤师 Master of Impressionism',
-      children: [
-        {
-          imgUrl: require('../../assets/images/v1.jpeg'),
-          name: '印象大师·睡莲',
-          content: 'Master of Impressionism·Water lily',
-          word: 'FIGARO'
-        },
-        {
-          imgUrl: require('../../assets/images/v1.jpeg'),
-          name: '印象大师·睡莲',
-          content: 'Master of Impressionism·Water lily',
-          word: 'FIGARO'
-        },
-        {
-          imgUrl: require('../../assets/images/v1.jpeg'),
-          name: '印象大师·睡莲',
-          content: 'Master of Impressionism·Water lily',
-          word: 'FIGARO'
-        },
-        {
-          imgUrl: require('../../assets/images/v1.jpeg'),
-          name: '印象大师·睡莲',
-          content: 'Master of Impressionism·Water lily',
-          word: 'FIGARO'
-        }
-      ]
-    },
-    {
-      title: '瑰丽蝴蝶 Magenificent Butterfly',
-      children: [
-        {
-          imgUrl: require('../../assets/images/v1.jpeg'),
-          name: '印象大师·睡莲',
-          content: 'Master of Impressionism·Water lily',
-          word: 'FIGARO'
-        },
-        {
-          imgUrl: require('../../assets/images/v1.jpeg'),
-          name: '印象大师·睡莲',
-          content: 'Master of Impressionism·Water lily',
-          word: 'FIGARO'
-        }
-      ]
-    },
-    {
-      title: '瑰丝汀花园 Christine Garden',
-      children: [
-        {
-          imgUrl: require('../../assets/images/v1.jpeg'),
-          name: '印象大师·睡莲',
-          content: 'Master of Impressionism·Water lily',
-          word: 'FIGARO'
-        },
-        {
-          imgUrl: require('../../assets/images/v1.jpeg'),
-          name: '印象大师·睡莲',
-          content: 'Master of Impressionism·Water lily',
-          word: 'FIGARO'
-        }
-      ]
-    }
-  ])
+  const [videoData, setVideoData] = useState<classData<videoData>[]>([])
+
+  const getVideoData = (id: string | undefined) => {
+    getVideoList({id}).then(res=>{
+      if(res.data.code===200){
+        console.log(res.data.data);
+        
+        const { con, title, title_en } = res.data.data
+        setVideoData([...con])
+        setBannerData({
+          title,
+          word: title_en
+        })
+      }
+    })
+  }
   
   useEffect(()=>{
-    switch(name){
-      case 'product':
-        setBannerData({
-          title: '作品视频',
-          word: 'PRODUCT HIGHLIGHT'
-        })
-        break;
-      case 'magazine':
-        setBannerData({
-          title: '纪事视频',
-          word: 'EVENT'
-        })
-        break;
-      case 'media':
-        setBannerData({
-          title: '媒体视频',
-          word: 'PRESS'
-        })
-        break;
-    default:
-        break;
-    }
-  },[name])
+    getVideoData(id)
+  },[])
   
   return (
     <div className={styles.wholeVideo}>
@@ -118,29 +60,28 @@ export default function WholeVideo() {
         </h5>
       </div>
       {
-        name==='media' ? 
+        id=='4' ? 
         <div className={styles['wv-main']}>
-          { videoData[0].children && videoData[0].children.map((em, i)=>(
-            <div onClick={()=>handleButtonClick('/layout/videoDetail')} className={`${styles.card} ${styles['m-b-4']}`} key={i}>
+          { videoData[0]?.list.length > 0 && videoData[0].list.map((em, i)=>(
+            <div onClick={()=>handleButtonClick(em.video_url)} className={`${styles.card} ${styles['m-b-4']}`} key={i}>
               <div className={`${styles.imgBox} ${styles['m-b-2']}`}>
-                <img src={em.imgUrl} alt=""/>
+                <img src={em.cover_img} alt=""/>
               </div>
-              <h4>{ em.word }</h4>
-              <h5 className={styles.center}>{ em.name }<br/>{ em.content }</h5>
+              <h5>{em.title}</h5>
             </div>
           )) }   
         </div> :
         <div className={styles['wv-container']}>
-          { videoData.length && videoData.map((item,index)=>(
+          { videoData.length > 0 && videoData.map((item,index)=>(
             <div className={styles.itemBox} key={index}>
-              <div className={styles.title}>{ item.title }</div>
+              <div className={styles.title}>{ item.catname }</div>
                 <div className={styles.listBox} >
-                { item.children && item.children.map((em, i)=>(
-                  <div onClick={()=>handleButtonClick('/layout/videoDetail')} className={styles.card} key={i}>
-                    <div className={styles.imgBox}>
-                      <img src={em.imgUrl} alt=""/>
+                { item.list.length > 0 && item.list.map((em, i)=>(
+                  <div onClick={()=>handleButtonClick(em.video_url)} className={styles.card} key={i}>
+                    <div className={`${styles.imgBox} ${styles['m-b-2']}`}>
+                      <img src={em.cover_img} alt=""/>
                     </div>
-                    <h5>{ em.name }<br/>{ em.content }</h5>
+                    <h5>{em.title}</h5>
                   </div>
                 )) }   
               </div>
