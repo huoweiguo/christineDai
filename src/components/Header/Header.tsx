@@ -16,6 +16,9 @@ export default function Hrader(props:HeaderProps) {
     // 使用 navigate() 方法进行路由跳转
     navigate(url);
   };
+  const BackUrl = ()=>{
+    navigate(-1);
+  }
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = document.documentElement.scrollTop;
@@ -40,13 +43,13 @@ export default function Hrader(props:HeaderProps) {
                 <span>{titleObj.name}</span>
               </p>:''
            }
-           {go?<div className={styles.retBtn}>
+           {go?<div onClick={()=>BackUrl()} className={styles.retBtn}>
             返回上一页
             <br/>
-            return
+            Return
            </div>:''}
            <div onClick={()=>handleButtonClick('/')}>
-            <p className={styles['header-menu']}></p>
+            <p className={type?styles['header-menu2']:styles['header-menu']}></p>
            </div>
         </div>
     </div>

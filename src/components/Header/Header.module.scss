@@ -44,6 +44,17 @@
   transition: .3s;
   cursor: pointer;
 }
+.header-menu2{
+  margin-left: .3rem;
+  width: .3rem;
+  height: .26rem;
+  background-image: url(../../assets/images/menu2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  transition: .3s;
+  cursor: pointer;
+}
 
 .header-menu:hover{
   background-image: url(../../assets/images/menu_a.png);
@@ -73,4 +84,20 @@
   transition: -webkit-transform .3s cubic-bezier(.39,.575,.565,1);
   transition: transform .3s cubic-bezier(.39,.575,.565,1);
   transition: transform .3s cubic-bezier(.39,.575,.565,1), -webkit-transform .3s cubic-bezier(.39,.575,.565,1);
+}
+
+@media screen and (max-width: 750px) {
+  .header-menu{
+    width: .4rem;
+    height: .4rem;
+  }
+  .retBtn{
+    color: #fff;
+    position: relative;
+    padding: .03rem 0;
+    color: #fff;
+    font-size: 0.20rem;
+    line-height: 1.42857143;
+    cursor: pointer;
+  }
 }
