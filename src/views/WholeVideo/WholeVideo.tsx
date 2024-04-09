@@ -25,8 +25,7 @@ export default function WholeVideo() {
   const navigate = useNavigate();
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
-    // navigate(url);
-    window.location.href = url
+    navigate(`/layout/videoDetail?url=${url}`);
   };
 
   const [videoData, setVideoData] = useState<classData<videoData>[]>([])
@@ -72,22 +71,25 @@ export default function WholeVideo() {
           )) }
         </div> :
         <div className={styles['wv-container']}>
-          { videoData.length > 0 && videoData.map((item,index)=>(
+          { videoData.length > 0?videoData.map((item,index)=>(
             <div className={styles.itemBox} key={index}>
               <div className={styles.title}>{ item.catname }</div>
                 <div className={styles.listBox} >
-                { item.list.length > 0 && item.list.map((em, i)=>(
+                { item.list.length > 0 ? item.list.map((em, i)=>(
                   <div onClick={()=>handleButtonClick(em.video_url)} className={styles.card2} key={i}>
                     <div className={`${styles.imgBox} ${styles['m-b-2']}`}>
                       <img src={em.cover_img} alt=""/>
                     </div>
                     <h5>{em.title}</h5>
                   </div>
-                )) }
+                )): <div  className={styles.card2}>
+                <h5>敬请期待</h5>
+              </div>}
               </div>
             </div>
-          )) }
-          
+          )) :<div className={styles.itemBox}>
+          <div className={styles.title}>敬请期待</div>
+          </div>}
         </div>
       }
       <Footer></Footer>

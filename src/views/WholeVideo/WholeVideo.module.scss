@@ -206,7 +206,12 @@
 }
 
 @media screen and (max-width: 750px) {
-  .wv-container,
+  .wv-container{
+    min-height: calc(100vh - 8rem);
+    display: flex;
+    flex-direction: column;
+
+  }
   .wv-main{
     min-height: calc(100vh - 8rem);
     display: grid;
@@ -216,5 +221,13 @@
   }
   .card{
     max-width: 3rem;
+  }
+  .card2{
+    width: 42% !important;
+    .imgBox{
+      img{
+        height: 1.4rem !important;
+      }
+    }
   }
 }

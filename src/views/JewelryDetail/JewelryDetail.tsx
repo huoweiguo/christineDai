@@ -51,52 +51,6 @@ export default function JewelryDetail() {
           <h5 className={styles['title']}>琉璃光院·枫 手镯</h5> */}
           <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
           <div className={styles['des']} dangerouslySetInnerHTML={{ __html: obj.content }}>
-          {/* 日本京都琉璃光院的枫叶
-          <br/>
-          被秋风镀成金灿灿的景色
-          <br/>
-          阳光也被切成无数的光影
-          <br/>
-          层层叠叠，落入室内
-          <br/>
-          自然的诗情在此刻燃烧
-          <br/>
-          <br/>
-          Maple leaves at the Rurikouin Temple in Kyoto
-          <br/>
-          Are Gilded golden by the autumn breeze.
-          <br/>
-          The sunlight is scattered into countless shades of light,
-          <br/>
-          Shinning the room in multiple layers,
-          <br/>
-          Breeding a poetic mood of nature.
-          <br/>
-          <br/>
-          在经典歌剧《蝴蝶夫人》中
-          <br/>
-          便以灿漫的枫叶为舞台美学代表
-          <br/>
-          伴随着一声声深沉高昂的咏叹
-          <br/>
-          瑰丽自然与人文力量在此刻共融
-          <br/>
-          人们震撼于难以名状的艺术魅力之中
-          <br/>
-          琉璃光院·枫的创作灵感也油然而生
-          <br/>
-          <br/>
-          In the classic music Madame Butterfly,
-          <br/>
-          The brilliant maple leaves represent stage aesthetics.
-          <br/>
-          With a sonorous and deep aria,
-          <br/>
-          The magnificent nature and the humanistic power merge in a moment.
-          <br/>
-          In the awe of the unexplainable artistic charm.
-          <br/>
-          The inspiration for Rurikoin Temple—Maple arises. */}
           </div>
         </div>
         <div className={styles['demo1-imgBox']}>
@@ -105,217 +59,96 @@ export default function JewelryDetail() {
       </div>
     )
   }
-  const DetailDemo2 = ()=>{
+  const DetailDemo2 = (obj:TempItem)=>{
     return(
       <div className={styles['detail-demo1']}>
         <div className={styles['demo1-imgBox']}>
-          <img src={require('../../assets/images/detailimg.jpg')} alt="" />
+          <img src={obj.image} alt="" />
         </div>
         <div className={styles['demo1-txtBox']}>
-          <div className={styles['en']}>RurikoinTemple· Maple</div>
-          <h5 className={styles['title']}>琉璃光院·枫 手镯</h5>
-          <div className={styles['des']}>
-          日本京都琉璃光院的枫叶
-          <br/>
-          被秋风镀成金灿灿的景色
-          <br/>
-          阳光也被切成无数的光影
-          <br/>
-          层层叠叠，落入室内
-          <br/>
-          自然的诗情在此刻燃烧
-          <br/>
-          <br/>
-          Maple leaves at the Rurikouin Temple in Kyoto
-          <br/>
-          Are Gilded golden by the autumn breeze.
-          <br/>
-          The sunlight is scattered into countless shades of light,
-          <br/>
-          Shinning the room in multiple layers,
-          <br/>
-          Breeding a poetic mood of nature.
-          <br/>
-          <br/>
-          在经典歌剧《蝴蝶夫人》中
-          <br/>
-          便以灿漫的枫叶为舞台美学代表
-          <br/>
-          伴随着一声声深沉高昂的咏叹
-          <br/>
-          瑰丽自然与人文力量在此刻共融
-          <br/>
-          人们震撼于难以名状的艺术魅力之中
-          <br/>
-          琉璃光院·枫的创作灵感也油然而生
-          <br/>
-          <br/>
-          In the classic music Madame Butterfly,
-          <br/>
-          The brilliant maple leaves represent stage aesthetics.
-          <br/>
-          With a sonorous and deep aria,
-          <br/>
-          The magnificent nature and the humanistic power merge in a moment.
-          <br/>
-          In the awe of the unexplainable artistic charm.
-          <br/>
-          The inspiration for Rurikoin Temple—Maple arises.
-          </div>
+        <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
+        <div className={styles['des']} dangerouslySetInnerHTML={{ __html: obj.content }}>
+        </div>
         </div>
       </div>
     )
   }
-  const DetailDemo3 = ()=>{
+  const DetailDemo3 = (obj:TempItem)=>{
     return(
       <div className={styles['detail-demo5']}>
         <div className={styles['demo5-top']}>
-            <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
+            <img src={obj.image} alt="" />
           </div>
         <div className={styles['demo5-txtBox']}>
-          <div className={styles['en']}>YELLOW DIAMOND AND DIAMOND RING</div>
-          <h5 className={styles['title']}>黄钻钻石戒指</h5>
-          <div className={styles['des']}>
-              日本京都琉璃光院的枫叶
-              <br/>
-              被秋风镀成金灿灿的景色
-              <br/>
-              阳光也被切成无数的光影
-              <br/>
-              层层叠叠，落入室内
-              <br/>
-              自然的诗情在此刻燃烧
-              <br/>
-              <br/>
-              Maple leaves at the Rurikouin Temple in Kyoto
-              <br/>
-              Are Gilded golden by the autumn breeze.
-              <br/>
-              The sunlight is scattered into countless shades of light,
-              <br/>
-              Shinning the room in multiple layers,
-              <br/>
-              Breeding a poetic mood of nature.
-              <br/>
+          <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
+          <div className={styles['des']} dangerouslySetInnerHTML={{ __html: obj.content }}>
           </div>
         </div>
       </div>
     )
 
   }
-  const DetailDemo4 = ()=>{
+  const DetailDemo4 = (obj:TempItem)=>{
     return(
       <div className={styles['detail-demo3']}>
         <div className={styles['demo3-left']}>
-          <img src={require('../../assets/images/detailimg2.jpg')} alt="" />
+          <img src={obj.image} alt="" />
         </div>
         <div className={styles['demo3-txtBox']}>
-          <div className={styles['en']}>YELLOW DIAMOND AND DIAMOND RING</div>
-          <h5 className={styles['title']}>黄钻钻石戒指</h5>
-          <div className={styles['des']}>
-              GIA,Yellow Diamond, Report
-              <br/>
-              No.2221364126:12.11carat,
-              <br/>
-              Fancy Intense Yellow,IF,N,2EX
-              <br/>
-              Diamond Weight:1.01carat,1.00carat
-              <br/>
-              D/VS1
-          </div>
+        <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
+        <div className={styles['des']} dangerouslySetInnerHTML={{ __html: obj.content }}>
+        </div>
         </div>
         <div className={styles['demo3-right']}>
-          <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
+          <img src={obj.image} alt="" />
         </div>
       </div>
     )
   }
-  const DetailDemo5 = ()=>{
+  const DetailDemo5 = (obj:TempItem)=>{
     return(
       <div className={styles['detail-demo7']}>
         <div className={styles['demo7-left']}>
          <div className={styles['demo7-txtBox']}>
-            <div className={styles['en']}>YELLOW DIAMOND AND DIAMOND RING</div>
-            <h5 className={styles['title']}>黄钻钻石戒指</h5>
-            <div className={styles['des']}>
-                GIA,Yellow Diamond, Report
-                <br/>
-                No.2221364126:12.11carat,
-                <br/>
-                Fancy Intense Yellow,IF,N,2EX
-                <br/>
-                Diamond Weight:1.01carat,1.00carat
-                <br/>
-                D/VS1
+            <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
+            <div className={styles['des']} dangerouslySetInnerHTML={{ __html: obj.content }}>
             </div>
           </div>
         </div>
         <div className={styles['demo7-right']}>
-          <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
+          <img src={obj.image} alt="" />
         </div>
       </div>
     )
   }
-  const DetailDemo6 = ()=>{
+  const DetailDemo6 = (obj:TempItem)=>{
     return(
       <div className={styles['detail-demo5']}>
         <div className={styles['demo5-txtBox']}>
-          <div className={styles['en']}>YELLOW DIAMOND AND DIAMOND RING</div>
-          <h5 className={styles['title']}>黄钻钻石戒指</h5>
+        <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
         </div>
         <div className={styles['demo5-top']}>
-          <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
+          <img src={obj.image} alt="" />
         </div>
-        <div className={styles['des']}>
-            日本京都琉璃光院的枫叶
-            <br/>
-            被秋风镀成金灿灿的景色
-            <br/>
-            阳光也被切成无数的光影
-            <br/>
-            层层叠叠，落入室内
-            <br/>
-            自然的诗情在此刻燃烧
-            <br/>
-            <br/>
-            Maple leaves at the Rurikouin Temple in Kyoto
-            <br/>
-            Are Gilded golden by the autumn breeze.
-            <br/>
-            The sunlight is scattered into countless shades of light,
-            <br/>
-            Shinning the room in multiple layers,
-            <br/>
-            Breeding a poetic mood of nature.
-            <br/>
+        <div className={styles['des']} dangerouslySetInnerHTML={{ __html: obj.content }}>
         </div>
       </div>
     )
 
   }
-  const DetailDemo7 = ()=>{
+  const DetailDemo7 = (obj:TempItem)=>{
     return(
       <div className={styles['detail-demo4']}>
         <div className={styles['demo4-top']}>
-          <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
+          <img src={obj.image} alt="" />
         </div>
         <div className={styles['demo4-txtBox']}>
-          <div className={styles['en']}>YELLOW DIAMOND AND DIAMOND RING</div>
-          <h5 className={styles['title']}>黄钻钻石戒指</h5>
-          <div className={styles['des']}>
-              GIA,Yellow Diamond, Report
-              <br/>
-              No.2221364126:12.11carat,
-              <br/>
-              Fancy Intense Yellow,IF,N,2EX
-              <br/>
-              Diamond Weight:1.01carat,1.00carat
-              <br/>
-              D/VS1
-          </div>
+        <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
+        <div className={styles['des']} dangerouslySetInnerHTML={{ __html: obj.content }}>
+        </div>
         </div>
         <div className={styles['demo4-down']}>
-          <img src={require('../../assets/images/detailimg2.jpg')} alt="" />
+          <img src={obj.image} alt="" />
         </div>
       </div>
     )

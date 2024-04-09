@@ -23,6 +23,7 @@
   background: #fff;
   padding: 7% 4%;
   position: relative;
+  overflow: visible;
 }
 .doc-list{
   width: 100%;
@@ -75,9 +76,9 @@
   }
 }
 .doc-nav{
-  position: absolute;
-  top:0.4rem;
+  position: fixed;
   right: 0.5rem;
+  bottom: 3rem;
   .nav-line{
     position: absolute;
     width: 1px;

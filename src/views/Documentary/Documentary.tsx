@@ -21,9 +21,8 @@ export default function Documentary() {
     navigate(url);
   };
   const toUrl = (url:string) => {
-    console.log(url,'url')
     // 使用 navigate() 方法进行路由跳转
-    window.open('https://www.baidu.com/', '_blank');
+    window.open(url, '_blank');
   };
   useEffect(() => {
     getBrandEvent().then(res => {
@@ -47,7 +46,7 @@ export default function Documentary() {
           <div className={styles['nav-line']}></div>
           <ul className={styles['nav-list']}>
             {DocList.map((item)=>{
-              return(<li className={styles.navItem}>
+              return(<li className={styles.navItem} key={item.id}>
                 <div className={styles.activeText}>{item.event_date}</div>
               </li>)
             })}

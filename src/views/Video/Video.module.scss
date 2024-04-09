@@ -3,7 +3,7 @@
   .bgVideo{
     position: relative;
     overflow: hidden;
-    height: 500px;
+    height: 5rem;
     margin-top: -0.9rem;
     background-color: #000;
     figure{
@@ -26,6 +26,7 @@
     width: 100%;
     justify-content:space-between;
     box-sizing: border-box;
+    min-height: calc(100vh - 6.6rem);
     .box{
       width: 30%;
       &:last-child{
@@ -66,6 +67,7 @@
 
 @media screen and (max-width: 750px) {
   .video-container{
+    min-height: calc(100vh - 6.6rem);
     flex-direction: column;
     margin-top: 0 !important;
     .box{
