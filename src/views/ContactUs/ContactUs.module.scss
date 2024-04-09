@@ -71,6 +71,17 @@
 
         }
       }
+      :global {
+        .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+          border: none;
+          border-bottom: 1px solid #eee;
+          font-size: .14rem;
+          padding: 3px 0;
+          span{
+            padding: 0;
+          }
+        }
+      }  
       .txt{
         border: none;
         border-bottom: 1px solid #eee;
@@ -88,6 +99,7 @@
           display: block;
           font-size: .2rem;
           color: #000;
+          border-color: #fff;
           bottom: 0 !important;
           &:after{
             background-color: #000;
@@ -169,6 +181,15 @@
   }
 }
 
+@keyframes cu-narrow {
+  0%{
+    height: calc(100vh - 0.8rem);
+  }
+  100%{
+    height: calc(55vh - .8rem);
+  }
+}
+
 @keyframes narrow {
   0%{
     flex: 1;
@@ -195,7 +216,63 @@
     flex: 1;
   }
 }
-
+@media screen and (max-width: 750px) {
+  .contactUs{
+    background-color: #000;
+    .cu-narrow{
+      overflow: auto !important;
+      animation-name: cu-narrow !important;
+    }
+    .cu-container{
+      padding-top: 1.4rem;
+      background: none !important;
+      height: calc(100vh - 0.8rem);
+      display: flex;
+      overflow: hidden;
+      animation-name: none;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      .narrow{
+        flex: 0 !important;
+      }
+      .itemBox{
+        flex: 1;
+        width: 100%;
+        .bgBox{
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          display: block;
+          background-size: cover;
+          background-position: center;
+        }
+      }
+      .contact-form{
+        top: calc(55vh + .6rem);
+        position: absolute;
+        height: auto;
+        width: 100%;
+        padding: 0;
+        transition: .8s;
+        .txt{
+          font-size: .25rem;
+        }
+        :global {
+          .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+            font-size: .25rem;
+          }
+        } 
+        .cbox{
+          .sub{
+            font-size: .3rem;
+          }
+        } 
+      }
+    }
+  }  
+}
 @media screen and (min-width: 1024px) {
   .contactUs{
     .cu-container{
