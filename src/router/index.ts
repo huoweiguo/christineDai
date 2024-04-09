@@ -100,21 +100,21 @@ export const routes: RouteObject[] = [
         }
       },
       {
-        path: 'theJewelry',
+        path: 'theJewelry/:id',
         element: React.createElement(TheJewelry),
         meta: {
           title: '珠宝分类'
         }
       },
       {
-        path: 'jewelryList',
+        path: 'jewelryList/:id',
         element: React.createElement(JewelryList),
         meta: {
           title: '珠宝列表'
         }
       },
       {
-        path: 'jewelryDetail',
+        path: 'jewelryDetail/:id',
         element: React.createElement(JewelryDetail),
         meta: {
           title: '珠宝详情'

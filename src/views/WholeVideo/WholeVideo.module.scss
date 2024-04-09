@@ -19,8 +19,9 @@
   }
   .wv-main{
     padding: 1rem 8%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 12 columns */
+    gap: 10px; /* Grid gap */
   }
   .wv-container{
     padding: 1rem 4%;
@@ -53,10 +54,9 @@
       }
     }
   }
-
   .card{
-    width: 28%;
-    margin-right: 8%;
+    width: 90%;
+    // margin-right: 2%;
     margin-top: 0.2rem;
     cursor: pointer;
     &:hover h5{
@@ -65,9 +65,9 @@
     &:hover .imgBox:after {
       top: 45%;
     }
-    &:nth-child(3n){
-      margin-right: 0;
-    }
+    // &:nth-child(3n){
+    //   margin-right: 0;
+    // }
     .imgBox{
       position: relative;
       margin-bottom: 0.4rem;
@@ -94,7 +94,80 @@
         transition: .5s;
       }
       img{
+        border: 0;
         width: 100%;
+        height: 1.8rem;
+        vertical-align: middle;
+      }
+    }
+    h4{
+      min-height: 1.2em;
+      margin-bottom: 0.05rem;
+      text-align: center;
+      font-weight: normal;
+      color: #8d7249;
+      font-size: .18rem;
+      white-space: nowrap;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: pre-wrap;
+      
+    }
+    h5{
+      color: #000;
+      font-size: .16rem;
+      white-space: nowrap;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: pre-wrap;
+    }
+  }
+  .card2{
+    width: 28%;
+    margin-right: 7%;
+    margin-top: 0.2rem;
+    cursor: pointer;
+    &:hover h5{
+      color: #8d7249;
+    }
+    &:hover .imgBox:after {
+      top: 45%;
+    }
+    // &:nth-child(3n){
+    //   margin-right: 0;
+    // }
+    .imgBox{
+      position: relative;
+      margin-bottom: 0.4rem;
+      &:before{
+        width: 100%;
+        height: 100%;
+        content: '';
+        background: rgba(0,0,0,.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      &:after{
+        width: 0.34rem;
+        height: 0.38rem;
+        content: '';
+        background: url(../../assets//images//play.png) no-repeat;
+        background-size: contain;
+        background-position: center center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: .5s;
+      }
+      img{
+        border: 0;
+        width: 100%;
+        height: 1.8rem;
+        vertical-align: middle;
       }
     }
     h4{
@@ -133,13 +206,15 @@
 }
 
 @media screen and (max-width: 750px) {
+  .wv-container,
+  .wv-main{
+    min-height: calc(100vh - 8rem);
+    display: grid;
+    grid-template-columns: auto auto !important; /* 两列，每列自动宽度 */
+    grid-gap: 10px; /* 格子间隔 */
+    padding: 10px; /* 容器内边距 */ 
+  }
   .card{
-    width: 46% !important;
-    &:nth-child(3n){
-      margin-right: 8% !important;
-    }
-    &:nth-child(2n){
-      margin-right: 0;
-    }
+    max-width: 3rem;
   }
 }

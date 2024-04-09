@@ -69,6 +69,7 @@
 @media screen and (max-width: 750px) {
   .GlobalMedia{
     .gw-container{
+      min-height: calc(100vh - 8rem);
       .content-box{
         display: flex;
         flex-wrap: wrap;

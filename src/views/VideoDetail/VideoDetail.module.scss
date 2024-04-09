@@ -30,6 +30,6 @@
     padding: 2.5rem 5% 0.5rem;
   }
   .videoDetail{
-    height: calc(100vh - 5.1rem);
+    min-height: calc(100vh - 5.1rem);
   }
 }

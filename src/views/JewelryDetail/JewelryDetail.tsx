@@ -1,19 +1,57 @@
-import React,{ useState }from 'react'
+import React,{ useState,useEffect }from 'react'
 import styles from './JewelryDetail.module.scss'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import { useParams } from 'react-router-dom';
+import { getProductInfo } from '../../store/modules/jewelry'
+interface TempItem {
+  template: number,
+  title: string,
+  content: string,
+  image: string,
+  component: Function
+}
+interface RuleData {
+  temp: TempItem[],
+  catname: string,
+  title: string,
+  brief: string,
+  is_bg: number,
+  header_img: string,
+  priv: number,
+  next: number
+}
 export default function JewelryDetail() {
-  const DetailDemo1 = ()=>{
+  const { id } = useParams();
+  let [num, setNum] = useState(0);
+  const [isObj, setIsObj] = useState<TempItem>({
+    template: 0,
+    title:'',
+    content: '',
+    image: '',
+    component:()=>{
+      return('')
+    }
+  });
+  const [DetailData, setDetailData] = useState<RuleData>({
+    temp: [],
+    catname: '',
+    title: '',
+    brief: '',
+    is_bg: 0,
+    header_img: '',
+    priv: 0,
+    next: 0
+  })
+  const DetailDemo1 = (obj:TempItem)=>{
     return(
       <div className={styles['detail-demo1']}>
-        <div className={styles['demo1-imgBox']}>
-          <img src={require('../../assets/images/detailimg.jpg')} alt="" />
-        </div>
         <div className={styles['demo1-txtBox']}>
-          <div className={styles['en']}>RurikoinTemple· Maple</div>
-          <h5 className={styles['title']}>琉璃光院·枫 手镯</h5>
-          <div className={styles['des']}>
-          日本京都琉璃光院的枫叶
+          {/* <div className={styles['en']}>RurikoinTemple· Maple</div>
+          <h5 className={styles['title']}>琉璃光院·枫 手镯</h5> */}
+          <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
+          <div className={styles['des']} dangerouslySetInnerHTML={{ __html: obj.content }}>
+          {/* 日本京都琉璃光院的枫叶
           <br/>
           被秋风镀成金灿灿的景色
           <br/>
@@ -58,8 +96,11 @@ export default function JewelryDetail() {
           <br/>
           In the awe of the unexplainable artistic charm.
           <br/>
-          The inspiration for Rurikoin Temple—Maple arises.
+          The inspiration for Rurikoin Temple—Maple arises. */}
           </div>
+        </div>
+        <div className={styles['demo1-imgBox']}>
+          <img src={obj.image} alt="" />
         </div>
       </div>
     )
@@ -67,6 +108,9 @@ export default function JewelryDetail() {
   const DetailDemo2 = ()=>{
     return(
       <div className={styles['detail-demo1']}>
+        <div className={styles['demo1-imgBox']}>
+          <img src={require('../../assets/images/detailimg.jpg')} alt="" />
+        </div>
         <div className={styles['demo1-txtBox']}>
           <div className={styles['en']}>RurikoinTemple· Maple</div>
           <h5 className={styles['title']}>琉璃光院·枫 手镯</h5>
@@ -119,104 +163,10 @@ export default function JewelryDetail() {
           The inspiration for Rurikoin Temple—Maple arises.
           </div>
         </div>
-        <div className={styles['demo1-imgBox']}>
-          <img src={require('../../assets/images/detailimg.jpg')} alt="" />
-        </div>
       </div>
     )
   }
   const DetailDemo3 = ()=>{
-    return(
-      <div className={styles['detail-demo3']}>
-        <div className={styles['demo3-left']}>
-          <img src={require('../../assets/images/detailimg2.jpg')} alt="" />
-        </div>
-        <div className={styles['demo3-txtBox']}>
-          <div className={styles['en']}>YELLOW DIAMOND AND DIAMOND RING</div>
-          <h5 className={styles['title']}>黄钻钻石戒指</h5>
-          <div className={styles['des']}>
-              GIA,Yellow Diamond, Report
-              <br/>
-              No.2221364126:12.11carat,
-              <br/>
-              Fancy Intense Yellow,IF,N,2EX
-              <br/>
-              Diamond Weight:1.01carat,1.00carat
-              <br/>
-              D/VS1
-          </div>
-        </div>
-        <div className={styles['demo3-right']}>
-          <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
-        </div>
-      </div>
-    )
-  }
-  const DetailDemo4 = ()=>{
-    return(
-      <div className={styles['detail-demo4']}>
-        <div className={styles['demo4-top']}>
-          <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
-        </div>
-        <div className={styles['demo4-txtBox']}>
-          <div className={styles['en']}>YELLOW DIAMOND AND DIAMOND RING</div>
-          <h5 className={styles['title']}>黄钻钻石戒指</h5>
-          <div className={styles['des']}>
-              GIA,Yellow Diamond, Report
-              <br/>
-              No.2221364126:12.11carat,
-              <br/>
-              Fancy Intense Yellow,IF,N,2EX
-              <br/>
-              Diamond Weight:1.01carat,1.00carat
-              <br/>
-              D/VS1
-          </div>
-        </div>
-        <div className={styles['demo4-down']}>
-          <img src={require('../../assets/images/detailimg2.jpg')} alt="" />
-        </div>
-      </div>
-    )
-  }
-  const DetailDemo5 = ()=>{
-    return(
-      <div className={styles['detail-demo5']}>
-        <div className={styles['demo5-txtBox']}>
-          <div className={styles['en']}>YELLOW DIAMOND AND DIAMOND RING</div>
-          <h5 className={styles['title']}>黄钻钻石戒指</h5>
-        </div>
-        <div className={styles['demo5-top']}>
-          <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
-        </div>
-        <div className={styles['des']}>
-            日本京都琉璃光院的枫叶
-            <br/>
-            被秋风镀成金灿灿的景色
-            <br/>
-            阳光也被切成无数的光影
-            <br/>
-            层层叠叠，落入室内
-            <br/>
-            自然的诗情在此刻燃烧
-            <br/>
-            <br/>
-            Maple leaves at the Rurikouin Temple in Kyoto
-            <br/>
-            Are Gilded golden by the autumn breeze.
-            <br/>
-            The sunlight is scattered into countless shades of light,
-            <br/>
-            Shinning the room in multiple layers,
-            <br/>
-            Breeding a poetic mood of nature.
-            <br/>
-        </div>
-      </div>
-    )
-
-  }
-  const DetailDemo6 = ()=>{
     return(
       <div className={styles['detail-demo5']}>
         <div className={styles['demo5-top']}>
@@ -253,7 +203,34 @@ export default function JewelryDetail() {
     )
 
   }
-  const DetailDemo7 = ()=>{
+  const DetailDemo4 = ()=>{
+    return(
+      <div className={styles['detail-demo3']}>
+        <div className={styles['demo3-left']}>
+          <img src={require('../../assets/images/detailimg2.jpg')} alt="" />
+        </div>
+        <div className={styles['demo3-txtBox']}>
+          <div className={styles['en']}>YELLOW DIAMOND AND DIAMOND RING</div>
+          <h5 className={styles['title']}>黄钻钻石戒指</h5>
+          <div className={styles['des']}>
+              GIA,Yellow Diamond, Report
+              <br/>
+              No.2221364126:12.11carat,
+              <br/>
+              Fancy Intense Yellow,IF,N,2EX
+              <br/>
+              Diamond Weight:1.01carat,1.00carat
+              <br/>
+              D/VS1
+          </div>
+        </div>
+        <div className={styles['demo3-right']}>
+          <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
+        </div>
+      </div>
+    )
+  }
+  const DetailDemo5 = ()=>{
     return(
       <div className={styles['detail-demo7']}>
         <div className={styles['demo7-left']}>
@@ -275,6 +252,70 @@ export default function JewelryDetail() {
         </div>
         <div className={styles['demo7-right']}>
           <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
+        </div>
+      </div>
+    )
+  }
+  const DetailDemo6 = ()=>{
+    return(
+      <div className={styles['detail-demo5']}>
+        <div className={styles['demo5-txtBox']}>
+          <div className={styles['en']}>YELLOW DIAMOND AND DIAMOND RING</div>
+          <h5 className={styles['title']}>黄钻钻石戒指</h5>
+        </div>
+        <div className={styles['demo5-top']}>
+          <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
+        </div>
+        <div className={styles['des']}>
+            日本京都琉璃光院的枫叶
+            <br/>
+            被秋风镀成金灿灿的景色
+            <br/>
+            阳光也被切成无数的光影
+            <br/>
+            层层叠叠，落入室内
+            <br/>
+            自然的诗情在此刻燃烧
+            <br/>
+            <br/>
+            Maple leaves at the Rurikouin Temple in Kyoto
+            <br/>
+            Are Gilded golden by the autumn breeze.
+            <br/>
+            The sunlight is scattered into countless shades of light,
+            <br/>
+            Shinning the room in multiple layers,
+            <br/>
+            Breeding a poetic mood of nature.
+            <br/>
+        </div>
+      </div>
+    )
+
+  }
+  const DetailDemo7 = ()=>{
+    return(
+      <div className={styles['detail-demo4']}>
+        <div className={styles['demo4-top']}>
+          <img src={require('../../assets/images/detailimg3.jpg')} alt="" />
+        </div>
+        <div className={styles['demo4-txtBox']}>
+          <div className={styles['en']}>YELLOW DIAMOND AND DIAMOND RING</div>
+          <h5 className={styles['title']}>黄钻钻石戒指</h5>
+          <div className={styles['des']}>
+              GIA,Yellow Diamond, Report
+              <br/>
+              No.2221364126:12.11carat,
+              <br/>
+              Fancy Intense Yellow,IF,N,2EX
+              <br/>
+              Diamond Weight:1.01carat,1.00carat
+              <br/>
+              D/VS1
+          </div>
+        </div>
+        <div className={styles['demo4-down']}>
+          <img src={require('../../assets/images/detailimg2.jpg')} alt="" />
         </div>
       </div>
     )
@@ -319,32 +360,52 @@ export default function JewelryDetail() {
       component:DetailDemo7
     },
     {
-      type:8,
+      type:0,
       component:Default
     },
   ]
-  const [isObj, setIsObj] = useState(arr[0]);
-  let [num, setNum] = useState(0);
-  const NextPage =()=>{
-     let addNum = num + 1
-     if(addNum >= 8){
-      setNum(0)
-      addNum = 0
-     }else{
-      setNum(num+1)
-     }
-     setIsObj(arr[addNum])
-  }
-  const PrevPage =()=>{
-    let addNum = num - 1
-    if(num === 0){
-      setNum(0)
-      addNum = 0
-    }else{
-      setNum(num-1)
+  const NextPage =()=>{ //下一页
+   if(DetailData.temp.length === 0) return 
+      let addNum = num + 1
+      if(addNum >= DetailData.temp.length){
+        setNum(0)
+        addNum = 0
+      }else{
+        setNum(num+1)
+      }
+      setIsObj(DetailData.temp[addNum])
     }
-    setIsObj(arr[addNum])
- }
+  const PrevPage =()=>{ //上一页
+    if(DetailData.temp.length === 0) return 
+      let addNum = num - 1
+      if(num === 0){
+        setNum(DetailData.temp.length-1)
+        addNum = DetailData.temp.length-1
+      }else{
+        setNum(num-1)
+      }
+      console.log(addNum,'addNum')
+      setIsObj(DetailData.temp[addNum])
+  }
+  useEffect(() => {
+    getProductInfo(id as string).then(res => {
+      if (res.data.code === 200) {
+        let { temp,catname,title,brief,is_bg,header_img,priv,next} = res.data.data
+        temp = temp.map((item:TempItem)=>({
+          ...item,
+          component:arr.filter(itcm=>itcm.type === item.template)[0].component
+        }))
+        setIsObj(temp[0]||{template: 0,
+          title:'',
+          content: '',
+          image: '',
+          component:Default})
+        setDetailData({
+          temp,catname,title,brief,is_bg,header_img,priv,next
+        })
+      } 
+    })
+  }, [id])
   return (
     <div className={styles.detailBody}>
       <Header go></Header>
@@ -356,13 +417,14 @@ export default function JewelryDetail() {
           下一页
         </div>
         <div className={styles['detail-txtBox']}>
-            GEMSTONE
+            {DetailData.catname}
             <br/>      
-            Secret Green·Emerald
+            {DetailData.title}
+            <div className={styles['detail-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>
         </div>
       </div>
       <div className={styles['detail-box']}>
-        {isObj.component()}
+        {isObj.component(isObj)}
       </div>
       <Footer></Footer>
     </div>

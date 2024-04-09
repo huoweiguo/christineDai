@@ -60,7 +60,7 @@ export default function WholeVideo() {
         </h5>
       </div>
       {
-        id=='4' ? 
+        id==='4' ? 
         <div className={styles['wv-main']}>
           { videoData[0]?.list.length > 0 && videoData[0].list.map((em, i)=>(
             <div onClick={()=>handleButtonClick(em.video_url)} className={`${styles.card} ${styles['m-b-4']}`} key={i}>
@@ -69,7 +69,7 @@ export default function WholeVideo() {
               </div>
               <h5>{em.title}</h5>
             </div>
-          )) }   
+          )) }
         </div> :
         <div className={styles['wv-container']}>
           { videoData.length > 0 && videoData.map((item,index)=>(
@@ -77,16 +77,17 @@ export default function WholeVideo() {
               <div className={styles.title}>{ item.catname }</div>
                 <div className={styles.listBox} >
                 { item.list.length > 0 && item.list.map((em, i)=>(
-                  <div onClick={()=>handleButtonClick(em.video_url)} className={styles.card} key={i}>
+                  <div onClick={()=>handleButtonClick(em.video_url)} className={styles.card2} key={i}>
                     <div className={`${styles.imgBox} ${styles['m-b-2']}`}>
                       <img src={em.cover_img} alt=""/>
                     </div>
                     <h5>{em.title}</h5>
                   </div>
-                )) }   
+                )) }
               </div>
             </div>
           )) }
+          
         </div>
       }
       <Footer></Footer>

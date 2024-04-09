@@ -14,6 +14,16 @@
   justify-content: center;
   align-items: center;
 }
+.theJewelry-left2{
+  min-height: 100vh;
+  width: 50%;
+  background: #26122b;
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .theJewelry-right{
   min-height: 100vh;
@@ -44,6 +54,7 @@
     flex-direction: column;
   }
   .theJewelry-left,
+  .theJewelry-left2,
   .theJewelry-right{
     width: 100%;
     min-height: 50vh;

@@ -1,27 +1,62 @@
-import React from 'react'
+import React,{ useEffect, useState } from 'react'
 import styles from './TheJewelry.module.scss'
 import Header from '../../components/Header/Header'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
+import { getProductCat } from '../../store/modules/jewelry'
 export default function TheJewelry() {
+  interface DataItem {
+    id: string,
+    title:string,
+    title_en: string
+  }
+  const [leftObj, setLeftObj] = useState<DataItem>({
+    id: '',
+    title:'',
+    title_en: ''
+  })
+  const [RightObj, setRightObj] = useState<DataItem>({
+    id: '',
+    title:'',
+    title_en: ''
+  })
+  const { id } = useParams();
   const navigate = useNavigate();
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
     navigate(url);
   };
+  useEffect(() => {
+    getProductCat(id as string).then(res => {
+      if (res.data.code === 200) {
+        if(res.data.data[0]){
+          const {id,title,title_en} = res.data.data[0]
+          setLeftObj({id,title,title_en})
+        }else{
+          setLeftObj({id:'',title:'',title_en:''})
+        }
+        if(res.data.data[1]){
+          const {id,title,title_en} = res.data.data[1]
+          setRightObj({id,title,title_en})
+        }else{
+          setRightObj({id:'',title:'',title_en:''})
+        } 
+      } 
+    })
+  }, [id])
   return (
     <div>
       <Header type></Header>
       <div className={styles.TheJewelry}>
-        <div className={styles['theJewelry-left']}>
-          <div onClick={()=>handleButtonClick('/layout/JewelryList')} className={styles['theJewelry-txt']}>
-            <h3>GEMSTONE</h3>
-            <h4>彩宝系列</h4>
+        <div className={id==='3'?styles['theJewelry-left2']:styles['theJewelry-left']}>
+          <div onClick={()=>handleButtonClick(`/layout/JewelryList/${leftObj.id}`)} className={styles['theJewelry-txt']}>
+            <h3>{leftObj.title_en}</h3>
+            <h4>{leftObj.title}</h4>
           </div>
         </div>
         <div className={styles['theJewelry-right']}>
-          <div onClick={()=>handleButtonClick('/layout/JewelryList')} className={styles['theJewelry-txt']}>
-            <h3>ART</h3>
-            <h4>艺术</h4>
+          <div onClick={()=>handleButtonClick(`/layout/JewelryList/${RightObj.id}`)} className={styles['theJewelry-txt']}>
+            <h3>{RightObj.title_en}</h3>
+            <h4>{RightObj.title}</h4>
           </div>
         </div>
       </div>
