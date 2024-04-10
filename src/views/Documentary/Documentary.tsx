@@ -22,7 +22,7 @@ export default function Documentary() {
   };
   const toUrl = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
-    window.open(url, '_blank');
+    window.location.href = url
   };
   useEffect(() => {
     getBrandEvent().then(res => {

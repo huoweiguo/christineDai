@@ -47,7 +47,7 @@ export default function WholeVideo() {
   
   useEffect(()=>{
     getVideoData(id)
-  },[])
+  },[id])
   
   return (
     <div className={styles.wholeVideo}>

@@ -238,6 +238,7 @@ export default function JewelryDetail() {
         })
       } 
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
   return (
     <div className={styles.detailBody}>

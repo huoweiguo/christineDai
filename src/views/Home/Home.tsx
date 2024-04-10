@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <div className={styles.homeBody}>
       <video className={styles.bgVideo} autoPlay loop muted>
-      <source src={'http://web.chris-dai.com/uploads/video/182280c43648cc4dfd22d616cdd95967mp4'} type="video/mp4"/>
+      <source src={require('../../assets/images/chrisDai-bg-video.mp4')} type="video/mp4"/>
         您的浏览器不支持视频标签。
       </video>
       <div className={styles['home-container']}>
