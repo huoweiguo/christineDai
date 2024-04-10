@@ -42,7 +42,7 @@ export default function Documentary() {
         </h5>
       </div>
       <div className={styles.DocBody}>
-        <div className={styles['doc-nav']}>
+        {/* <div className={styles['doc-nav']}>
           <div className={styles['nav-line']}></div>
           <ul className={styles['nav-list']}>
             {DocList.map((item)=>{
@@ -51,7 +51,7 @@ export default function Documentary() {
               </li>)
             })}
           </ul>
-        </div>
+        </div> */}
         <ul className={styles['doc-list']}>
         {DocList.map((item)=>{
             return(<li onClick={()=>toUrl(item.linkurl)} className={styles['doc-item']}>

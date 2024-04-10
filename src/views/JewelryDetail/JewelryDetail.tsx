@@ -197,29 +197,29 @@ export default function JewelryDetail() {
       component:Default
     },
   ]
-  const NextPage =()=>{ //下一页
-   if(DetailData.temp.length === 0) return 
-      let addNum = num + 1
-      if(addNum >= DetailData.temp.length){
-        setNum(0)
-        addNum = 0
-      }else{
-        setNum(num+1)
-      }
-      setIsObj(DetailData.temp[addNum])
-    }
-  const PrevPage =()=>{ //上一页
-    if(DetailData.temp.length === 0) return 
-      let addNum = num - 1
-      if(num === 0){
-        setNum(DetailData.temp.length-1)
-        addNum = DetailData.temp.length-1
-      }else{
-        setNum(num-1)
-      }
-      console.log(addNum,'addNum')
-      setIsObj(DetailData.temp[addNum])
-  }
+  // const NextPage =()=>{ //下一页
+  //  if(DetailData.temp.length === 0) return 
+  //     let addNum = num + 1
+  //     if(addNum >= DetailData.temp.length){
+  //       setNum(0)
+  //       addNum = 0
+  //     }else{
+  //       setNum(num+1)
+  //     }
+  //     setIsObj(DetailData.temp[addNum])
+  //   }
+  // const PrevPage =()=>{ //上一页
+  //   if(DetailData.temp.length === 0) return 
+  //     let addNum = num - 1
+  //     if(num === 0){
+  //       setNum(DetailData.temp.length-1)
+  //       addNum = DetailData.temp.length-1
+  //     }else{
+  //       setNum(num-1)
+  //     }
+  //     console.log(addNum,'addNum')
+  //     setIsObj(DetailData.temp[addNum])
+  // }
   useEffect(() => {
     getProductInfo(id as string).then(res => {
       if (res.data.code === 200) {
@@ -228,11 +228,6 @@ export default function JewelryDetail() {
           ...item,
           component:arr.filter(itcm=>itcm.type === item.template)[0].component
         }))
-        setIsObj(temp[0]||{template: 0,
-          title:'',
-          content: '',
-          image: '',
-          component:Default})
         setDetailData({
           temp,catname,title,brief,is_bg,header_img,priv,next
         })
@@ -244,21 +239,23 @@ export default function JewelryDetail() {
     <div className={styles.detailBody}>
       <Header go></Header>
       <div className={styles['detail-top']}>
-        <div onClick={()=>PrevPage()} className={styles['detail-prevBtn']}>
+        <div className={styles['detail-prevBtn']}>
           上一页
         </div>
-        <div onClick={()=>NextPage()} className={styles['detail-nextBtn']}>
+        <div className={styles['detail-nextBtn']}>
           下一页
         </div>
         <div className={styles['detail-txtBox']}>
             {DetailData.catname}
             <br/>      
             {DetailData.title}
-            <div className={styles['detail-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>
         </div>
       </div>
       <div className={styles['detail-box']}>
-        {isObj.component(isObj)}
+        <div className={styles['detail-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>
+        {DetailData.temp.map(item=>{
+          return (item.component(item))
+        })}
       </div>
       <Footer></Footer>
     </div>
