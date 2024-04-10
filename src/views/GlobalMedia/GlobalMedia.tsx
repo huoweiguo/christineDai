@@ -41,7 +41,7 @@ export default function GlobalMedia() {
         <div className={styles['w-1400']}>
           <div className={styles['content-box']}>
             { mediaData.length > 0 && mediaData.map(item=>(
-              <div onClick={()=>handleButtonClick(item.linkurl)} className={styles.card}>
+              <div onClick={()=>handleButtonClick(item.linkurl)} className={styles.card} key={item.id}>
                 <div className={styles.imgBox}>
                   <img src={item.media_img} alt=""/>
                 </div>

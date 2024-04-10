@@ -253,8 +253,8 @@ export default function JewelryDetail() {
       </div>
       <div className={styles['detail-box']}>
         <div className={styles['detail-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>
-        {DetailData.temp.map(item=>{
-          return (item.component(item))
+        {DetailData.temp.map((item,index)=>{
+          return (<div key={index}>{item.component(item)}</div>)
         })}
       </div>
       <Footer></Footer>

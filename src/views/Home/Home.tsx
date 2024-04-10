@@ -5,6 +5,7 @@ import { getHomeInfos } from '../../store/modules/home'
 import { useAppDispatch } from '../../store'
 import type { RootState } from '../../store'
 import { useNavigate } from 'react-router-dom';
+import {HomeKey,cacheObject,getCachedObject} from '../../utils/auth'
 export default function Home() {
 
   interface RuleData {
@@ -34,14 +35,22 @@ export default function Home() {
   };
   
   useEffect(() => {
-    getHomeInfos().then(res => {
-      if (res.data.code === 200) {
-        const { bg_video, placard, logo_img,weibo,xiaohongshu,ins,wxqr} = res.data.data
-        setHomeData({
-          bg_video, logo_img, placard,weibo,xiaohongshu,ins,wxqr
-        })
-      } 
-    })
+    if(!getCachedObject(HomeKey)){
+      getHomeInfos().then(res => {
+        if (res.data.code === 200) {
+          const { bg_video, placard, logo_img,weibo,xiaohongshu,ins,wxqr} = res.data.data
+          cacheObject(HomeKey,{
+            bg_video, logo_img, placard,weibo,xiaohongshu,ins,wxqr
+          })
+          // 获取缓存的对象
+          const homeObject = getCachedObject(HomeKey);
+          setHomeData(homeObject)
+        } 
+      })
+    }else{
+      const homeObject = getCachedObject(HomeKey);
+      setHomeData(homeObject)
+    }
   }, [])
 
   return (

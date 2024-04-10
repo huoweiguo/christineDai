@@ -54,7 +54,7 @@ export default function Documentary() {
         </div> */}
         <ul className={styles['doc-list']}>
         {DocList.map((item)=>{
-            return(<li onClick={()=>toUrl(item.linkurl)} className={styles['doc-item']}>
+            return(<li onClick={()=>toUrl(item.linkurl)} className={styles['doc-item']} key={item.id}>
             <div className={styles['doc-left']}>
               <img src={item.brand_img} alt="" />
             </div>
