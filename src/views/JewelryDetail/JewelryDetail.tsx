@@ -257,12 +257,12 @@ export default function JewelryDetail() {
       <div className={styles['detail-top2']}>
         {DetailData.is_bg === 0&&DetailData.header_img?<img className={styles['detail-img']}  src={DetailData.header_img} alt="" />:
          ''}
-        <div onClick={()=>PrevPage()} className={styles['detail-prevBtn']}>
+        {listData.list.length <= 1?'':<div onClick={()=>PrevPage()} className={styles['detail-prevBtn']}>
           上一页
-        </div>
-        <div onClick={()=>NextPage()} className={styles['detail-nextBtn']}>
+        </div>}
+        {listData.list.length <= 1?'':<div onClick={()=>NextPage()} className={styles['detail-nextBtn']}>
           下一页
-        </div>
+        </div>}
         <div className={styles['detail-txtBox']}>
             {DetailData.catname}
             <br/>      
