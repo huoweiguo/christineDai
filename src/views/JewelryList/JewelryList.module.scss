@@ -54,6 +54,10 @@
       color: #000;
       font-size: .2rem;
       cursor: pointer;
+      overflow: hidden; /* 确保超出的内容会被裁剪 */
+      white-space: nowrap; /* 确保文本在一行内显示 */
+      text-overflow: ellipsis; /* 超出的文本部分显示为省略号 */
+
   }
   h5:hover{
     color: #8d7249;

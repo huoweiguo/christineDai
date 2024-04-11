@@ -79,7 +79,7 @@
       min-height: calc(100vh - 8rem);
       .content-box{
         display: grid;
-        grid-template-columns: auto auto !important; /* 两列，每列自动宽度 */
+        grid-template-columns:repeat(2, 1fr) !important; /* 两列，每列自动宽度 */
         grid-gap: 20px; /* 格子间隔 */
         padding: 10px; /* 容器内边距 */ 
         .card{
@@ -103,7 +103,7 @@
       min-height: calc(100vh - 8rem);
       .content-box{
         display: grid;
-        grid-template-columns: auto auto !important; /* 两列，每列自动宽度 */
+        grid-template-columns:repeat(2, 1fr) !important; /* 两列，每列自动宽度 */
         grid-gap: 20px; /* 格子间隔 */
         padding: 10px; /* 容器内边距 */ 
         .card{

@@ -69,7 +69,7 @@ export default function Story() {
                   <img src={storyData.brand_img} alt="" />
                 </div>
                 <div className={styles['btn-txtBox']}>
-                  <p dangerouslySetInnerHTML={{ __html: storyData.brief }}>
+                  <p dangerouslySetInnerHTML={{ __html: storyData.intro }}>
                   </p>
                   {/* <p>
                     Christine Dai的珠宝艺术品，融合了古董珠宝的玫瑰切割工艺和18世纪欧洲传统的古典蜡雕技术。无论是在金属的质感、宝石的色彩还是镶嵌结构上，都彰显出Christine Dai对于珠宝艺术的极致追求。
@@ -93,8 +93,7 @@ export default function Story() {
               </div>
             </div>
         </SlideInFromBottom>
-        <div className={styles['story-word']}>
-          <img src={require('../../assets/images/story-word.jpg')} alt="" />
+        <div className={styles['story-word']} dangerouslySetInnerHTML={{ __html: storyData.brief }}>
         </div>
         <div className={styles['story-art']}>
           <div className={styles['art-text']}>

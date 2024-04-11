@@ -15,6 +15,7 @@ export default function Documentary() {
     updated_at: string;
   }
   const [DocList, setDocList] = useState<DataItem[]>([])
+  const [NavNumber,setNavNumber] = useState<Number>(0)
   const navigate = useNavigate();
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
@@ -24,6 +25,9 @@ export default function Documentary() {
     // 使用 navigate() 方法进行路由跳转
     window.location.href = url
   };
+  const cutNav = (i:number) =>{
+    setNavNumber(i)
+  }
   useEffect(() => {
     getBrandEvent().then(res => {
       if (res.data.code === 200) {
@@ -42,16 +46,16 @@ export default function Documentary() {
         </h5>
       </div>
       <div className={styles.DocBody}>
-        {/* <div className={styles['doc-nav']}>
+        <div className={styles['doc-nav']}>
           <div className={styles['nav-line']}></div>
           <ul className={styles['nav-list']}>
-            {DocList.map((item)=>{
-              return(<li className={styles.navItem} key={item.id}>
+            {DocList.map((item,index)=>{
+              return(<li onClick={()=>cutNav(index)} className={NavNumber === index?styles.active:styles.navItem} key={item.id}>
                 <div className={styles.activeText}>{item.event_date}</div>
               </li>)
             })}
           </ul>
-        </div> */}
+        </div>
         <ul className={styles['doc-list']}>
         {DocList.map((item)=>{
             return(<li onClick={()=>toUrl(item.linkurl)} className={styles['doc-item']} key={item.id}>

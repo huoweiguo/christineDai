@@ -96,19 +96,22 @@
 .story-word{
   width: 100%;
   position: relative;
-  padding: 0.8rem;
+  padding: 1.4rem 0.8rem;
   margin-bottom: 7%;
   background: #f9f9f9;
   box-sizing: border-box;
-  font-size: .22rem;
-  line-height: .34rem;
+  font-size: .4rem;
   position: relative;
-  text-align: center;
-  img{
-    border: 0;
-    max-width: 100%;
-    vertical-align: middle;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  color: #806c48;
+  // img{
+  //   border: 0;
+  //   max-width: 100%;
+  //   vertical-align: middle;
+  // }
 }
 
 .story-art{
@@ -260,9 +263,13 @@
    }
    .story-word{
       width: 90%;
-      padding: 0.3rem;
+      padding: 0.4rem;
       margin: 0 5% 7%;
       box-sizing: border-box;
+      font-size: 0.18rem;
+      display: flex;
+      text-align: center;
+      justify-content: center;
    }
    .story-art{
     .art-text{

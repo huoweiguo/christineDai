@@ -35,22 +35,17 @@ export default function Home() {
   };
   
   useEffect(() => {
-    if(!getCachedObject(HomeKey)){
-      getHomeInfos().then(res => {
-        if (res.data.code === 200) {
-          const { bg_video, placard, logo_img,weibo,xiaohongshu,ins,wxqr} = res.data.data
-          cacheObject(HomeKey,{
-            bg_video, logo_img, placard,weibo,xiaohongshu,ins,wxqr
-          })
-          // 获取缓存的对象
-          const homeObject = getCachedObject(HomeKey);
-          setHomeData(homeObject)
-        } 
-      })
-    }else{
-      const homeObject = getCachedObject(HomeKey);
-      setHomeData(homeObject)
-    }
+    getHomeInfos().then(res => {
+      if (res.data.code === 200) {
+        const { bg_video, placard, logo_img,weibo,xiaohongshu,ins,wxqr} = res.data.data
+        cacheObject(HomeKey,{
+          bg_video, logo_img, placard,weibo,xiaohongshu,ins,wxqr
+        })
+        // 获取缓存的对象
+        const homeObject = getCachedObject(HomeKey);
+        setHomeData(homeObject)
+      } 
+    })
   }, [])
 
   return (
@@ -63,7 +58,7 @@ export default function Home() {
         <div className={styles['home-content']}>
           <div className={styles['home-inner']}>
             <div className={styles['intro-left']}>
-              <div className={styles['intro-logo']}><img src={require('../../assets/images/logo.png')} alt=""/></div>
+              <div className={styles['intro-logo']}><img src={homeData.logo_img} alt=""/></div>
               <div className={styles['intro-head']} dangerouslySetInnerHTML={{ __html: homeData.placard }} />
                 {/* <span>
                   <b>光影感</b>

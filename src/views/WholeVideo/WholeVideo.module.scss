@@ -215,7 +215,7 @@
   .wv-main{
     min-height: calc(100vh - 8rem);
     display: grid;
-    grid-template-columns: auto auto !important; /* 两列，每列自动宽度 */
+    grid-template-columns: repeat(2, 1fr) !important; /* 两列，每列自动宽度 */
     grid-gap: 10px; /* 格子间隔 */
     padding: 10px; /* 容器内边距 */ 
   }
