@@ -67,7 +67,7 @@ export default function JewelryDetail() {
           </div>
         </div>
         <div className={styles['demo1-imgBox']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
       </div>
     )
@@ -76,7 +76,7 @@ export default function JewelryDetail() {
     return(
       <div className={styles['detail-demo1']}>
         <div className={styles['demo1-imgBox']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
         <div className={styles['demo1-txtBox']}>
         <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
@@ -90,7 +90,7 @@ export default function JewelryDetail() {
     return(
       <div className={styles['detail-demo5']}>
         <div className={styles['demo5-top']}>
-            <img src={obj.image} alt="" />
+            <img src={obj.image[0]} alt="" />
           </div>
         <div className={styles['demo5-txtBox']}>
           <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
@@ -105,7 +105,7 @@ export default function JewelryDetail() {
     return(
       <div className={styles['detail-demo3']}>
         <div className={styles['demo3-left']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
         <div className={styles['demo3-txtBox']}>
         <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
@@ -113,7 +113,7 @@ export default function JewelryDetail() {
         </div>
         </div>
         <div className={styles['demo3-right']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[1]} alt="" />
         </div>
       </div>
     )
@@ -129,7 +129,7 @@ export default function JewelryDetail() {
           </div>
         </div>
         <div className={styles['demo7-right']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
       </div>
     )
@@ -141,7 +141,7 @@ export default function JewelryDetail() {
         <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
         </div>
         <div className={styles['demo5-top']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
         <div className={styles['des']} dangerouslySetInnerHTML={{ __html: obj.content }}>
         </div>
@@ -153,7 +153,7 @@ export default function JewelryDetail() {
     return(
       <div className={styles['detail-demo4']}>
         <div className={styles['demo4-top']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
         <div className={styles['demo4-txtBox']}>
         <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
@@ -161,7 +161,7 @@ export default function JewelryDetail() {
         </div>
         </div>
         <div className={styles['demo4-down']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[1]} alt="" />
         </div>
       </div>
     )
@@ -234,7 +234,7 @@ export default function JewelryDetail() {
         let { temp,catname,title,brief,is_bg,header_img,priv,next} = res.data.data
         temp = temp.map((item:TempItem)=>({
           ...item,
-          component:arr.filter(itcm=>itcm.type === item.template)[0].component
+          component:arr.filter(itcm=>itcm.type === item.template)[0]?.component || Default
         }))
         setDetailData({
           temp,catname,title,brief,is_bg,header_img,priv,next
