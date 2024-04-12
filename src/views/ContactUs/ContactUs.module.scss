@@ -1,3 +1,8 @@
+.contactUs-body{
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+}
 .contactUs{
   .cu-container{
     display: flex;
@@ -48,41 +53,32 @@
         }
       }
     }
-    .contact-form{
-      min-height: 4rem;
-      background-color: #fff;
-      .title{
-        padding-top: .1rem;
-        text-align: center;
-        font-size: .35rem;
-        color: #000;
-        margin-bottom: 0.2rem;
-        position: relative;
-        padding-top: .2rem;
-        span{
-          display: none;
-          font-size: .16rem;
-          color: #999;
-          position: absolute;
-          top: 50%;
-          font-weight: bold;
-          transform: translateY(-50%);
-          left: 0;
+  }
+  .contact-form{
+    min-height: 4rem;
+    background-color: #fff;
+    .title{
+      padding-top: .1rem;
+      text-align: center;
+      font-size: .35rem;
+      color: #000;
+      margin-bottom: 0.2rem;
+      position: relative;
+      padding-top: .2rem;
+      span{
+        display: none;
+        font-size: .16rem;
+        color: #999;
+        position: absolute;
+        top: 50%;
+        font-weight: bold;
+        transform: translateY(-50%);
+        left: 0;
 
-        }
       }
-      :global {
-        .ant-select:not(.ant-select-customize-input) .ant-select-selector {
-          border: none;
-          border-bottom: 1px solid #eee;
-          font-size: .14rem;
-          padding: 3px 0;
-          span{
-            padding: 0;
-          }
-        }
-      }  
-      .txt{
+    }
+    :global {
+      .ant-select:not(.ant-select-customize-input) .ant-select-selector {
         border: none;
         border-bottom: 1px solid #eee;
         font-size: .14rem;
@@ -91,83 +87,95 @@
           padding: 0;
         }
       }
-      .cbox{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .sub{
-          display: block;
-          font-size: .2rem;
-          color: #000;
-          border-color: #fff;
-          bottom: 0 !important;
-          &:after{
-            background-color: #000;
-          }
-          &:before{
-            background-color: #000;
-          }
+      .ant-form-item .ant-form-item-label >label{
+        font-size: .2rem;
+      }
+    }  
+    .txt{
+      border: none;
+      border-bottom: 1px solid #eee;
+      font-size: .14rem;
+      padding: 3px 0;
+      span{
+        padding: 0;
+      }
+    }
+    .cbox{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .sub{
+        display: block;
+        font-size: .2rem;
+        color: #000;
+        border-color: #fff;
+        bottom: 0 !important;
+        &:after{
+          background-color: #000;
+        }
+        &:before{
+          background-color: #000;
         }
       }
     }
-    .c-btn{
-      font-size: .2rem;
-      cursor: pointer;
-      position: relative;
-      padding: 0.03rem 0;
-      display: inline-block;
-      bottom: .5rem;
-      &:hover {
-        color: #fff;
-      }
-      &:before {
-        -webkit-transform: scaleX(0);
-        -ms-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transform-origin: 0 0;
-        -ms-transform-origin: 0 0;
-        transform-origin: 0 0;
-        -webkit-transition-delay: 0s;
-        transition-delay: 0s;
-      }
-      &:hover:before {
-        -webkit-transform: scaleX(1);
-        -ms-transform: scaleX(1);
-        transform: scaleX(1);
-        -webkit-transition-delay: .3s;
-        transition-delay: .3s;
-      }
-      
-      &:after{
-        -webkit-transform: scaleX(1);
-        -ms-transform: scaleX(1);
-        transform: scaleX(1);
-        -webkit-transform-origin: 100% 0;
-        -ms-transform-origin: 100% 0;
-        transform-origin: 100% 0;
-        -webkit-transition-delay: .3s;
-        transition-delay: .3s;
-      }
-      &:hover:after {
-        -webkit-transform: scaleX(0);
-        -ms-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transition-delay: 0s;
-        transition-delay: 0s;
-      }
-      &:before, &:after {
-        height: 1px;
-        width: 100%;
-        position: absolute;
-        background-color: #fff;
-        bottom: -3px;
-        left: 0;
-        content: "";
-        -webkit-transition: -webkit-transform .3s cubic-bezier(.39,.575,.565,1);
-        transition: -webkit-transform .3s cubic-bezier(.39,.575,.565,1);
-        transition: transform .3s cubic-bezier(.39,.575,.565,1);
-        transition: transform .3s cubic-bezier(.39,.575,.565,1),-webkit-transform .3s cubic-bezier(.39,.575,.565,1);
-      }
+  }
+  .c-btn{
+    font-size: .2rem;
+    cursor: pointer;
+    position: relative;
+    padding: 0.03rem 0;
+    display: inline-block;
+    bottom: .5rem;
+    &:hover {
+      color: #fff;
+    }
+    &:before {
+      -webkit-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+      transform-origin: 0 0;
+      -webkit-transition-delay: 0s;
+      transition-delay: 0s;
+    }
+    &:hover:before {
+      -webkit-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+      transform: scaleX(1);
+      -webkit-transition-delay: .3s;
+      transition-delay: .3s;
+    }
+    
+    &:after{
+      -webkit-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+      transform: scaleX(1);
+      -webkit-transform-origin: 100% 0;
+      -ms-transform-origin: 100% 0;
+      transform-origin: 100% 0;
+      -webkit-transition-delay: .3s;
+      transition-delay: .3s;
+    }
+    &:hover:after {
+      -webkit-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition-delay: 0s;
+      transition-delay: 0s;
+    }
+    &:before, &:after {
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      background-color: #fff;
+      bottom: -3px;
+      left: 0;
+      content: "";
+      -webkit-transition: -webkit-transform .3s cubic-bezier(.39,.575,.565,1);
+      transition: -webkit-transform .3s cubic-bezier(.39,.575,.565,1);
+      transition: transform .3s cubic-bezier(.39,.575,.565,1);
+      transition: transform .3s cubic-bezier(.39,.575,.565,1),-webkit-transform .3s cubic-bezier(.39,.575,.565,1);
     }
   }
 }
@@ -186,7 +194,7 @@
     height: calc(100vh - 0.8rem);
   }
   100%{
-    height: calc(55vh - .8rem);
+    height: 6.8rem;
   }
 }
 
@@ -217,15 +225,19 @@
   }
 }
 @media screen and (max-width: 750px) {
+  .hide{
+    overflow: hidden;
+    position: relative;
+  }
   .contactUs{
     background-color: #000;
     .cu-narrow{
-      overflow: auto !important;
       animation-name: cu-narrow !important;
     }
     .cu-container{
       padding-top: 1.4rem;
       background: none !important;
+      position: relative;
       height: calc(100vh - 0.8rem);
       display: flex;
       overflow: hidden;
@@ -238,8 +250,9 @@
       .itemBox{
         flex: 1;
         width: 100%;
+        border: none !important;
         .bgBox{
-          position: absolute;
+          // position: absolute;
           left: 0;
           top: 0;
           width: 100%;
@@ -248,28 +261,52 @@
           background-size: cover;
           background-position: center;
         }
+        .hideWarp{
+          display: none;
+        }
+        .wrapper{
+          .title{
+            font-size: .6rem;
+            margin-bottom: .5rem;
+          }
+          .txt{
+            p{
+              font-size: .25rem !important;
+            }
+          }
+          .c-btn{
+            font-size: .45rem !important;
+            bottom: 0;
+          }
+        }
       }
-      .contact-form{
-        top: calc(55vh + .6rem);
-        position: absolute;
-        height: auto;
-        width: 100%;
-        padding: 0;
-        transition: .8s;
-        .txt{
+      
+    }
+    .showForm{
+      position: static !important;
+    }
+    .contact-form{
+      background-color: #fff;
+      position: absolute;
+      top: calc(100vh + .8rem);
+      width: 100%;
+      transition: .8s;
+      .txt{
+        font-size: .25rem;
+      }
+      :global {
+        .ant-select:not(.ant-select-customize-input) .ant-select-selector {
           font-size: .25rem;
         }
-        :global {
-          .ant-select:not(.ant-select-customize-input) .ant-select-selector {
-            font-size: .25rem;
-          }
-        } 
-        .cbox{
-          .sub{
-            font-size: .3rem;
-          }
-        } 
-      }
+        .ant-form-item .ant-form-item-label >label{
+          font-size: .25rem;
+        }
+      } 
+      .cbox{
+        .sub{
+          font-size: .3rem;
+        }
+      } 
     }
   }  
 }
@@ -364,19 +401,27 @@
           }
         }
       }
-      .contact-form{
-        width: 0;
-        height: 100vh;
-        background-color: #fff;
-        animation-name: none;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
-        span{
-          display: inline-block !important;
-          z-index: 9999;
-          cursor: pointer;
-        }
+    }
+    .contact-form{
+      width: 0;
+      height: 100vh;
+      background-color: #fff;
+      animation-name: none;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      span{
+        display: inline-block !important;
+        z-index: 9999;
+        cursor: pointer;
       }
+      :global {
+        .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+          font-size: .15rem;
+        }
+        .ant-form-item .ant-form-item-label >label{
+          font-size: .2rem;
+        }
+      } 
     }
   }
 }

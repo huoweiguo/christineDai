@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import styles from './ContactUs.module.scss'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
@@ -26,7 +26,27 @@ interface typeCityData{
   parent_id: number
 }
 
+const useKeyboardListener = () => {
+  const [keyboardVisible, setKeyboardVisible] = useState(false);
+ 
+  useEffect(() => {
+    const onResize = () => {
+      const height = window.innerHeight;
+      const keyboardVisible = height < window.innerWidth;
+      setKeyboardVisible(keyboardVisible);
+    };
+ 
+    window.addEventListener('resize', onResize);
+    onResize(); // Trigger initial check
+ 
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+ 
+  return keyboardVisible;
+};
+
 export default function ContactUs() {
+  const [form] = Form.useForm();
 
   const [ activeIndex, setactiveIndex ] = useState<number>(0)
   const [ selectIndex, setSelectIndex ] = useState<number|null>(null)
@@ -40,11 +60,8 @@ export default function ContactUs() {
   const [sw, setSw] = useState(true)
  
   const handleWindowSizeChange = () => { //监听页面大小变化
-    console.log('====================================');
-    console.log(window.innerWidth);
-    console.log('====================================');
     setCol(window.innerWidth > 750 ? 12 : 24)
-    setSw(window.innerWidth > 750 ? true : false)
+    !selectIndex && setSw(window.innerWidth > 750 ? true : false)
   };
 
   const handleMouseEnter = (index: number) => {
@@ -52,6 +69,7 @@ export default function ContactUs() {
   }
 
   const openContactForm = (index: number) => {
+    form.resetFields();
     setSelectIndex(index)
     col===24 && setSw(true)
   }
@@ -74,53 +92,15 @@ export default function ContactUs() {
     }
   };
 
-  const onGenderChange = (val: string)=>{
-    console.log('====================================');
-    console.log(val);
-    console.log('====================================');
-  }
+  const onGenderChange = (val: string)=>{}
 
   const onChangeCheck: CheckboxProps['onChange'] = (e) => {
     setIsCheck(e.target.checked)
   }
 
-  useEffect(() => {
-    getContactUs().then(res=>{
-      if(res.data.code===200){
-        setBgData([...res.data.data])
-      }
-    })
-    getCityList().then(res=>{
-      if(res.data.code===200){
-        setCityData([...res.data.data])
-      }
-    })
-    handleWindowSizeChange()
-    window.addEventListener('resize', handleWindowSizeChange);
-    return () => window.removeEventListener('resize', handleWindowSizeChange);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return (
-    <div className={ styles.contactUs }>
-      <Header titleObj={{title:'联系我们',name:'CONTACT US'}}></Header>
-      { bgData.length > 0 && <div className={ `${styles['cu-container']} ${ selectIndex ? styles['cu-narrow'] : ''}` } style={{backgroundImage: 'url('+bgData[activeIndex]?.bg_cover+')'}}>
-        { bgData.map((item,index)=>(
-          <div className={`${styles.itemBox} ${selectIndex && selectIndex !== index+1 ? styles.narrow : ''}`} key={index} onMouseEnter={()=>handleMouseEnter(index)}>
-            { col===24 && <div className={styles.bgBox} style={{backgroundImage: 'url('+item.bg_cover+')',height: `${100 / bgData.length}%`}}></div>}
-            <div className={`${styles.wrapper} ${selectIndex === index+1 ? styles.showWrapper : ''}`}>
-              <div className={styles.title}  dangerouslySetInnerHTML={{ __html: item.title }}></div>
-              <div className={`${styles.content } ${selectIndex === index+1 ? styles.showContent : ''}`}>
-                <div dangerouslySetInnerHTML={{ __html: item.content }}></div>
-                <p className={styles['c-btn']} onClick={()=>openContactForm(index+1)}>{item.contact}</p>
-              </div>
-            </div>
-          </div>
-        ))
-        }
-        <div className={`${styles['contact-form']} ${selectIndex ? styles.enlarge : (selectIndex === 0 ? styles['enlarge-leave'] : '')}`} style={{display: sw ? 'block' : 'none'}}>
-          <div className={styles.title}>联络我们 <span onClick={()=>onBack()}>返回上一页</span></div>
-          <Form name="trigger" 
+  const divForm = () => {
+    return (
+      <Form name="trigger" 
           style={{ padding: 20 }} 
           layout="vertical" 
           autoComplete="off"
@@ -204,11 +184,58 @@ export default function ContactUs() {
               </Form.Item>
             </Col>
           </Row>
-          </Form>
-          { col===24 && selectIndex && <Footer></Footer>}
-        </div>
+        </Form>
+    )
+  }
+
+  useEffect(() => {
+    getContactUs().then(res=>{
+      if(res.data.code===200){
+        setBgData([...res.data.data])
+      }
+    })
+    getCityList().then(res=>{
+      if(res.data.code===200){
+        setCityData([...res.data.data])
+      }
+    })
+    handleWindowSizeChange()
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    } 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
+
+  return (
+    <div className={ styles['contactUs-body'] }>
+       <Header titleObj={{title:'联系我们',name:'CONTACT US'}}></Header>
+       <div className={ `${styles.contactUs} ${!selectIndex ? styles.hide : ''}` }>
+      { bgData.length > 0 && <div className={ `${styles['cu-container']} ${ selectIndex ? styles['cu-narrow'] : ''}` } style={{backgroundImage: 'url('+bgData[activeIndex]?.bg_cover+')'}}>
+        { bgData.map((item,index)=>(
+          <div className={`${styles.itemBox} ${selectIndex && selectIndex !== index+1 ? styles.narrow : ''}`} key={index} onMouseEnter={()=>handleMouseEnter(index)}>
+            { col===24 && <div className={styles.bgBox} style={{backgroundImage: 'url('+item.bg_cover+')'}}></div>}
+            <div className={`${styles.wrapper} ${selectIndex === index+1 ? styles.showWrapper : ''}`}>
+              <div className={styles.title}  dangerouslySetInnerHTML={{ __html: item.title }}></div>
+              <div className={`${styles.content } ${selectIndex === index+1 ? styles.showContent : ''}`}>
+                <div className={`${styles.txt} ${selectIndex ? styles.showWarp : styles.hideWarp}`} dangerouslySetInnerHTML={{ __html: item.content }}></div>
+                <p className={styles['c-btn']} onClick={()=>openContactForm(index+1)}>{item.contact}</p>
+              </div>
+            </div>
+          </div>
+        ))
+        }
+        { col===12 && <div className={`${styles['contact-form']} ${selectIndex ? styles.enlarge : (selectIndex === 0 ? styles['enlarge-leave'] : '')}`}>
+          <div className={styles.title}>联络我们 <span onClick={()=>onBack()}>返回上一页</span></div>
+          { divForm() }
+        </div>}
       </div>}
-      {!(col===24 && selectIndex) && <Footer></Footer>}
+      { bgData.length > 0 && col===24 && <div className={`${styles['contact-form']} ${selectIndex ? styles.enlarge : (selectIndex === 0 ? styles['enlarge-leave'] : '')} ${ selectIndex ? styles.showForm : '' }`}>
+        <div className={styles.title}>联络我们 <span onClick={()=>onBack()}>返回上一页</span></div>
+        { divForm() }
+      </div>}
+      </div>
+      <Footer></Footer>
     </div>  
   )
 }
