@@ -35,6 +35,10 @@ export default function Home() {
   };
   
   useEffect(() => {
+    if(getCachedObject(HomeKey)){
+      const homeObject = getCachedObject(HomeKey);
+      setHomeData(homeObject)
+    }
     getHomeInfos().then(res => {
       if (res.data.code === 200) {
         const { bg_video, placard, logo_img,weibo,xiaohongshu,ins,wxqr} = res.data.data
