@@ -53,7 +53,7 @@ export default function MediaDetail() {
           <img src={require('../../assets/images/docImg.jpg')} alt="" />
         </div>
         { pcShow && <div className={styles['wx-fixed']}>
-          <img src={require('../../assets/images/wx-2.bmp')} alt=""/>
+          <img src={require('../../assets/images/wx-2.jpg')} alt=""/>
           <p>
           微信扫一扫<br/>
           关注该公众号</p>
