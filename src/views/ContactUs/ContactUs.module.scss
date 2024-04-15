@@ -4,6 +4,7 @@
   background: #000;
 }
 .contactUs{
+  min-height: calc(100vh - 2.1rem);
   .cu-container{
     display: flex;
     flex-direction: column;
@@ -230,6 +231,7 @@
     position: relative;
   }
   .contactUs{
+    min-height: calc(100vh - 2.1rem);
     background-color: #000;
     .cu-narrow{
       animation-name: cu-narrow !important;
