@@ -26,25 +26,6 @@ interface typeCityData{
   parent_id: number
 }
 
-const useKeyboardListener = () => {
-  const [keyboardVisible, setKeyboardVisible] = useState(false);
- 
-  useEffect(() => {
-    const onResize = () => {
-      const height = window.innerHeight;
-      const keyboardVisible = height < window.innerWidth;
-      setKeyboardVisible(keyboardVisible);
-    };
- 
-    window.addEventListener('resize', onResize);
-    onResize(); // Trigger initial check
- 
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
- 
-  return keyboardVisible;
-};
-
 export default function ContactUs() {
   const [form] = Form.useForm();
 
@@ -78,9 +59,30 @@ export default function ContactUs() {
     setSelectIndex(0)
   }
 
+  const checkData = (val: ruleData): Boolean=>{
+    if(!val.email){
+      window.confirm('电子邮箱不能为空')
+      return false
+    }else if(!val.name){
+      window.confirm('姓名不能为空')
+      return false
+    }else if(!val.phone){
+      window.confirm('电话不能为空')
+      return false
+    }else if(!val.email){
+      window.confirm('地区不能为空')
+      return false
+    }else if(!val.email){
+      window.confirm('留言不能为空')
+      return false
+    }else{
+      return true
+    }
+  }
+
   const onFinish: FormProps<ruleData>["onFinish"] = (values) => {
     if(isCheck){
-      getMessage(values).then(res=>{
+      checkData(values) && getMessage(values).then(res=>{
         if(res.data.code===200){
           alert('发送成功！')
           setSelectIndex(0)
