@@ -114,7 +114,7 @@ export const routes: RouteObject[] = [
         }
       },
       {
-        path: 'jewelryDetail/:id',
+        path: 'jewelryDetail',
         element: React.createElement(JewelryDetail),
         meta: {
           title: '珠宝详情'

@@ -2,8 +2,8 @@ import React,{ useState,useEffect }from 'react'
 import styles from './JewelryDetail.module.scss'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
-import { useParams } from 'react-router-dom';
-import { getProductInfo } from '../../store/modules/jewelry'
+import { useParams,useNavigate } from 'react-router-dom';
+import { getProductInfo,getProductList } from '../../store/modules/jewelry'
 interface TempItem {
   template: number,
   title: string,
@@ -21,18 +21,31 @@ interface RuleData {
   priv: number,
   next: number
 }
+interface DataItem {
+  current_page: string,
+  total: number,
+  total_page: number,
+  list: {
+    id: number,
+    title: string,
+    title_en: string,
+    cat_id: number,
+    is_line: number
+  }[]
+  catname: string
+}
 export default function JewelryDetail() {
-  const { id } = useParams();
-  let [num, setNum] = useState(0);
-  const [isObj, setIsObj] = useState<TempItem>({
-    template: 0,
-    title:'',
-    content: '',
-    image: '',
-    component:()=>{
-      return('')
-    }
-  });
+  const navigate = useNavigate();
+  const searchParams = new URLSearchParams(window.location.search);
+  const id = searchParams.get('id') as string;
+  const lcid = searchParams.get('lcid') as string;
+  const [listData, setListData] = useState<DataItem>({
+    current_page: '',
+    total: 0,
+    total_page: 0,
+    list: [],
+    catname: ''
+  })
   const [DetailData, setDetailData] = useState<RuleData>({
     temp: [],
     catname: '',
@@ -54,7 +67,7 @@ export default function JewelryDetail() {
           </div>
         </div>
         <div className={styles['demo1-imgBox']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
       </div>
     )
@@ -63,7 +76,7 @@ export default function JewelryDetail() {
     return(
       <div className={styles['detail-demo1']}>
         <div className={styles['demo1-imgBox']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
         <div className={styles['demo1-txtBox']}>
         <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
@@ -77,7 +90,7 @@ export default function JewelryDetail() {
     return(
       <div className={styles['detail-demo5']}>
         <div className={styles['demo5-top']}>
-            <img src={obj.image} alt="" />
+            <img src={obj.image[0]} alt="" />
           </div>
         <div className={styles['demo5-txtBox']}>
           <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
@@ -92,7 +105,7 @@ export default function JewelryDetail() {
     return(
       <div className={styles['detail-demo3']}>
         <div className={styles['demo3-left']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
         <div className={styles['demo3-txtBox']}>
         <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
@@ -100,7 +113,7 @@ export default function JewelryDetail() {
         </div>
         </div>
         <div className={styles['demo3-right']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[1]} alt="" />
         </div>
       </div>
     )
@@ -116,7 +129,7 @@ export default function JewelryDetail() {
           </div>
         </div>
         <div className={styles['demo7-right']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
       </div>
     )
@@ -128,7 +141,7 @@ export default function JewelryDetail() {
         <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
         </div>
         <div className={styles['demo5-top']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
         <div className={styles['des']} dangerouslySetInnerHTML={{ __html: obj.content }}>
         </div>
@@ -140,7 +153,7 @@ export default function JewelryDetail() {
     return(
       <div className={styles['detail-demo4']}>
         <div className={styles['demo4-top']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[0]} alt="" />
         </div>
         <div className={styles['demo4-txtBox']}>
         <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
@@ -148,7 +161,7 @@ export default function JewelryDetail() {
         </div>
         </div>
         <div className={styles['demo4-down']}>
-          <img src={obj.image} alt="" />
+          <img src={obj.image[1]} alt="" />
         </div>
       </div>
     )
@@ -197,39 +210,42 @@ export default function JewelryDetail() {
       component:Default
     },
   ]
-  // const NextPage =()=>{ //下一页
-  //  if(DetailData.temp.length === 0) return 
-  //     let addNum = num + 1
-  //     if(addNum >= DetailData.temp.length){
-  //       setNum(0)
-  //       addNum = 0
-  //     }else{
-  //       setNum(num+1)
-  //     }
-  //     setIsObj(DetailData.temp[addNum])
-  //   }
-  // const PrevPage =()=>{ //上一页
-  //   if(DetailData.temp.length === 0) return 
-  //     let addNum = num - 1
-  //     if(num === 0){
-  //       setNum(DetailData.temp.length-1)
-  //       addNum = DetailData.temp.length-1
-  //     }else{
-  //       setNum(num-1)
-  //     }
-  //     console.log(addNum,'addNum')
-  //     setIsObj(DetailData.temp[addNum])
-  // }
+  const NextPage =()=>{ //下一页
+    if(listData.list.length <= 1) return 
+    const index = listData.list.findIndex((item:any)=>item.id === Number(id))
+    let addNum = index + 1
+    if(addNum >= listData.list.length){
+      addNum = 0
+    }
+    navigate(`/layout/JewelryDetail?id=${listData.list[addNum].id}&lcid=${lcid}`);
+  }
+  const PrevPage =()=>{ //上一页
+    if(listData.list.length <= 1) return 
+    const index = listData.list.findIndex((item:any)=>item.id === Number(id))
+    let addNum = index - 1
+    if(addNum < 0){
+      addNum = listData.list.length-1
+    }
+    navigate(`/layout/JewelryDetail?id=${listData.list[addNum].id}&lcid=${lcid}`);
+  }
   useEffect(() => {
     getProductInfo(id as string).then(res => {
       if (res.data.code === 200) {
         let { temp,catname,title,brief,is_bg,header_img,priv,next} = res.data.data
         temp = temp.map((item:TempItem)=>({
           ...item,
-          component:arr.filter(itcm=>itcm.type === item.template)[0].component
+          component:arr.filter(itcm=>itcm.type === item.template)[0]?.component || Default
         }))
         setDetailData({
           temp,catname,title,brief,is_bg,header_img,priv,next
+        })
+      } 
+    })
+    getProductList(lcid as string).then(res => {
+      if (res.data.code === 200) {
+        const { current_page,total,total_page,list,catname} = res.data.data
+        setListData({
+          current_page,total,total_page,list,catname
         })
       } 
     })
@@ -238,13 +254,15 @@ export default function JewelryDetail() {
   return (
     <div className={styles.detailBody}>
       <Header go></Header>
-      <div className={styles['detail-top']}>
-        <div className={styles['detail-prevBtn']}>
+      <div className={styles['detail-top2']}>
+        {DetailData.is_bg === 0&&DetailData.header_img?<img className={styles['detail-img']}  src={DetailData.header_img} alt="" />:
+         ''}
+        {listData.list.length <= 1?'':<div onClick={()=>PrevPage()} className={styles['detail-prevBtn']}>
           上一页
-        </div>
-        <div className={styles['detail-nextBtn']}>
+        </div>}
+        {listData.list.length <= 1?'':<div onClick={()=>NextPage()} className={styles['detail-nextBtn']}>
           下一页
-        </div>
+        </div>}
         <div className={styles['detail-txtBox']}>
             {DetailData.catname}
             <br/>      
@@ -253,7 +271,7 @@ export default function JewelryDetail() {
       </div>
       <div className={styles['detail-box']}>
         <div className={styles['detail-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>
-        {DetailData.temp.map((item,index)=>{
+        {DetailData.temp.length === 0?DetailData.catname?Default():'':DetailData.temp.map((item,index)=>{
           return (<div key={index}>{item.component(item)}</div>)
         })}
       </div>

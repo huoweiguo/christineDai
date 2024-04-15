@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face{
+  font-family: 'Baskerville'; /* 重命名字体名 */
+  src: url('./assets/styles/Baskerville.ttc');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -54,7 +54,7 @@ export default function JewelryList() {
           <ul className={styles['jewelry-listBox']}>
             {listData.list.length>0?listData.list.map(item=>{
               return(
-                <li onClick={()=>handleButtonClick(`/layout/JewelryDetail/${item.id}`)} key={item.id}>
+                <li onClick={()=>handleButtonClick(`/layout/JewelryDetail?id=${item.id}&lcid=${id}`)} key={item.id}>
                   <h5>{item.title}·{item.title_en}</h5>
                 </li>
               )
