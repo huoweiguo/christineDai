@@ -1,6 +1,8 @@
 import axios from 'axios'
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
+console.log('xxxxxxxx', process.env.NODE_ENV)
+
 declare module 'axios' {
   interface AxiosResponse<T = any> {
     code?: string | number
@@ -9,8 +11,10 @@ declare module 'axios' {
   export function create(config?: AxiosRequestConfig): AxiosInstance
 }
 
+let baseURL = process.env.NODE_ENV === 'development' ? '/api' : 'http://web-api.chris-dai.com/api'
+
 const instance = axios.create({
-  baseURL: '/api',
+  baseURL,
   timeout: 10000
 })
 
