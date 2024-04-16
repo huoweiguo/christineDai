@@ -30,10 +30,20 @@
     align-items: center;
     flex-direction:column;
     justify-content:space-between;
-    h5{
-      font-size: 0.6rem;
-      margin: 0.5rem 0 1rem;
-      font-family: Baskerville;
+    position: relative;
+    .jewe-text{
+      white-space: nowrap;
+      margin:  0.5rem 1rem;
+      .jewe-the{
+        font-size: 0.18rem;
+        font-family: Baskerville;
+        font-style: italic;
+        margin-bottom: 0.1rem;
+      }
+      h5{
+        font-size: 0.6rem;
+        font-family: Baskerville;
+      }
     }
     .jewe-icon{
       display: flex;
@@ -44,6 +54,16 @@
         height: 0.3rem;
       }
     }
+  }
+  .jewe-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 35%;
+    right: 0;
+    width: 2px;
+    height: 0.6rem;
+    background-color: #1c1c1c;
+    transform:rotate(-25deg);
   }
   .jewe-down{
     color: #8d7249;
@@ -73,6 +93,9 @@
       width: 100%;
       margin-bottom: 0.3rem;
     }
+    .jewe-item::after{
+      display: none;
+    }
   }
 
 }
@@ -97,6 +120,9 @@
           height: 0.3rem;
         }
       }
+    }
+    .jewe-item::after{
+      display: none;
     }
   }
 }
