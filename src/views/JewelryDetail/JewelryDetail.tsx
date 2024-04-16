@@ -267,6 +267,7 @@ export default function JewelryDetail() {
             {DetailData.catname}
             <br/>      
             {DetailData.title}
+            <div className={styles['detail-text-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>
         </div>
       </div>
       <div className={styles['detail-box']}>

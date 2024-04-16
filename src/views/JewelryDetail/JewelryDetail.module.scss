@@ -104,6 +104,15 @@
   transform: translateY(-50%);
   line-height: 1.5;
 }
+.detail-text-brief{
+  width: 80%;
+  font-size: 0.14rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 .detail-brief{
   font-size: .24rem;
