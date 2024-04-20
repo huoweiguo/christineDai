@@ -255,7 +255,7 @@ export default function JewelryDetail() {
     <div className={styles.detailBody}>
       <Header go></Header>
       <div className={styles['detail-top2']}>
-        {DetailData.is_bg === 0&&DetailData.header_img?<img className={styles['detail-img']}  src={DetailData.header_img} alt="" />:
+        {DetailData.header_img?<img className={styles['detail-img']}  src={DetailData.header_img} alt="" />:
          ''}
         {listData.list.length <= 1?'':<div onClick={()=>PrevPage()} className={styles['detail-prevBtn']}>
           上一页
@@ -267,11 +267,11 @@ export default function JewelryDetail() {
             {DetailData.catname}
             <br/>      
             {DetailData.title}
-            <div className={styles['detail-text-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>
+            {DetailData.header_img?<div className={styles['detail-text-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>:''}
         </div>
       </div>
       <div className={styles['detail-box']}>
-        <div className={styles['detail-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>
+        {DetailData.header_img?'':<div className={styles['detail-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>}
         {DetailData.temp.length === 0?DetailData.catname?Default():'':DetailData.temp.map((item,index)=>{
           return (<div key={index}>{item.component(item)}</div>)
         })}
