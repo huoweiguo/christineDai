@@ -3,6 +3,9 @@
   min-height: 100vh;
   background: #000;
 }
+.option-size{
+  font-size: .2rem !important;
+}
 .contactUs{
   min-height: calc(100vh - 2.1rem);
   .cu-container{
@@ -233,6 +236,9 @@
     overflow: hidden;
     position: relative;
   }
+  .option-size{
+    font-size: .25rem !important;
+  }
   .contactUs{
     min-height: calc(100vh - 2.1rem);
     background-color: #000;
@@ -319,6 +325,9 @@
   }  
 }
 @media screen and (min-width: 1024px) {
+  .option-size{
+    font-size: .15rem !important;
+  }
   .contactUs{
     .cu-container{
       overflow: hidden;
@@ -428,6 +437,9 @@
         }
         .ant-form-item .ant-form-item-label >label{
           font-size: .2rem;
+        }
+        .ant-select .ant-select-dropdown-menu-item{
+          font-size: 1rem;
         }
       } 
     }

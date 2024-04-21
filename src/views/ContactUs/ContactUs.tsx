@@ -162,7 +162,7 @@ export default function ContactUs() {
                   allowClear
                 >
                   { cityData.length > 0 && cityData.map(item=>(
-                    <Option value={item.city_id} key={item.city_id}>{item.name}</Option>
+                    <Option className={styles['option-size']} value={item.city_id} key={item.city_id}>{item.name}</Option>
                   ))}
                 </Select>
               </Form.Item>
