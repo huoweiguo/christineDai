@@ -270,7 +270,7 @@ export default function JewelryDetail() {
             {DetailData.header_img?<div className={styles['detail-text-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>:''}
         </div>
       </div>
-      <div className={styles['detail-box']}>
+      <div className={DetailData.is_bg === 0?styles['detail-box']:styles['detail-box2']}>
         {DetailData.header_img?'':<div className={styles['detail-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>}
         {DetailData.temp.length === 0?DetailData.catname?Default():'':DetailData.temp.map((item,index)=>{
           return (<div key={index}>{item.component(item)}</div>)
