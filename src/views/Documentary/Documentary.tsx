@@ -17,6 +17,7 @@ export default function Documentary() {
   }
   const [docList, setDocList] = useState<DataItem[]>([])
   const [navNumber,setNavNumber] = useState<Number>(0)
+  const [isFix,setIsFix] = useState<boolean>(false)
   const navigate = useNavigate();
   let docListBak: DataItem[] = []
 
@@ -52,6 +53,11 @@ export default function Documentary() {
   const listenerULList = () => {
     const scrollY = window.scrollY
     const len = docListBak.length
+    if(scrollY>300){
+      setIsFix(true)
+    }else{
+      setIsFix(false)
+    }
     for (let i = 0; i < len; i++) {
       if (docListBak[i].top as number >= scrollY) {
         setNavNumber(i)
@@ -86,7 +92,7 @@ export default function Documentary() {
         </h5>
       </div>
       <div className={styles.DocBody}>
-        <div className={styles['doc-nav']}>
+        <div className={isFix?styles['doc-nav-fix']:styles['doc-nav']}>
           <div className={styles['nav-line']}></div>
           <ul className={styles['nav-list']}>
             {docList.map((item,index)=>{

@@ -77,9 +77,76 @@
   }
 }
 .doc-nav{
+  position: absolute;
+  right: 0.5rem;
+  top: 0.7rem;
+  .nav-line{
+    position: absolute;
+    width: 1px;
+    min-height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #8d7249;
+  }
+  .nav-list{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navItem{
+    z-index: 1;
+    position: relative;
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    border:1px solid #8d7249;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 0.3rem;
+    .activeText{
+      display: none;
+    }
+  }
+  .active:first-child,
+  .navItem:first-child {
+    margin-top: 0;
+  }
+  .active{
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border:1px solid #8d7249;
+    border-radius: 50%;
+    margin-top: 0.3rem;
+    .activeText{
+      display: block;
+      position: absolute;
+      font-size: 0.2rem;
+      left: -90px;
+      top: 0;
+    }
+  }
+  .active::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%; /* 将矩形变成圆形 */
+    transform: translate(-50%, -50%);
+  }
+}
+
+.doc-nav-fix{
   position: fixed;
   right: 0.5rem;
-  top: 4.5rem;
+  top: 1.7rem;
   .nav-line{
     position: absolute;
     width: 1px;
