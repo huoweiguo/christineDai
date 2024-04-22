@@ -7,6 +7,7 @@ import { RouterProvider } from 'react-router-dom';
 import router from './router'
 import { Provider } from 'react-redux'
 import store from './store'
+import { StyleProvider } from '@ant-design/cssinjs'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,7 +16,9 @@ root.render(
   <React.StrictMode>
     <Suspense>
       <Provider store={store}>
-        <RouterProvider router={router}></RouterProvider>
+        <StyleProvider hashPriority="high">
+          <RouterProvider router={router}></RouterProvider>
+        </StyleProvider>
       </Provider>
     </Suspense>
   </React.StrictMode>

@@ -174,7 +174,7 @@ export default function ContactUs() {
                 validateTrigger="onBlur"
                 rules={[{ max: 100 }]}
               >
-                <TextArea rows={4} placeholder="" maxLength={6} />
+                <TextArea rows={4} placeholder="" maxLength={200} />
               </Form.Item>
             </Col>
             <Col span={24}>
