@@ -13,10 +13,13 @@ export default function Documentary() {
     linkurl: string;
     created_at: string;
     updated_at: string;
+    top?: number
   }
-  const [DocList, setDocList] = useState<DataItem[]>([])
-  const [NavNumber,setNavNumber] = useState<Number>(0)
+  const [docList, setDocList] = useState<DataItem[]>([])
+  const [navNumber,setNavNumber] = useState<Number>(0)
   const navigate = useNavigate();
+  let docListBak: DataItem[] = []
+
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
     navigate(url);
@@ -25,15 +28,51 @@ export default function Documentary() {
     // 使用 navigate() 方法进行路由跳转
     window.location.href = url
   };
-  const cutNav = (i:number) =>{
-    setNavNumber(i)
+  const cutNav = (i:number, top: number) =>{
+    window.scrollTo({
+      top,
+      behavior: 'smooth'
+    })
+    
+    setTimeout(() => {
+      setNavNumber(i)
+    }, 700)
   }
+  const getElementPageY = () => {
+    const docUI: HTMLUListElement  = document.querySelector('#docUI') as HTMLUListElement
+    const children  = docUI.querySelectorAll('li')
+    const len = children.length
+    for (let i = 0; i < len; i++ ) {
+      docListBak[i].top = children[i].offsetTop
+    }
+
+    setDocList(docListBak)
+  }
+
+  const listenerULList = () => {
+    const scrollY = window.scrollY
+    const len = docListBak.length
+    for (let i = 0; i < len; i++) {
+      if (docListBak[i].top as number >= scrollY) {
+        setNavNumber(i)
+        return false
+      }
+    }
+  }
+
   useEffect(() => {
     getBrandEvent().then(res => {
       if (res.data.code === 200) {
         const list = res.data.data
+        docListBak = list
         setDocList(list)
+        getElementPageY()
+        window.addEventListener('scroll', listenerULList, false)
       } 
+
+      return () => {
+        window.removeEventListener('scroll', listenerULList, false)
+      }
     })
   }, [])
   return (
@@ -50,15 +89,15 @@ export default function Documentary() {
         <div className={styles['doc-nav']}>
           <div className={styles['nav-line']}></div>
           <ul className={styles['nav-list']}>
-            {DocList.map((item,index)=>{
-              return(<li onClick={()=>cutNav(index)} className={NavNumber === index?styles.active:styles.navItem} key={item.id}>
+            {docList.map((item,index)=>{
+              return(<li onClick={()=>cutNav(index, item.top as number)} className={navNumber === index?styles.active:styles.navItem} key={item.id}>
                 <div className={styles.activeText}>{item.event_date}</div>
               </li>)
             })}
           </ul>
         </div>
-        <ul className={styles['doc-list']}>
-        {DocList.map((item)=>{
+        <ul className={styles['doc-list']} id="docUI">
+        {docList.map((item)=>{
             return(<li onClick={()=>toUrl(item.linkurl)} className={styles['doc-item']} key={item.id}>
             <div className={styles['doc-left']}>
               <img src={item.brand_img} alt="" />
