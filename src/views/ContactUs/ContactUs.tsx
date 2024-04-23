@@ -39,6 +39,7 @@ export default function ContactUs() {
 
   const [col, setCol] = useState(12);
   const [sw, setSw] = useState(true)
+  const [loading, setLoading] = useState(false)
  
   const handleWindowSizeChange = () => { //监听页面大小变化
     setCol(window.innerWidth > 750 ? 12 : 24)
@@ -81,13 +82,18 @@ export default function ContactUs() {
   }
 
   const onFinish: FormProps<ruleData>["onFinish"] = (values) => {
+    setLoading(true)
     if(isCheck){
       checkData(values) && getMessage(values).then(res=>{
         if(res.data.code===200){
           alert('发送成功！')
           setSelectIndex(0)
           setSw(false)
+        }else{
+          alert(res.data.message)       
         }
+      }).finally(()=>{
+        setLoading(false)
       })
     }else{
       window.confirm('请勾选阅读隐私权条款')
@@ -181,7 +187,7 @@ export default function ContactUs() {
               <Form.Item>
                 <div  className={styles.cbox}>
                   <Checkbox  onChange={onChangeCheck} value={isCheck}>我已阅读并接受CHRISTINE DAI网站的隐私权条款</Checkbox>
-                  <Button htmlType="submit" className={`${styles['c-btn']} ${styles.sub}`}>发送</Button>
+                  <Button loading={loading} htmlType="submit" className={`${styles['c-btn']} ${styles.sub}`}>发送</Button>
                 </div>
               </Form.Item>
             </Col>
