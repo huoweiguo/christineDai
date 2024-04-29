@@ -40,6 +40,7 @@ export default function Home() {
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
     navigate(url);
+    window.location.reload();
   };
   
   useEffect(() => {

@@ -15,6 +15,7 @@ export default function Hrader(props:HeaderProps) {
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
     navigate(url);
+    window.location.reload();
   };
   const BackUrl = ()=>{
     navigate(-1);
@@ -34,7 +35,7 @@ export default function Hrader(props:HeaderProps) {
   let { type,titleObj,go} = props;
   return (
     <div className={(type&&!isScrolled)||!isScrolled?`${styles.headerBody}`:`${styles.headerBody} ${styles.onFix}`}>
-        <img onClick={()=>handleButtonClick('/')} className={styles['header-logo']} src={require('../../assets/images/header-logo.png')} alt="" />
+        {/* <img onClick={()=>handleButtonClick('/')} className={styles['header-logo']} src={require('../../assets/images/header-logo.png')} alt="" /> */}
         <div className={styles['header-right']}>
            {
             titleObj?
