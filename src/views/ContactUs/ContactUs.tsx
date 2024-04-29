@@ -62,19 +62,24 @@ export default function ContactUs() {
 
   const checkData = (val: ruleData): Boolean=>{
     if(!val.email){
-      window.confirm('电子邮箱不能为空')
+      alert('电子邮箱不能为空')
+      setLoading(false)
       return false
     }else if(!val.name){
-      window.confirm('姓名不能为空')
+      alert('姓名不能为空')
+      setLoading(false)
       return false
     }else if(!val.phone){
-      window.confirm('电话不能为空')
+      alert('电话不能为空')
+      setLoading(false)
       return false
-    }else if(!val.email){
-      window.confirm('地区不能为空')
+    }else if(!val.province){
+      alert('地区不能为空')
+      setLoading(false)
       return false
-    }else if(!val.email){
-      window.confirm('留言不能为空')
+    }else if(!val.msg){
+      alert('留言不能为空')
+      setLoading(false)
       return false
     }else{
       return true
@@ -96,7 +101,8 @@ export default function ContactUs() {
         setLoading(false)
       })
     }else{
-      window.confirm('请勾选阅读隐私权条款')
+      alert('请勾选阅读隐私权条款')
+      setLoading(false)
     }
   };
 
