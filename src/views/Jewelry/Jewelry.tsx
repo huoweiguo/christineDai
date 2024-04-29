@@ -46,7 +46,7 @@ export default function Jewelry() {
             <li className={styles['jewe-item']}>
               <div className={styles['jewe-text']}>
                 <p className={styles['jewe-the']}>The</p>
-                <h5>Fien Jewel</h5>
+                <h5>Fine Jewel</h5>
               </div>
               <div onClick={()=>handleButtonClick('/layout/theJewelry/4')} className={styles['jewe-down']}>
                 <div className={styles['jewe-icon']}>

@@ -30,7 +30,7 @@ export default function GlobalMedia() {
   },[])
   return (
     <div className={styles.GlobalMedia}>
-      <Header go></Header>
+      <Header></Header>
       <div className={styles.banner}>
         <h5>
           全球媒体<br/>

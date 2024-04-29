@@ -253,7 +253,7 @@ export default function JewelryDetail() {
   }, [id])
   return (
     <div className={styles.detailBody}>
-      <Header go></Header>
+      <Header></Header>
       <div className={styles['detail-top2']}>
         {DetailData.header_img?<img className={styles['detail-img']}  src={DetailData.header_img} alt="" />:
          ''}

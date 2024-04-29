@@ -34,9 +34,9 @@
           max-height: 2rem;
         }
         .intro-head {
-          // display: flex;
-          // justify-content: center;
-          // align-items: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           font-size: 0.14rem;
           color: #8d7249;
           margin-top: 0.3rem;
@@ -51,17 +51,19 @@
             font-size: 0.14rem;
             margin-bottom: 0.2rem;
           }
-          // span {
-          //   display: flex;
-          //   flex-direction: column;
-          //   justify-content: center;
-          //   text-align: center;
-          //   margin: 0 0.2rem;
-          //   b {
-          //     font-size: 0.34rem;
-          //     margin-bottom: 0.2rem;
-          //   }
-          // }
+          span {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            margin: 0 0.2rem;
+            font-family: "宋体", "SimSun", sans-serif;
+            b {
+              font-family: "宋体", "SimSun", sans-serif;
+              font-size: 0.34rem;
+              margin-bottom: 0.1rem;
+            }
+          }
         }
       }
       .intro-right {
@@ -73,15 +75,30 @@
           font-size: 0.24rem;
           margin-bottom: 0.2rem;
           b {
+            transition: opacity .7s;
             font-family: "宋体", "SimSun", sans-serif;
             color: #fff;
             margin-bottom: 0.08rem;
             min-width: 1rem;
           }
           i {
+            transition: opacity .7s;
             font-family: Baskerville;
             color: #8d7249;
             font-size: 0.12rem;
+          }
+        }
+        .right-show{
+          b{
+            opacity: 1;
+          }
+        }
+        .right-hide{
+          b{
+            opacity: .3;
+          }
+          i{
+            opacity: .3;
           }
         }
       }

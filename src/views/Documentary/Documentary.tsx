@@ -83,7 +83,7 @@ export default function Documentary() {
   }, [])
   return (
     <div>
-      <Header go></Header>
+      <Header></Header>
       <div className={styles['doc-banner']}>
         <h5>
           MAISON

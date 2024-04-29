@@ -7,7 +7,7 @@ export default function VideoDetail() {
   const url = searchParams.get('url') as string;
   return (
     <div className={styles.videoBody}>
-       <Header go></Header>
+       <Header></Header>
        <div className={styles.videoDetail}>
          <div className={styles.videoPlay}>
          <video controls>

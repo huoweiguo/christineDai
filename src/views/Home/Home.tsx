@@ -29,6 +29,14 @@ export default function Home() {
     ins:'',
     wxqr:''
   })
+  const [hoveredIndex, setHoveredIndex] = useState<null|number>(null);
+  const handleMouseEnter = (index:number) => {
+    setHoveredIndex(index);
+  };
+ 
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
     navigate(url);
@@ -63,8 +71,8 @@ export default function Home() {
           <div className={styles['home-inner']}>
             <div className={styles['intro-left']}>
               <div className={styles['intro-logo']}><img src={homeData.logo_img} alt=""/></div>
-              <div className={styles['intro-head']} dangerouslySetInnerHTML={{ __html: homeData.placard }} />
-                {/* <span>
+              <div className={styles['intro-head']}>
+                <span>
                   <b>光影感</b>
                   <i>LUMINOSITY</i>
                 </span>
@@ -75,15 +83,46 @@ export default function Home() {
                 <span>
                   <b>⽣命⼒</b>
                   <i>VITALITY</i>
-                </span> */}
+                </span>
+              </div>
             </div>
             <div className={styles['intro-right']}>
-              <div onClick={()=>handleButtonClick('/layout/story')}><b>品牌故事</b><i>BRAND STORY</i></div>
-              <div onClick={()=>handleButtonClick('/layout/jewelry')}><b>艺术珠宝</b><i>ART JEWEL</i></div>
-              <div onClick={()=>handleButtonClick('/layout/documentary')}><b>品牌纪事</b><i>BRAND HERITAGE</i></div>
-              <div onClick={()=>handleButtonClick('/layout/video')}><b>视频</b><i>VIDEO</i></div>
-              <div onClick={()=>handleButtonClick('/layout/globalMedia')}><b>全球媒体</b><i>GLOBAL EVENTS</i></div>
-              <div onClick={()=>handleButtonClick('/layout/contactUs')}><b>联系我们</b><i>CONTACT US</i></div>
+              <div
+              className={ hoveredIndex !== 1&&hoveredIndex !== null?styles['right-hide']:''} 
+              onMouseEnter={() => handleMouseEnter(1)}
+              onMouseLeave={() => handleMouseLeave()} 
+              onClick={()=>handleButtonClick('/layout/story')}
+              ><b>品牌故事</b><i>BRAND STORY</i></div>
+              <div 
+              className={ hoveredIndex !== 2&&hoveredIndex !== null?styles['right-hide']:''} 
+              onMouseEnter={() => handleMouseEnter(2)}
+              onMouseLeave={() => handleMouseLeave()}
+              onClick={()=>handleButtonClick('/layout/jewelry')}
+              ><b>艺术珠宝</b><i>ART JEWEL</i></div>
+              <div 
+              className={ hoveredIndex !== 3&&hoveredIndex !== null?styles['right-hide']:''} 
+              onMouseEnter={() => handleMouseEnter(3)}
+              onMouseLeave={() => handleMouseLeave()}
+              onClick={()=>handleButtonClick('/layout/documentary')}
+              ><b>品牌纪事</b><i>BRAND HERITAGE</i></div>
+              <div 
+              className={ hoveredIndex !== 4&&hoveredIndex !== null?styles['right-hide']:''} 
+              onMouseEnter={() => handleMouseEnter(4)}
+              onMouseLeave={() => handleMouseLeave()}
+              onClick={()=>handleButtonClick('/layout/video')}
+              ><b>视频</b><i>VIDEO</i></div>
+              <div 
+              className={ hoveredIndex !== 5&&hoveredIndex !== null?styles['right-hide']:''} 
+              onMouseEnter={() => handleMouseEnter(5)}
+              onMouseLeave={() => handleMouseLeave()}
+              onClick={()=>handleButtonClick('/layout/globalMedia')}
+              ><b>全球媒体</b><i>GLOBAL EVENTS</i></div>
+              <div 
+              className={ hoveredIndex !== 6&&hoveredIndex !== null?styles['right-hide']:''} 
+              onMouseEnter={() => handleMouseEnter(6)}
+              onMouseLeave={() => handleMouseLeave()}
+              onClick={()=>handleButtonClick('/layout/contactUs')}
+              ><b>联系我们</b><i>CONTACT US</i></div>
             </div>
           </div>
         </div>

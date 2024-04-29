@@ -18,6 +18,7 @@
     font-size: .18rem;
     color: #666666;
     li{
+      font-family: "宋体", "SimSun", sans-serif;
       cursor: pointer;
     }
     li:hover{
@@ -70,7 +71,7 @@
   }
 }
 .footer-copy{
-  font-size: 0.16rem;
+  font-size: 0.12rem;
   height: .8rem;
   display: flex;
   text-align: center;
@@ -78,6 +79,7 @@
   align-items: center;
   color: #fff;
   background-color: #000;
+  font-family: "宋体", "SimSun", sans-serif;
   .footer-line{
     margin: 0 0.05rem;
   }
