@@ -45,12 +45,12 @@ export default function Footer() {
         <div className={styles['footer-nav']}>
           <ul>
             <li onClick={()=>handleButtonClick('/')}>首页</li>
-            <li onClick={()=>handleButtonClick('/layout/story')}>品牌故事</li>
-            <li onClick={()=>handleButtonClick('/layout/jewelry')}>艺术珠宝</li>
-            <li onClick={()=>handleButtonClick('/layout/documentary')}>品牌纪事</li>
-            <li onClick={()=>handleButtonClick('/layout/video')}>视频</li>
-            <li onClick={()=>handleButtonClick('/layout/globalMedia')}>全球媒体</li>
-            <li onClick={()=>handleButtonClick('/layout/contactUs')}>联系我们</li>
+            <li onClick={()=>handleButtonClick('/story')}>品牌故事</li>
+            <li onClick={()=>handleButtonClick('/jewelry')}>艺术珠宝</li>
+            <li onClick={()=>handleButtonClick('/documentary')}>品牌纪事</li>
+            <li onClick={()=>handleButtonClick('/video')}>视频</li>
+            <li onClick={()=>handleButtonClick('/globalMedia')}>全球媒体</li>
+            <li onClick={()=>handleButtonClick('/contactUs')}>联系我们</li>
           </ul>
         </div>
         <div className={styles['footer-soc']}>

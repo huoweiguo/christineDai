@@ -41,16 +41,16 @@ declare module 'react-router-dom' {
 export const routes: RouteObject[] = [
   {
     path: '/',
-    element: React.createElement(BeforeEach, null, React.createElement(Home)),
-    meta: {
-      menu: true,
-      title: '首页'
-    }
-  },
-  {
-    path: '/layout',
     element: React.createElement(BeforeEach, null, React.createElement(Layout)),
     children: [
+      {
+        path: '/',
+        element: React.createElement(Home),
+        meta: {
+          menu: true,
+          title: '首页'
+        }
+      },
       {
         path: 'story',
         element: React.createElement(Story),

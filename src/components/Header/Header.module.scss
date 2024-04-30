@@ -1,9 +1,10 @@
 .headerBody{
+  // display: flex;
+  display: none;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  display: flex;
   justify-content: end;
   align-items: center;
   transition: .3s;

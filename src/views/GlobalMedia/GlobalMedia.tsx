@@ -17,7 +17,6 @@ export default function GlobalMedia() {
   const navigate = useNavigate();
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
-    // navigate(url);
     window.location.href = url
   };
   const [mediaData, setMediaData] = useState<typeData[]>([])

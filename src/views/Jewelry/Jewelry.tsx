@@ -20,7 +20,7 @@ export default function Jewelry() {
                 <p className={styles['jewe-the']}>The</p>
                 <h5>High Jewel</h5>
               </div>
-              <div onClick={()=>handleButtonClick('/layout/theJewelry/1')} className={styles['jewe-down']}>
+              <div onClick={()=>handleButtonClick('/theJewelry/1')} className={styles['jewe-down']}>
                 <div className={styles['jewe-icon']}>
                   即刻探索
                   <img src={require('../../assets/images/rightIcon.png')} alt="" />
@@ -34,7 +34,7 @@ export default function Jewelry() {
                 <p className={styles['jewe-the']}>The</p>
                 <h5>Art Jewel</h5>
               </div>
-              <div onClick={()=>handleButtonClick('/layout/theJewelry/3')} className={styles['jewe-down']}>
+              <div onClick={()=>handleButtonClick('/theJewelry/3')} className={styles['jewe-down']}>
                 <div className={styles['jewe-icon']}>
                   即刻探索
                   <img src={require('../../assets/images/rightIcon.png')} alt="" />
@@ -48,7 +48,7 @@ export default function Jewelry() {
                 <p className={styles['jewe-the']}>The</p>
                 <h5>Fine Jewel</h5>
               </div>
-              <div onClick={()=>handleButtonClick('/layout/theJewelry/4')} className={styles['jewe-down']}>
+              <div onClick={()=>handleButtonClick('/theJewelry/4')} className={styles['jewe-down']}>
                 <div className={styles['jewe-icon']}>
                   即刻探索
                   <img src={require('../../assets/images/rightIcon.png')} alt="" />

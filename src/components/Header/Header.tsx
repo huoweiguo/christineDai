@@ -15,7 +15,7 @@ export default function Hrader(props:HeaderProps) {
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
     navigate(url);
-    window.location.reload();
+    // window.location.reload();
   };
   const BackUrl = ()=>{
     navigate(-1);
@@ -52,12 +52,12 @@ export default function Hrader(props:HeaderProps) {
            <div className={styles['header-nav']}>
             <p className={styles['header-menu']}></p>
             <ul className={styles['nav-ul']}>
-              <li onClick={()=>handleButtonClick('/layout/story')}>品牌故事</li>
-              <li onClick={()=>handleButtonClick('/layout/jewelry')}>艺术珠宝</li>
-              <li onClick={()=>handleButtonClick('/layout/documentary')}>品牌纪事</li>
-              <li onClick={()=>handleButtonClick('/layout/video')}>视频</li>
-              <li onClick={()=>handleButtonClick('/layout/globalMedia')}>全球媒体</li>
-              <li onClick={()=>handleButtonClick('/layout/contactUs')}>联系我们</li>
+              <li onClick={()=>handleButtonClick('/story')}>品牌故事</li>
+              <li onClick={()=>handleButtonClick('/jewelry')}>艺术珠宝</li>
+              <li onClick={()=>handleButtonClick('/documentary')}>品牌纪事</li>
+              <li onClick={()=>handleButtonClick('/video')}>视频</li>
+              <li onClick={()=>handleButtonClick('/globalMedia')}>全球媒体</li>
+              <li onClick={()=>handleButtonClick('/contactUs')}>联系我们</li>
             </ul>
            </div>
         </div>

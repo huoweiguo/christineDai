@@ -1,23 +1,24 @@
 import React,{useState, useEffect} from 'react'
 import { Outlet } from 'react-router-dom'
-import Home from '../Home/Home'
 import styles from './Layout.module.scss'
-import { serialize } from 'v8';
-
+import Nav from '../../components/Nav/Nav'
+import { useLocation } from 'react-router-dom';
 export default function Layout() {
-  const [open, setOpen] = useState<boolean>(false);
-  useEffect(()=>{
-    setTimeout(()=>{
-      setOpen(true)
-    },200)
-  },[])
+  const location = useLocation();
+  const [open, setOpen] = useState<boolean>(location.pathname==='/');
+  
+  const openChange = (newValue:boolean) => {
+    setTimeout(() => {
+      setOpen(newValue);
+    }, 300);
+  };
   return (
     <div className={styles.LayoutBody}>
-      <Home/>
-      {open?'':<div onClick={()=>{setOpen(true)}} className={styles['burger-cross-box']}>
-        <div className={styles['burger-cross']}></div>
+      <Outlet></Outlet>
+      {!open?'':<div onClick={()=>{setOpen(false)}} className={styles['burger-cross-box']}>
+        {location.pathname==='/'?'':<div className={styles['burger-cross']}></div>}
       </div>}
-      <div onClick={()=>setOpen(false)} className={open?`${styles.leftBody}`:`${styles.leftBody} ${styles.leftBody2}`}>
+      <div onClick={()=>setOpen(true)} className={!open?`${styles.leftBody}`:`${styles.leftBody} ${styles.leftBody2}`}>
         <div className={styles['burger-container']}>
           <div className={styles['burger-burger']}></div>
         </div>
@@ -26,7 +27,7 @@ export default function Layout() {
         </div>
       </div>
       <div className={open?`${styles.rightBody}`:`${styles.rightBody} ${styles.rightBody2}`}>
-        <Outlet></Outlet>
+        <Nav onChange={openChange}></Nav>
       </div>
     </div>
   )
