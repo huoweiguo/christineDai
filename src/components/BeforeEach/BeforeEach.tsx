@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{Suspense} from 'react'
 import { useLocation, matchRoutes, Navigate } from 'react-router-dom'
 import { routes } from '../../router'
+import styles from './BeforeEach.module.scss'
 
 interface BeforeEachProps {
   children?: React.ReactNode
@@ -14,9 +15,19 @@ export default function BeforeEach(props: BeforeEachProps) {
   //    return <Navigate to="/"></Navigate>
   //   }
   // }
+  const ReactNode = ()=>{
+    return (
+      <div className={styles.ReactNode}>
+        <img className={styles.ReactImg} src={require('../../assets/images/header-logo.png')} alt="" />
+      </div>
+    )
+
+  }
   return (
     <>
-      { props.children }
+    <Suspense fallback={ReactNode()}>
+    { props.children }
+    </Suspense>
     </>
   )
 }

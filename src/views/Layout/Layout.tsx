@@ -23,6 +23,9 @@ export default function Layout() {
         <div className={styles['burger-container']}>
           <div className={styles['burger-burger']}></div>
         </div>
+        <div className={styles['burger-logo']}>
+          C
+        </div>
         <div className={styles['burger-text']}>
           艺术珠宝
         </div>
