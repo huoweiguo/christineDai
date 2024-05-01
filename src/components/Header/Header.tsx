@@ -20,22 +20,22 @@ export default function Hrader(props:HeaderProps) {
   const BackUrl = ()=>{
     navigate(-1);
   }
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = document.documentElement.scrollTop;
-      setIsScrolled(scrollTop > 50); // 设置滚动高度的阈值
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollTop = document.documentElement.scrollTop;
+  //     setIsScrolled(scrollTop > 50); // 设置滚动高度的阈值
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
+  //   window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
   let { type,titleObj,go} = props;
   return (
     <div className={(type&&!isScrolled)||!isScrolled?`${styles.headerBody}`:`${styles.headerBody} ${styles.onFix}`}>
-        {/* <img onClick={()=>handleButtonClick('/')} className={styles['header-logo']} src={require('../../assets/images/header-logo.png')} alt="" /> */}
+        <img onClick={()=>handleButtonClick('/')} className={styles['header-logo']} src={require('../../assets/images/header-logo.png')} alt="" />
         <div className={styles['header-right']}>
            {
             titleObj?

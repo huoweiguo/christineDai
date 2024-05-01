@@ -47,7 +47,7 @@ export default function Video() {
       </div>
       <div className={styles['video-container']}>
         { videoData.length > 0 && videoData.map((item: videoType,index: number)=>(
-          <div onClick={()=>handleButtonClick(`/layout/WholeVideo/${item.id}`)} className={styles.box} key={index}>
+          <div onClick={()=>handleButtonClick(`/WholeVideo/${item.id}`)} className={styles.box} key={index}>
             <div className={styles.imgBox}>
               <figure style={{backgroundImage: `url(${item.cover})`}}></figure>
             </div>

@@ -113,6 +113,7 @@
   -webkit-line-clamp: 4;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "宋体-简","常规体";
 }
 
 .detail-brief{
@@ -143,31 +144,37 @@
   line-height: 1.5;
 }
 .title{
-  font-size: .5rem;
+  font-size: .44rem;
   position: relative;
   padding-bottom: .3rem;
   margin-bottom: .3rem;
-  font-weight: 500;
+  font-weight: bold;
+  line-height: 0.48rem;
+  font-family: "宋体-简","粗体";
   p:nth-child(1){
-    font-size: .3rem;
+    font-size: .28rem;
     margin-bottom: .2rem;
     line-height: 1.5;
+    font-weight: 400;
+    font-family: "宋体-简","常规体";
   }
 }
 .title:before {
-    width: .7rem;
+    width: .92rem;
     height: .04rem;
     content: '';
-    background: #856b45;
+    background: #856B44;
     position: absolute;
     font-weight: bold;
     left: 0;
     bottom: 0;
 }
 .des{
-  font-size: .17rem;
-  line-height: .36rem;
+  font-size: .22rem;
+  line-height: .34rem;
   color: #666666;
+  font-style: normal;
+  font-family: "宋体-简","常规体";
 }
 
 .detail-demo1{
@@ -212,7 +219,7 @@
   }
   .title:before {
     left: 50%;
-    margin-left: -.35rem;
+    margin-left: -.46rem;
   }
   .demo3-right{
     margin-top: 22%;
@@ -247,7 +254,7 @@
   }
   .title:before {
     left: 50%;
-    margin-left: -.35rem;
+    margin-left: -.46rem;
   }
   .demo4-top{
     width: 31%;
@@ -274,7 +281,7 @@
   }
   .title:before {
     left: 50%;
-    margin-left: -.35rem;
+    margin-left: -.46rem;
   }
   .demo5-top{
     width: 31%;
@@ -375,7 +382,7 @@
     }
     .title:before {
       left: 50%;
-      margin-left: -.35rem;
+      margin-left: -.46rem;
     }
   }
   .detail-demo3{
@@ -394,7 +401,7 @@
     }
     .title:before {
       left: 50%;
-      margin-left: -.35rem;
+      margin-left: -.46rem;
     }
   }
   .detail-demo4{
@@ -405,7 +412,7 @@
     }
     .title:before {
       left: 50%;
-      margin-left: -.35rem;
+      margin-left: -.46rem;
     }
     .demo4-down{
       width: 100%;
@@ -422,7 +429,7 @@
     }
     .title:before {
       left: 50%;
-      margin-left: -.35rem;
+      margin-left: -.46rem;
     }
     .demo5-top{
       width: 100%;

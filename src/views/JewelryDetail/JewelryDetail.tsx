@@ -18,6 +18,7 @@ interface RuleData {
   brief: string,
   is_bg: number,
   header_img: string,
+  brief_position:number
   priv: number,
   next: number
 }
@@ -53,6 +54,7 @@ export default function JewelryDetail() {
     brief: '',
     is_bg: 0,
     header_img: '',
+    brief_position:0,
     priv: 0,
     next: 0
   })
@@ -217,7 +219,7 @@ export default function JewelryDetail() {
     if(addNum >= listData.list.length){
       addNum = 0
     }
-    navigate(`/layout/JewelryDetail?id=${listData.list[addNum].id}&lcid=${lcid}`);
+    navigate(`/JewelryDetail?id=${listData.list[addNum].id}&lcid=${lcid}`);
   }
   const PrevPage =()=>{ //上一页
     if(listData.list.length <= 1) return 
@@ -226,18 +228,22 @@ export default function JewelryDetail() {
     if(addNum < 0){
       addNum = listData.list.length-1
     }
-    navigate(`/layout/JewelryDetail?id=${listData.list[addNum].id}&lcid=${lcid}`);
+    navigate(`/JewelryDetail?id=${listData.list[addNum].id}&lcid=${lcid}`);
   }
   useEffect(() => {
     getProductInfo(id as string).then(res => {
       if (res.data.code === 200) {
-        let { temp,catname,title,brief,is_bg,header_img,priv,next} = res.data.data
+        let { temp,catname,title,brief,is_bg,header_img,
+          brief_position
+          ,priv,next} = res.data.data
         temp = temp.map((item:TempItem)=>({
           ...item,
           component:arr.filter(itcm=>itcm.type === item.template)[0]?.component || Default
         }))
         setDetailData({
-          temp,catname,title,brief,is_bg,header_img,priv,next
+          temp,catname,title,brief,is_bg,header_img,
+          brief_position
+          ,priv,next
         })
       } 
     })
@@ -267,11 +273,11 @@ export default function JewelryDetail() {
             {DetailData.catname}
             <br/>      
             {DetailData.title}
-            {DetailData.header_img?<div className={styles['detail-text-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>:''}
+            {DetailData.brief_position !==0?<div className={styles['detail-text-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>:''}
         </div>
       </div>
       <div className={DetailData.is_bg === 0?styles['detail-box']:styles['detail-box2']}>
-        {DetailData.header_img?'':<div className={styles['detail-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>}
+        {DetailData.brief_position !==0?'':<div className={styles['detail-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>}
         {DetailData.temp.length === 0?DetailData.catname?Default():'':DetailData.temp.map((item,index)=>{
           return (<div key={index}>{item.component(item)}</div>)
         })}

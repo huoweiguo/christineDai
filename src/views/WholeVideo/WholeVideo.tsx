@@ -25,7 +25,7 @@ export default function WholeVideo() {
   const navigate = useNavigate();
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
-    navigate(`/layout/videoDetail?url=${url}`);
+    navigate(`/videoDetail?url=${url}`);
   };
 
   const [videoData, setVideoData] = useState<classData<videoData>[]>([])

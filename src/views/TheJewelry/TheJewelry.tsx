@@ -49,13 +49,13 @@ export default function TheJewelry() {
       <Header type></Header>
       <div className={styles.TheJewelry}>
         <div className={id==='3'?styles['theJewelry-left2']:styles['theJewelry-left']}>
-          <div onClick={()=>handleButtonClick(`/layout/JewelryList/${leftObj.id}`)} className={styles['theJewelry-txt']}>
+          <div onClick={()=>handleButtonClick(`/JewelryList/${leftObj.id}`)} className={styles['theJewelry-txt']}>
             <h3>{leftObj.title_en}</h3>
             <h4>{leftObj.title}</h4>
           </div>
         </div>
         <div className={styles['theJewelry-right']}>
-          <div onClick={()=>handleButtonClick(`/layout/JewelryList/${RightObj.id}`)} className={styles['theJewelry-txt']}>
+          <div onClick={()=>handleButtonClick(`/JewelryList/${RightObj.id}`)} className={styles['theJewelry-txt']}>
             <h3>{RightObj.title_en}</h3>
             <h4>{RightObj.title}</h4>
           </div>

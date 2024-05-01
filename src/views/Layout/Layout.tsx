@@ -6,7 +6,6 @@ import { useLocation } from 'react-router-dom';
 export default function Layout() {
   const location = useLocation();
   const [open, setOpen] = useState<boolean>(location.pathname==='/');
-  
   const openChange = (newValue:boolean) => {
     setTimeout(() => {
       setOpen(newValue);
