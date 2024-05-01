@@ -32,16 +32,17 @@
     justify-content:space-between;
     position: relative;
     .jewe-text{
+      cursor: pointer;
       white-space: nowrap;
-      margin:  0.5rem 1rem 1.2rem 1rem;
+      margin:  0.5rem 1rem 1.4rem 1rem;
       .jewe-the{
-        font-size: 0.18rem;
+        font-size: 0.24rem;
         font-family: Baskerville;
         font-style: italic;
-        margin-bottom: 0.1rem;
+        margin-bottom: 0.16rem;
       }
       h5{
-        font-size: 0.6rem;
+        font-size: 0.48rem;
         font-family: Baskerville;
       }
     }
@@ -49,27 +50,29 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      
       img{
-        width: 0.3rem;
-        height: 0.3rem;
+        width: 0.2rem;
+        height: 0.2rem;
       }
     }
   }
   .jewe-item:not(:last-child)::after {
     content: '';
     position: absolute;
-    top: 35%;
+    top: 24%;
     right: 0;
     width: 2px;
-    height: 0.6rem;
+    height: 0.74rem;
     background-color: #1c1c1c;
     transform:rotate(-25deg);
   }
   .jewe-down{
-    color: #8d7249;
+    color: #8D7249;
     font-size: 0.18rem;
     cursor: pointer;
     text-decoration: none;
+    font-family: AlibabaPuHuiTi, AlibabaPuHuiTi;
     &:hover{
       .jewe-line{
         &:before {

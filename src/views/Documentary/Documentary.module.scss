@@ -37,10 +37,10 @@
   width: 80%;
   justify-content: center;
   cursor: pointer;
-  margin-bottom: 0.6rem;
+  margin-bottom: 1.1rem;
   .doc-left{
     width: 55%;
-    height: 3.1rem;
+    height: 4.32rem;
     img{
       border: 0;
       width: 100%;
@@ -60,15 +60,23 @@
     padding: 3% 3% 0 7%;
     box-sizing: border-box;
     .doc-date{
-      font-size: .5rem;
-      font-weight: 600;
-      margin-bottom: 0.1rem;
+      font-family: AlibabaPuHuiTi, AlibabaPuHuiTi;
+      font-weight: bold;
+      font-size: 0.68rem;
+      color: #8E734A;
+      line-height: 93px;
+      letter-spacing: 4px;
+      text-align: left;
+      font-style: normal;
     }
     .doc-title{
-      color: #000;
-      font-size: .2rem;
-      line-height: 1.5;
-      margin-bottom: 0.15rem;
+      font-family: PingFangSC, PingFang SC;
+      font-weight: 400;
+      font-size: 22px;
+      color: #000000;
+      line-height: 34px;
+      text-align: left;
+      font-style: normal;
     }
   }
   .doc-icon{

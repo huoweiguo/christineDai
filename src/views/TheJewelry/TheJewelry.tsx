@@ -3,6 +3,7 @@ import styles from './TheJewelry.module.scss'
 import Header from '../../components/Header/Header'
 import { useNavigate,useParams } from 'react-router-dom';
 import { getProductCat } from '../../store/modules/jewelry'
+import Footer from '../../components/Footer/Footer'
 export default function TheJewelry() {
   interface DataItem {
     id: string,
@@ -60,6 +61,7 @@ export default function TheJewelry() {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   )
 }

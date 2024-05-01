@@ -16,7 +16,7 @@ export default function Jewelry() {
         <div className={styles['jewe-box']}>
            <ul className={styles['jewe-list']}>
             <li className={styles['jewe-item']}>
-              <div className={styles['jewe-text']}>
+              <div onClick={()=>handleButtonClick('/layout/theJewelry/1')} className={styles['jewe-text']}>
                 <p className={styles['jewe-the']}>The</p>
                 <h5>High Jewel</h5>
               </div>
@@ -30,7 +30,7 @@ export default function Jewelry() {
               </div>
             </li>
             <li className={styles['jewe-item']}>
-              <div className={styles['jewe-text']}>
+              <div onClick={()=>handleButtonClick('/layout/theJewelry/3')} className={styles['jewe-text']}>
                 <p className={styles['jewe-the']}>The</p>
                 <h5>Art Jewel</h5>
               </div>
@@ -44,7 +44,7 @@ export default function Jewelry() {
               </div>
             </li>
             <li className={styles['jewe-item']}>
-              <div className={styles['jewe-text']}>
+              <div onClick={()=>handleButtonClick('/layout/theJewelry/4')} className={styles['jewe-text']}>
                 <p className={styles['jewe-the']}>The</p>
                 <h5>Fine Jewel</h5>
               </div>

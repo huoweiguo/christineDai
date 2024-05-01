@@ -72,14 +72,14 @@
           display: flex;
           flex-direction: column;
           text-align: center;
-          font-size: 0.24rem;
           margin-bottom: 0.2rem;
           b {
             transition: opacity .7s;
             font-family: "宋体-简","常规体";
             color: #fff;
             margin-bottom: 0.08rem;
-            min-width: 1rem;
+            min-width: 1.28rem;
+            font-size: 0.32rem;
           }
           i {
             transition: opacity .7s;

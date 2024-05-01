@@ -41,12 +41,17 @@
   cursor: pointer;
   h3{
     font-family: Baskerville;
-    font-size: 0.6rem;
-    line-height: 1.5;
+    font-size: 0.56rem;
+    line-height: 64px;
+    letter-spacing: 2px;
+    font-style: normal;
   }
   h4{
-    font-family: "宋体", "SimSun", sans-serif;
-    font-size: 0.3rem;
+    font-family: "宋体-简","常规体";
+    font-size: 0.36rem;
+    letter-spacing: 1px;
+    font-style: normal;
+    line-height: 50px;
   }
 }
 

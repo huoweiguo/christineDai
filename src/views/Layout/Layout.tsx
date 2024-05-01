@@ -14,7 +14,9 @@ export default function Layout() {
   };
   return (
     <div className={styles.LayoutBody}>
-      <Outlet></Outlet>
+      <div className={styles.Outlet}>
+        <Outlet></Outlet>
+      </div>
       {!open?'':<div onClick={()=>{setOpen(false)}} className={styles['burger-cross-box']}>
         {location.pathname==='/'?'':<div className={styles['burger-cross']}></div>}
       </div>}
