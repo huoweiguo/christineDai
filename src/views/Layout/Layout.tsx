@@ -11,6 +11,11 @@ export default function Layout() {
       setOpen(newValue);
     }, 300);
   };
+  useEffect(() => {
+    if(location.pathname === '/'){
+      setOpen(true);
+    }  
+  }, [location.pathname])
   return (
     <div className={styles.LayoutBody}>
       <div className={styles.Outlet}>

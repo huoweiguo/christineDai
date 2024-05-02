@@ -26,7 +26,9 @@ export default function BeforeEach(props: BeforeEachProps) {
   return (
     <>
     <Suspense fallback={ReactNode()}>
-    { props.children }
+      <div>
+      { props.children }
+      </div>
     </Suspense>
     </>
   )
