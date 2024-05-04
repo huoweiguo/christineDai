@@ -96,6 +96,11 @@
       }
       .ant-select-arrow{
         font-size: .15rem;
+        right: 0;
+      }
+      .ant-select-clear{
+        font-size: .15rem;
+        right: 0;
       }
     }  
     .txt{
@@ -428,7 +433,7 @@
       animation-fill-mode: forwards;
       span{
         display: inline-block !important;
-        z-index: 9999;
+        z-index: 999;
         cursor: pointer;
       }
       :global {
