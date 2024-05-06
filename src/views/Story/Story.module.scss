@@ -14,7 +14,7 @@
 }
 
 .story-banner h5{
-  font-family: Baskerville;
+  font-family: "宋体-简","常规体";
   color: #fff;
   position: absolute;
   bottom: 33%;
@@ -44,6 +44,8 @@
     padding-top: .5rem;
     position: relative;
     margin-bottom: .4rem;
+    font-family: "宋体-简","常规体";
+    
   }
   .brand-title:before {
       width: .6rem;
@@ -67,6 +69,7 @@
     line-height: 1.5;
     font-weight: bold;
     unicode-bidi: isolate;
+    font-family: "宋体-简","常规体";
   }
   .brand-btn{
     display: flex;
