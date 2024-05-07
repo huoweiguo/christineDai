@@ -1,8 +1,6 @@
 import axios from 'axios'
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
-console.log('xxxxxxxx', process.env.NODE_ENV)
-
 declare module 'axios' {
   interface AxiosResponse<T = any> {
     code?: string | number
@@ -15,7 +13,7 @@ let baseURL = process.env.NODE_ENV === 'development' ? '/api' : 'http://web-api.
 
 const instance = axios.create({
   baseURL,
-  timeout: 10000
+  timeout: 60000
 })
 
 instance.interceptors.request.use(

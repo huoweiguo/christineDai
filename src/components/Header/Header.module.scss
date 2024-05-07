@@ -82,6 +82,9 @@
   background-position: center center;
   transition: .3s;
   cursor: pointer;
+  &:hover {
+    background-image: url(../../assets/images/menu_a.png);
+  }
 }
 .header-menu2{
   margin-left: .3rem;

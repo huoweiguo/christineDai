@@ -4,15 +4,29 @@ import styles from './Layout.module.scss'
 import Nav from '../../components/Nav/Nav'
 import { useLocation,matchRoutes } from 'react-router-dom';
 import { routes } from '../../router'
+
+
+export let MyContext:any;
 export default function Layout() {
   const location = useLocation();
   const [open, setOpen] = useState<boolean>(location.pathname==='/');
   const [name, setName] = useState<string>('');
+
+  interface MethodsFunc {
+    myMethod: Function
+  }
+  const myMethod = () => {
+    setOpen(true);
+  }
+
+  MyContext = React.createContext<MethodsFunc>({ myMethod });
+
   const openChange = (newValue:boolean) => {
     setTimeout(() => {
       setOpen(newValue);
     }, 300);
   };
+  
   useEffect(() => {
     if(location.pathname === '/'){
       setOpen(true);
@@ -25,8 +39,10 @@ export default function Layout() {
   }, [location, location.pathname])
   return (
     <div className={styles.LayoutBody}>
-      <div className={styles.Outlet}>
-        <Outlet></Outlet>
+      <div className={styles.Outlet}>  
+        <MyContext.Provider value={{ myMethod }}>
+          <Outlet></Outlet>
+        </MyContext.Provider>   
       </div>
       {!open?'':<div onClick={()=>{setOpen(false)}} className={styles['burger-cross-box']}>
         {location.pathname==='/'?'':<div className={styles['burger-cross']}></div>}

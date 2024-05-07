@@ -1,6 +1,7 @@
 import React,{ useState, useEffect }from 'react'
 import styles from './Header.module.scss'
 import { useNavigate } from 'react-router-dom';
+import { MyContext } from '../../views/Layout/Layout'
 interface HeaderProps {
   type?:Boolean,
   go?:Boolean,
@@ -9,14 +10,27 @@ interface HeaderProps {
     name:string
   }
 }
+
+interface RuleContext {
+  [key: string]: unknown
+  myMethod: () => void
+}
+
 export default function Hrader(props:HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
+  const context = React.useContext(MyContext) as RuleContext;
+  console.log(context)
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
     navigate(url);
     // window.location.reload();
   };
+  const goback = () => {
+    if (context.myMethod) {
+      context.myMethod()
+    }
+  }
   const BackUrl = ()=>{
     navigate(-1);
   }
@@ -43,7 +57,7 @@ export default function Hrader(props:HeaderProps) {
             Return
            </div>:''}
            <div className={styles['header-nav']}>
-            <p className={styles['header-menu']}></p>
+            <p onClick={goback} className={styles['header-menu']}></p>
            </div>
         </div>
     </div>
