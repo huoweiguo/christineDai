@@ -37,13 +37,6 @@ export default function Hrader(props:HeaderProps) {
     <div className={(type&&!isScrolled)||!isScrolled?`${styles.headerBody}`:`${styles.headerBody} ${styles.onFix}`}>
         <img onClick={()=>handleButtonClick('/')} className={styles['header-logo']} src={require('../../assets/images/header-logo.png')} alt="" />
         <div className={styles['header-right']}>
-           {
-            titleObj?
-              <p className={styles['header-name']}>
-                {titleObj.title}<br/>
-                <span>{titleObj.name}</span>
-              </p>:''
-           }
            {go?<div onClick={()=>BackUrl()} className={styles.retBtn}>
             返回上一页
             <br/>
@@ -51,14 +44,6 @@ export default function Hrader(props:HeaderProps) {
            </div>:''}
            <div className={styles['header-nav']}>
             <p className={styles['header-menu']}></p>
-            <ul className={styles['nav-ul']}>
-              <li onClick={()=>handleButtonClick('/story')}>品牌故事</li>
-              <li onClick={()=>handleButtonClick('/jewelry')}>艺术珠宝</li>
-              <li onClick={()=>handleButtonClick('/documentary')}>品牌纪事</li>
-              <li onClick={()=>handleButtonClick('/video')}>视频</li>
-              <li onClick={()=>handleButtonClick('/globalMedia')}>全球媒体</li>
-              <li onClick={()=>handleButtonClick('/contactUs')}>联系我们</li>
-            </ul>
            </div>
         </div>
     </div>

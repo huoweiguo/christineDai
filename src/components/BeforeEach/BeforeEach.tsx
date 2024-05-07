@@ -21,15 +21,14 @@ export default function BeforeEach(props: BeforeEachProps) {
         <img className={styles.ReactImg} src={require('../../assets/images/header-logo.png')} alt="" />
       </div>
     )
-
   }
   return (
     <>
-    <Suspense fallback={ReactNode()}>
-      <div>
-      { props.children }
-      </div>
-    </Suspense>
+      <Suspense fallback={ReactNode()}>
+        { 
+          props.children
+        }
+      </Suspense>
     </>
   )
 }

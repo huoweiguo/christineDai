@@ -31,7 +31,7 @@ export default function Layout() {
       {!open?'':<div onClick={()=>{setOpen(false)}} className={styles['burger-cross-box']}>
         {location.pathname==='/'?'':<div className={styles['burger-cross']}></div>}
       </div>}
-      <div onClick={()=>setOpen(true)} className={!open?`${styles.leftBody}`:`${styles.leftBody} ${styles.leftBody2}`}>
+      {/* <div onClick={()=>setOpen(true)} className={!open?`${styles.leftBody}`:`${styles.leftBody} ${styles.leftBody2}`}>
         <div className={styles['burger-container']}>
           <div className={styles['burger-burger']}></div>
         </div>
@@ -41,7 +41,7 @@ export default function Layout() {
         <div className={styles['burger-text']}>
           {name}
         </div>
-      </div>
+      </div> */}
       <div className={open?`${styles.rightBody}`:`${styles.rightBody} ${styles.rightBody2}`}>
         <Nav onChange={openChange}></Nav>
       </div>
