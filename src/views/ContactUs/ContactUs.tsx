@@ -226,7 +226,7 @@ export default function ContactUs() {
        <div className={ `${styles.contactUs} ${!selectIndex ? styles.hide : ''}` }>
       { bgData.length > 0 && <div className={ `${styles['cu-container']} ${ selectIndex ? styles['cu-narrow'] : ''}` } style={{backgroundImage: 'url('+bgData[activeIndex]?.bg_cover+')'}}>
         { bgData.map((item,index)=>(
-          <div className={`${styles.itemBox} ${selectIndex && selectIndex !== index+1 ? styles.narrow : ''}`} key={index} onMouseEnter={()=>handleMouseEnter(index)}>
+          <div className={`${styles.itemBox} ${selectIndex && selectIndex !== index+1 ? styles.narrow : styles.selectDiv}`} key={index} onMouseEnter={()=>handleMouseEnter(index)}>
             { col===24 && <div className={styles.bgBox} style={{backgroundImage: 'url('+item.bg_cover+')'}}></div>}
             <div className={`${styles.wrapper} ${selectIndex === index+1 ? styles.showWrapper : ''}`}>
               <div className={styles.title}  dangerouslySetInnerHTML={{ __html: item.title }}></div>
