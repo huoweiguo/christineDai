@@ -192,7 +192,7 @@ export default function ContactUs() {
             <Col span={24}>
               <Form.Item>
                 <div  className={styles.cbox}>
-                  <Checkbox  onChange={onChangeCheck} value={isCheck}>我已阅读并接受CHRISTINE DAI网站的隐私权条款</Checkbox>
+                  <Checkbox  onChange={onChangeCheck} checked={isCheck}>我已阅读并接受CHRISTINE DAI网站的隐私权条款</Checkbox>
                   <Button loading={loading} htmlType="submit" className={`${styles['c-btn']} ${styles.sub}`}>发送</Button>
                 </div>
               </Form.Item>

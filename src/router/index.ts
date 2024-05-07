@@ -2,7 +2,6 @@ import { createHashRouter, createBrowserRouter } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 import React, { lazy } from 'react'
 
-const Home = lazy(() => import('../views/Home/Home'))
 const Story = lazy(() => import('../views/Story/Story'))
 const Jewelry = lazy(() => import('../views/Jewelry/Jewelry'))
 const Documentary = lazy(() => import('../views/Documentary/Documentary'))
@@ -43,14 +42,6 @@ export const routes: RouteObject[] = [
     path: '/',
     element: React.createElement(BeforeEach, null, React.createElement(Layout)),
     children: [
-      {
-        path: '/',
-        element: React.createElement(Home),
-        meta: {
-          menu: true,
-          title: '首页'
-        }
-      },
       {
         path: 'story',
         element: React.createElement(Story),

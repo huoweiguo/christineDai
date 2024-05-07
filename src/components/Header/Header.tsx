@@ -20,7 +20,6 @@ export default function Hrader(props:HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const context = React.useContext(MyContext) as RuleContext;
-  console.log(context)
   const handleButtonClick = (url:string) => {
     // 使用 navigate() 方法进行路由跳转
     navigate(url);

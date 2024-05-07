@@ -35,7 +35,7 @@ export default function Layout() {
     if (Array.isArray(matchs)) {
       const title = matchs[matchs.length - 1].route.meta?.title as string
       setName(title)
-    } 
+    }
   }, [location, location.pathname])
   return (
     <div className={styles.LayoutBody}>

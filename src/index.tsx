@@ -13,15 +13,13 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <Suspense>
-      <Provider store={store}>
-        <StyleProvider hashPriority="high">
-          <RouterProvider router={router}></RouterProvider>
-        </StyleProvider>
-      </Provider>
-    </Suspense>
-  </React.StrictMode>
+  <Suspense>
+    <Provider store={store}>
+      <StyleProvider hashPriority="high">
+        <RouterProvider router={router}></RouterProvider>
+      </StyleProvider>
+    </Provider>
+  </Suspense>
 );
 
 // If you want to start measuring performance in your app, pass a function
