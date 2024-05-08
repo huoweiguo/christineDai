@@ -41,9 +41,9 @@ export default function Documentary() {
   }
   const getElementPageY = () => {
     const docUI: HTMLUListElement  = document.querySelector('#docUI') as HTMLUListElement
+    console.log(docUI, 'docUI')
     const children  = docUI.querySelectorAll('li')
-    const len = children.length
-    for (let i = 0; i < len; i++ ) {
+    for (let i = 0; i < children.length; i++ ) {
       docListBak[i].top = children[i].offsetTop + 220
     }
 
@@ -72,14 +72,16 @@ export default function Documentary() {
         const list = res.data.data
         docListBak = list
         setDocList(list)
-        getElementPageY()
-        window.addEventListener('scroll', listenerULList, false)
-      } 
-
-      return () => {
-        window.removeEventListener('scroll', listenerULList, false)
+        setTimeout(() => {
+          getElementPageY()
+          window.addEventListener('scroll', listenerULList, false)
+        })
       }
     })
+
+    return () => {
+      window.removeEventListener('scroll', listenerULList, false)
+    }
   }, [])
   return (
     <div>
