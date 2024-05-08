@@ -14,7 +14,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    transition: .8s;
+    transition: .5s;
     .itemBox{
       height: 4rem;
       position: relative;
@@ -41,8 +41,8 @@
           white-space: nowrap;
         }
         .content{
-          -webkit-transition: all .8s cubic-bezier(.39,.575,.565,1);
-          transition: all .8s cubic-bezier(.39,.575,.565,1);
+          -webkit-transition: all .5s cubic-bezier(.39,.575,.565,1);
+          transition: all .5s cubic-bezier(.39,.575,.565,1);
           opacity: 1;
           -webkit-transform: translateY(0.5px);
           -ms-transform: translateY(.5px);
@@ -315,7 +315,7 @@
       position: absolute;
       top: calc(100vh + .8rem);
       width: 100%;
-      transition: .8s;
+      transition: .5s;
       .txt{
         font-size: .25rem;
       }
@@ -407,8 +407,8 @@
           left: 50%;
           width: 100%;
           color: #fff;
-          -webkit-transition: all .8s cubic-bezier(.39,.575,.565,1);
-          transition: all .8s cubic-bezier(.39,.575,.565,1);
+          -webkit-transition: all .5s cubic-bezier(.39,.575,.565,1);
+          transition: all .5s cubic-bezier(.39,.575,.565,1);
           .title{
             font-size: .4rem !important;
             line-height: 1;
@@ -417,8 +417,8 @@
             white-space: nowrap;
           }
           .content{
-            -webkit-transition: all .8s cubic-bezier(.39,.575,.565,1);
-            transition: all .8s cubic-bezier(.39,.575,.565,1);
+            -webkit-transition: all .5s cubic-bezier(.39,.575,.565,1);
+            transition: all .5s cubic-bezier(.39,.575,.565,1);
             opacity: 0;
             -webkit-transform: translateY(0.5px);
             -ms-transform: translateY(.5px);
