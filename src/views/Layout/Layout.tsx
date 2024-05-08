@@ -40,9 +40,7 @@ export default function Layout() {
   return (
     <div className={styles.LayoutBody}>
       <div className={styles.Outlet}>  
-        <MyContext.Provider value={{ myMethod }}>
-          <Outlet></Outlet>
-        </MyContext.Provider>   
+        <Outlet></Outlet>
       </div>
       {!open?'':<div onClick={()=>{setOpen(false)}} className={styles['burger-cross-box']}>
         {location.pathname==='/'?'':<div className={styles['burger-cross']}></div>}
