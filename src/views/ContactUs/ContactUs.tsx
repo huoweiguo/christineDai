@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import { Col, Row, Button, Form, type FormProps, type CheckboxProps, Input, Checkbox, Select } from 'antd';
 import { getContactUs, getMessage, getCityList, type ruleData } from '../../store/modules/contactUs'
+import { log } from 'console';
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -50,7 +51,6 @@ export default function ContactUs() {
   }
 
   const openContactForm = (index: number) => {
-    form.resetFields();
     setSelectIndex(index)
     col===24 && setSw(true)
   }
@@ -93,6 +93,7 @@ export default function ContactUs() {
           alert('发送成功！')
           setSelectIndex(0)
           setSw(false)
+          form.resetFields();
         }else{
           alert(res.data.message)       
         }
@@ -119,6 +120,7 @@ export default function ContactUs() {
           autoComplete="off"
           labelCol={{ span: 8 }}
           onFinish={onFinish}
+          form={form}
           >
           <Row gutter={16}>
             <Col span={col}>
@@ -226,7 +228,7 @@ export default function ContactUs() {
        <div className={ `${styles.contactUs} ${!selectIndex ? styles.hide : ''}` }>
       { bgData.length > 0 && <div className={ `${styles['cu-container']} ${ selectIndex ? styles['cu-narrow'] : ''}` } style={{backgroundImage: 'url('+bgData[activeIndex]?.bg_cover+')'}}>
         { bgData.map((item,index)=>(
-          <div className={`${styles.itemBox} ${selectIndex && selectIndex !== index+1 ? styles.narrow : ''}`} key={index} onMouseEnter={()=>handleMouseEnter(index)}>
+          <div className={`${styles.itemBox} ${selectIndex && selectIndex !== index+1 ? styles.narrow : styles.selectDiv}`} key={index} onMouseEnter={()=>handleMouseEnter(index)}>
             { col===24 && <div className={styles.bgBox} style={{backgroundImage: 'url('+item.bg_cover+')'}}></div>}
             <div className={`${styles.wrapper} ${selectIndex === index+1 ? styles.showWrapper : ''}`}>
               <div className={styles.title}  dangerouslySetInnerHTML={{ __html: item.title }}></div>
