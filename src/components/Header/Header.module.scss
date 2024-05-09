@@ -15,12 +15,24 @@
 .onFix{
   background: #000;
 }
+.header-top{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
 
 .header-logo{
   max-width: 1.62rem;
   min-height: .35rem;
   cursor: pointer;
-  margin-left: 0.6rem;
+  margin-left: 0.4rem;
+}
+
+.header-return{
+  width: 0.29rem;
+  height: 0.29rem;
+  cursor: pointer;
 }
 
 .header-right{
@@ -178,9 +190,6 @@
 }
 
 @media screen and (max-width: 750px) {
-  .headerBody{
-    display: none;
-  }
   .header-menu{
     width: .4rem;
     height: .4rem;

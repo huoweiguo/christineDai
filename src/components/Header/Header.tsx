@@ -48,7 +48,10 @@ export default function Hrader(props:HeaderProps) {
   let { type,titleObj,go} = props;
   return (
     <div className={(type&&!isScrolled)||!isScrolled?`${styles.headerBody}`:`${styles.headerBody} ${styles.onFix}`}>
-        <img onClick={()=>handleButtonClick('/')} className={styles['header-logo']} src={require('../../assets/images/header-logo.png')} alt="" />
+        <div className={styles['header-top']} >
+           <img onClick={()=>handleButtonClick('/')} className={styles['header-return']} src={require('../../assets/images/return.png')} alt="" />
+           <img onClick={()=>handleButtonClick('/')} className={styles['header-logo']} src={require('../../assets/images/header-logo.png')} alt="" />
+        </div>
         <div className={styles['header-right']}>
            {go?<div onClick={()=>BackUrl()} className={styles.retBtn}>
             返回上一页

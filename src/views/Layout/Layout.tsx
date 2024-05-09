@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React,{useRef,useState, useEffect} from 'react'
 import { Outlet } from 'react-router-dom'
 import styles from './Layout.module.scss'
 import Nav from '../../components/Nav/Nav'
@@ -10,8 +10,9 @@ export let MyContext:any;
 export default function Layout() {
   const location = useLocation();
   const [open, setOpen] = useState<boolean>(location.pathname==='/');
+  const [open2, setOpen2] = useState<boolean>(false);
   const [name, setName] = useState<string>('');
-
+  const divRef = useRef<HTMLDivElement>(null);
   interface MethodsFunc {
     myMethod: Function
   }
@@ -27,10 +28,23 @@ export default function Layout() {
     }, 300);
   };
   
-  useEffect(() => {
+  useEffect(() => {  
+    if (divRef.current) {
+      // 修改样式
+      divRef.current.style.display = 'block';
+    }
     if(location.pathname === '/'){
       setOpen(true);
-    }  
+      setOpen2(false)
+    }else{
+      setTimeout(()=>{
+        if (divRef.current) {//把Nav组件变成none
+          // 修改样式
+          divRef.current.style.display = 'none';
+        }
+        setOpen2(true)
+      },1000) //一秒后Nav组件从宽为0改成高为0
+    } 
     const matchs = matchRoutes(routes, location)
     if (Array.isArray(matchs)) {
       const title = matchs[matchs.length - 1].route.meta?.title as string
@@ -42,9 +56,9 @@ export default function Layout() {
       <div className={styles.Outlet}>  
         <Outlet></Outlet>
       </div>
-      {!open?'':<div onClick={()=>{setOpen(false)}} className={styles['burger-cross-box']}>
+      {/* {!open?'':<div onClick={()=>{setOpen(false)}} className={styles['burger-cross-box']}>
         {location.pathname==='/'?'':<div className={styles['burger-cross']}></div>}
-      </div>}
+      </div>} */}
       {/* <div onClick={()=>setOpen(true)} className={!open?`${styles.leftBody}`:`${styles.leftBody} ${styles.leftBody2}`}>
         <div className={styles['burger-container']}>
           <div className={styles['burger-burger']}></div>
@@ -56,7 +70,7 @@ export default function Layout() {
           {name}
         </div>
       </div> */}
-      <div className={open?`${styles.rightBody}`:`${styles.rightBody} ${styles.rightBody2}`}>
+      <div ref={divRef} className={open?`${styles.rightBody}`:open2?`${styles.rightBody} ${styles.rightBody2}`:`${styles.rightBody} ${styles.rightBody3}`}>
         <Nav onChange={openChange}></Nav>
       </div>
     </div>
