@@ -26,9 +26,7 @@ export default function Hrader(props:HeaderProps) {
     // window.location.reload();
   };
   const goback = () => {
-    if (context.myMethod) {
-      context.myMethod()
-    }
+    navigate(-1);
   }
   const BackUrl = ()=>{
     navigate(-1);

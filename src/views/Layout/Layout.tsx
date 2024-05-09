@@ -52,7 +52,7 @@ export default function Layout() {
       setName(title)
     }
     return () => {
-      clearTimeout(time) as NodeJS.Timeout | undefined
+      clearTimeout(time)
     }
   }, [location, location.pathname])
   return (
