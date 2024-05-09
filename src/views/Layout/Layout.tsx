@@ -29,6 +29,7 @@ export default function Layout() {
   };
   
   useEffect(() => {  
+    let time:any= undefined
     if (divRef.current) {
       // 修改样式
       divRef.current.style.display = 'block';
@@ -37,7 +38,7 @@ export default function Layout() {
       setOpen(true);
       setOpen2(false)
     }else{
-      setTimeout(()=>{
+      time = setTimeout(()=>{
         if (divRef.current) {//把Nav组件变成none
           // 修改样式
           divRef.current.style.display = 'none';
@@ -49,6 +50,9 @@ export default function Layout() {
     if (Array.isArray(matchs)) {
       const title = matchs[matchs.length - 1].route.meta?.title as string
       setName(title)
+    }
+    return () => {
+      clearTimeout(time) as NodeJS.Timeout | undefined
     }
   }, [location, location.pathname])
   return (
