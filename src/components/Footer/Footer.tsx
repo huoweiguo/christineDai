@@ -33,6 +33,10 @@ export default function Footer() {
     // 使用 navigate() 方法进行路由跳转
     window.open(url)
   };
+  const toLink = (url:string) => {
+    // 使用 navigate() 方法进行路由跳转
+    window.open(url)
+  };
   const year = useSelector((state: RootState) => state.story.year)
   const navigate = useNavigate();
   const handleButtonClick = (url:string) => {
@@ -66,9 +70,11 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles['footer-copy']}>
-        <span>沪ICP备2022010059号-1</span>
-        <span className={styles['footer-line']}>|</span>
-        Copyright © {year} Chirstine Dai
+        <div onClick={()=>toLink('https://beian.miit.gov.cn/')} className={styles['footer-copy2']}>
+          <span>沪ICP备2022010059号-1</span>
+          <span className={styles['footer-line']}>|</span>
+          Copyright © {year} Chirstine Dai
+        </div>
       </div>
     </div>
   )

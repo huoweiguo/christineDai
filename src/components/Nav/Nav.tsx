@@ -53,6 +53,10 @@ export default function Nav(props:NavProps) {
     // window.location.reload();
     closeOpen()
   };
+  const toLink = (url:string) => {
+    // 使用 navigate() 方法进行路由跳转
+    window.open(url)
+  };
   
   useEffect(() => {
     if(getCachedObject(HomeKey)){
@@ -156,7 +160,7 @@ export default function Nav(props:NavProps) {
             <img src={require('../../assets/images/instagram.png')} alt=''/>
             </a>
           </div>
-          <span>沪ICP备2022010059号-1 | Copyright © {year} Chirstine Dai</span>
+          <span onClick={()=>toLink('https://beian.miit.gov.cn/')} className={styles['home-span']}>沪ICP备2022010059号-1 | Copyright © {year} Chirstine Dai</span>
         </div>
       </div>
     </div>

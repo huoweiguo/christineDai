@@ -32,7 +32,7 @@ export default function Layout() {
     let time:any= undefined
     if (divRef.current) {
       // 修改样式
-      divRef.current.style.display = 'block';
+      divRef.current.style.opacity = '1';
     }
     if(location.pathname === '/'){
       setOpen(true);
@@ -41,7 +41,7 @@ export default function Layout() {
       time = setTimeout(()=>{
         if (divRef.current) {//把Nav组件变成none
           // 修改样式
-          divRef.current.style.display = 'none';
+          divRef.current.style.opacity = '0';
         }
         setOpen2(true)
       },1000) //一秒后Nav组件从宽为0改成高为0
