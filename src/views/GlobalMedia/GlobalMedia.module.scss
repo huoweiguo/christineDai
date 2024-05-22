@@ -15,14 +15,18 @@
       font-size: .4rem;
       line-height: 1.4;
       box-sizing: border-box;
+      span{
+        color: #8D7249;
+      }
     }
   }
   .gw-container{
     min-height: calc(100vh - 6.2rem);
-    padding: 1rem 0;
-    background: #fff;
+    padding: 0.5rem 0;
+    background: #000;
+    position: relative;
     .content-box{
-      padding: 0 5%;
+      padding: 0 9%;
       display: grid;
       grid-template-columns: repeat(3, 1fr); /* 12 columns */
       gap: 20px; /* Grid gap */
@@ -40,29 +44,40 @@
           img{
             transition: 4s;
             width: 100%;
-            height: 3.16rem;
+            height: 3.48rem;
             vertical-align: middle;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
           }
         }
         h5{
-          margin-top: .5rem;
-
+          overflow: hidden;
+          height: 1.12rem;
+          background-color: #fff;
+          border-bottom-left-radius: 20px;
+          border-bottom-right-radius: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content:center;
         }
         h5 p{
-          font-size: .2rem;
+          font-size: .18rem;
           color: #000;
           text-align: center;
           font-weight: normal;
           line-height: 1.5;
+          box-sizing: border-box;
         }
       }
       .card:hover{
         .imgBox{
           img{
             transform: scale(1.2);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
           }
         }
-        h5{
+        h5 p{
           color: #8d7249;
         }
 
@@ -72,6 +87,188 @@
   .w-1400{
     max-width: 1400px;
     margin: 0 auto;
+  }
+}
+
+.global-nav{
+  position: absolute;
+  right: 0.5rem;
+  top: 0.7rem;
+  .nav-line{
+    position: absolute;
+    width: 1px;
+    min-height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #8d7249;
+  }
+  .nav-list{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navItem{
+    z-index: 1;
+    position: relative;
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    border:1px solid #8d7249;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 0.3rem;
+    .activeText{
+      display: none;
+      color: #fff;
+      height: 0.2rem;
+      width: 1rem;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+      p{
+        width: 100%;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  .active:first-child,
+  .navItem:first-child {
+    margin-top: 0;
+  }
+  .active{
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border:1px solid #8d7249;
+    border-radius: 50%;
+    margin-top: 0.3rem;
+    .activeText{
+      display: block;
+      position: absolute;
+      font-size: 0.2rem;
+      left: -100px;
+      top: 0;
+      height: 0.2rem;
+      width: 1rem;
+      color: #fff;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+      p{
+        width: 100%;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  .active::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%; /* 将矩形变成圆形 */
+    transform: translate(-50%, -50%);
+  }
+}
+
+.global-nav-fix{
+  position: fixed;
+  right: 0.5rem;
+  top: 1.7rem;
+  .nav-line{
+    position: absolute;
+    width: 1px;
+    min-height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #8d7249;
+  }
+  .nav-list{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navItem{
+    z-index: 1;
+    position: relative;
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    border:1px solid #8d7249;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 0.3rem;
+    .activeText{
+      display: none;
+      color: #fff;
+      height: 0.2rem;
+      width: 1rem;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+      p{
+        width: 100%;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  .active:first-child,
+  .navItem:first-child {
+    margin-top: 0;
+  }
+  .active{
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border:1px solid #8d7249;
+    border-radius: 50%;
+    margin-top: 0.3rem;
+    .activeText{
+      display: block;
+      position: absolute;
+      font-size: 0.2rem;
+      left: -100px;
+      top: 0;
+      height: 0.2rem;
+      width: 1rem;
+      color: #fff;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+      p{
+        width: 100%;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+  .active::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%; /* 将矩形变成圆形 */
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -99,7 +296,7 @@
   }
 }
 
-@media screen and (min-width: 750px) and (max-width: 768px) {
+@media screen and (min-width: 750px) and (max-width: 900px) {
   .GlobalMedia{
     .gw-container{
       min-height: calc(100vh - 8rem);
@@ -121,4 +318,41 @@
       }
     }
   }
+  .global-nav{
+    display: none !important;
+  }
+  .global-nav-fix{
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .GlobalMedia{
+    .gw-container{
+      min-height: calc(100vh - 7rem);
+      .content-box{
+        display: grid;
+        grid-template-columns:repeat(2, 1fr) !important; /* 两列，每列自动宽度 */
+        grid-gap: 20px; /* 格子间隔 */
+        padding: 10px; /* 容器内边距 */ 
+        .card{
+          width: 100%;
+          margin-right: 2% !important;
+          &:nth-child(3n){
+            margin-right: 2% !important;
+          }
+          &:nth-child(2n){
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  .global-nav{
+    display: none !important;
+  }
+  .global-nav-fix{
+    display: none !important;
+  }
+
 }

@@ -23,6 +23,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 12 columns */
     gap: 10px; /* Grid gap */
+    background: #fff;
   }
   .wv-container{
     padding: 1rem 4%;
@@ -37,11 +38,12 @@
         font-size: .4rem;
         color: #000;
         font-weight: bold;
+        font-family: "宋体-简","常规体";
         &:before{
           width: 0.29rem;
           height: 0.26rem;
           content: '';
-          background: url(../../assets//images/i4.png) no-repeat;
+          background: url(../../assets//images/zs.png) no-repeat;
           background-size: contain;
           background-position: center center;
           position: absolute;
@@ -193,6 +195,7 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: pre-wrap;
+      font-family: "宋体-简","常规体";
     }
   }
   .m-b-2{

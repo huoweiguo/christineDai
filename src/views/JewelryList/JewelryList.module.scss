@@ -32,7 +32,7 @@
   width: .29rem;
   height: .26rem;
   content: '';
-  background: url(../../assets/images/i4.png) no-repeat;
+  background: url(../../assets/images/zs.png) no-repeat;
   background-size: contain;
   background-position: center center;
   position: absolute;
@@ -49,6 +49,7 @@
     border-bottom: 1px solid #ddd;
     margin-right: 8%;
     margin-top: .2rem;
+    font-family: "宋体-简","常规体";
   }
   h5 {
       font-weight: normal;
@@ -58,6 +59,7 @@
       overflow: hidden; /* 确保超出的内容会被裁剪 */
       white-space: nowrap; /* 确保文本在一行内显示 */
       text-overflow: ellipsis; /* 超出的文本部分显示为省略号 */
+      font-family: "宋体-简","常规体";
 
   }
   h5:hover{

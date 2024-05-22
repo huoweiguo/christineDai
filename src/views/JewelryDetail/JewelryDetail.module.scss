@@ -104,7 +104,9 @@
   transform: translateY(-50%);
   line-height: 1.5;
   font-family: "宋体-简","常规体";
-  
+  .detail-title{
+    margin-top: 0.3rem;
+  }
 }
 .detail-text-brief{
   font-family: Baskerville;
@@ -116,6 +118,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-family: "宋体-简","常规体";
+  color: #fff;
 }
 
 .detail-brief{

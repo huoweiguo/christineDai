@@ -43,7 +43,7 @@ export default function Video() {
           <source src={require('../../assets/images/v-bg-video.mp4')} type="video/mp4" />
             您的浏览器不支持视频标签。
         </video>
-        <figure style={bgWord}></figure>
+        {/* <figure style={bgWord}></figure> */}
       </div>
       <div className={styles['video-container']}>
         { videoData.length > 0 && videoData.map((item: videoType,index: number)=>(
@@ -56,7 +56,7 @@ export default function Video() {
           </div>
         )) }
       </div>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   )
 }

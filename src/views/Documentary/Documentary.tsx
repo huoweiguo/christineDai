@@ -88,9 +88,9 @@ export default function Documentary() {
       <Header></Header>
       <div className={styles['doc-banner']}>
         <h5>
-          MAISON
+          <span>BRAND HERITAGE</span>
           <br/>
-          印象大师 · Master Of Impressionism
+          品牌纪事
         </h5>
       </div>
       <div className={styles.DocBody}>

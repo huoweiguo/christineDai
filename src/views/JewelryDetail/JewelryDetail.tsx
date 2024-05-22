@@ -264,15 +264,12 @@ export default function JewelryDetail() {
         {DetailData.header_img?<img className={styles['detail-img']}  src={DetailData.header_img} alt="" />:
          ''}
         {listData.list.length <= 1?'':<div onClick={()=>PrevPage()} className={styles['detail-prevBtn']}>
-          上一页
         </div>}
         {listData.list.length <= 1?'':<div onClick={()=>NextPage()} className={styles['detail-nextBtn']}>
-          下一页
         </div>}
         <div className={styles['detail-txtBox']}>
             {DetailData.catname}
-            <br/>      
-            {DetailData.title}
+            <p className={DetailData.brief_position!==0?'':styles['detail-title']}>{DetailData.title}</p>     
             {DetailData.brief_position !==0?<div className={styles['detail-text-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>:''}
         </div>
       </div>
