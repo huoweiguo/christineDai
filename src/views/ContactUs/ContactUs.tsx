@@ -4,7 +4,6 @@ import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import { Col, Row, Button, Form, type FormProps, type CheckboxProps, Input, Checkbox, Select } from 'antd';
 import { getContactUs, getMessage, getCityList, type ruleData } from '../../store/modules/contactUs'
-import { log } from 'console';
 
 const { TextArea } = Input;
 const { Option } = Select;
@@ -12,6 +11,7 @@ const { Option } = Select;
 interface typeData{
   id: number,
   title: string,
+  title_en: String,
   content: string,
   contact: string,
   bg_cover: string,
@@ -231,7 +231,7 @@ export default function ContactUs() {
           <div className={`${styles.itemBox} ${selectIndex && selectIndex !== index+1 ? styles.narrow : styles.selectDiv}`} key={index} onMouseEnter={()=>handleMouseEnter(index)}>
             { col===24 && <div className={styles.bgBox} style={{backgroundImage: 'url('+item.bg_cover+')'}}></div>}
             <div className={`${styles.wrapper} ${selectIndex === index+1 ? styles.showWrapper : ''}`}>
-              <div className={styles.title}  dangerouslySetInnerHTML={{ __html: item.title }}></div>
+              <div className={styles.title}><span>{item.title}</span><br/><span>{item.title_en}</span></div>
               <div className={`${styles.content } ${selectIndex === index+1 ? styles.showContent : ''}`}>
                 <div className={`${styles.txt} ${selectIndex ? styles.showWarp : styles.hideWarp}`} dangerouslySetInnerHTML={{ __html: item.content }}></div>
                 <p className={styles['c-btn']} onClick={()=>openContactForm(index+1)}>{item.contact}</p>
