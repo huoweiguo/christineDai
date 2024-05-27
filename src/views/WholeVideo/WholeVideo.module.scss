@@ -8,7 +8,7 @@
     padding-bottom: 4.1rem;
     position: relative;
     h5{
-      font-family: "宋体-简","常规体";
+      font-family: "宋体",'宋体-简',"常规体";
       color: #fff;
       position: absolute;
       bottom: 33%;
@@ -38,7 +38,7 @@
         font-size: .4rem;
         color: #000;
         font-weight: bold;
-        font-family: "宋体-简","常规体";
+        font-family: "宋体",'宋体-简',"常规体";
         &:before{
           width: 0.29rem;
           height: 0.26rem;
@@ -195,7 +195,7 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: pre-wrap;
-      font-family: "宋体-简","常规体";
+      font-family: "宋体",'宋体-简',"常规体";
     }
   }
   .m-b-2{

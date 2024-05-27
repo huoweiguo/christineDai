@@ -57,9 +57,9 @@
             justify-content: center;
             text-align: center;
             margin: 0 0.2rem;
-            font-family: "宋体-简","常规体";
+            font-family: "宋体",'宋体-简',"常规体";
             b {
-              font-family: "宋体-简","常规体";
+              font-family: "宋体",'宋体-简',"常规体";
               font-size: 0.34rem;
               margin-bottom: 0.1rem;
             }
@@ -75,7 +75,7 @@
           margin-bottom: 0.2rem;
           b {
             transition: opacity .7s;
-            font-family: "宋体-简","常规体";
+            font-family: "宋体",'宋体-简',"常规体";
             color: #fff;
             margin-bottom: 0.08rem;
             min-width: 1.28rem;

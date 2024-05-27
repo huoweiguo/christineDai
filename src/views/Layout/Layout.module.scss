@@ -182,7 +182,7 @@
   transform: rotate(-90deg) translate(-50%,0);
   text-align: center;
   width: 100%;
-  font-family: "宋体-简","常规体";
+  font-family: "宋体",'宋体-简',"常规体";
 }
 
 @media screen and (max-width: 750px) {
@@ -236,7 +236,7 @@
     left: 0;
     line-height: 70px;
     width: 100%;
-    font-family: "宋体-简","常规体";
+    font-family: "宋体",'宋体-简',"常规体";
     transform: rotate(0) translate(0,0);
   }
 

@@ -18,7 +18,7 @@
     font-size: .18rem;
     color: #666666;
     li{
-      font-family: "宋体-简","常规体";
+      font-family: "宋体",'宋体-简',"常规体";
       cursor: pointer;
     }
     li:hover{
@@ -79,14 +79,14 @@
   align-items: center;
   color: #fff;
   background-color: #000;
-  font-family: "宋体-简","常规体";
+  font-family: "宋体",'宋体-简',"常规体";
   .footer-line{
     margin: 0 0.05rem;
   }
 }
 .footer-copy2{
   font-size: 0.12rem;
-  font-family: "宋体-简","常规体";
+  font-family: "宋体",'宋体-简',"常规体";
   cursor: pointer;
 }
 
