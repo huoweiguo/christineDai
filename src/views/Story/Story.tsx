@@ -47,8 +47,9 @@ export default function Story() {
       <Header titleObj={{title:'品牌故事',name:'BRAND STORY'}}></Header>
       <div className={styles['story-banner']}>
         <h5>
-          品牌故事<br/>
-          BRAND STORY
+          <span>BRAND STORY</span>
+          <br/>
+          品牌故事
         </h5>
       </div>
       <div className={styles['story-warp']}>

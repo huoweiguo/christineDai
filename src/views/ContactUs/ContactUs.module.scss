@@ -33,6 +33,7 @@
         left: 50%;
         width: 100%;
         color: #fff;
+        font-family: "宋体",'宋体-简',"常规体";
         .title{
           font-size: .35rem;
           margin-bottom: 0.3rem;
@@ -62,6 +63,7 @@
     min-height: 4rem;
     background-color: #fff;
     .title{
+      font-family: "宋体",'宋体-简',"常规体";
       padding-top: .1rem;
       text-align: center;
       font-size: .35rem;
@@ -191,6 +193,9 @@
     }
   }
 }
+.contactUs-top{
+  display: none;
+}
 
 @keyframes enlarge {
   0%{
@@ -246,6 +251,12 @@
   }
 }
 @media screen and (max-width: 750px) {
+  .contactUs-top{
+    display: block;
+    height: 1.5rem;
+    width: 100vw;
+    background: #000;
+  }
   .hide{
     overflow: hidden;
     position: relative;
@@ -291,7 +302,7 @@
         }
         .wrapper{
           .title{
-            font-size: .6rem;
+            font-size: .4rem;
             margin-bottom: .5rem;
           }
           .txt{
@@ -300,7 +311,7 @@
             }
           }
           .c-btn{
-            font-size: .45rem !important;
+            font-size: .3rem !important;
             bottom: 0;
           }
         }

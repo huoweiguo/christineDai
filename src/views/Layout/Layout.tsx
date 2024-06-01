@@ -30,22 +30,25 @@ export default function Layout() {
   
   useEffect(() => {  
     let time:any= undefined
-    if (divRef.current) {
-      // 修改样式
-      divRef.current.style.opacity = '1';
-    }
+    // if (divRef.current) {
+    //   // 修改样式
+    //   divRef.current.style.opacity = '1';
+    // }
+    // if(location.pathname === '/'){
+    //   setOpen(true);
+    //   setOpen2(false)
+    // }else{
+    //   time = setTimeout(()=>{
+    //     if (divRef.current) {//把Nav组件变成none
+    //       // 修改样式
+    //       divRef.current.style.opacity = '0';
+    //     }
+    //     setOpen2(true)
+    //   },1000) //一秒后Nav组件从宽为0改成高为0
+    // } 
     if(location.pathname === '/'){
       setOpen(true);
-      setOpen2(false)
-    }else{
-      time = setTimeout(()=>{
-        if (divRef.current) {//把Nav组件变成none
-          // 修改样式
-          divRef.current.style.opacity = '0';
-        }
-        setOpen2(true)
-      },1000) //一秒后Nav组件从宽为0改成高为0
-    } 
+    }  
     const matchs = matchRoutes(routes, location)
     if (Array.isArray(matchs)) {
       const title = matchs[matchs.length - 1].route.meta?.title as string
@@ -73,8 +76,11 @@ export default function Layout() {
         <div className={styles['burger-text']}>
           {name}
         </div>
-      </div> */}
+      </div> 
       <div ref={divRef} className={open?`${styles.rightBody}`:open2?`${styles.rightBody} ${styles.rightBody2}`:`${styles.rightBody} ${styles.rightBody3}`}>
+        <Nav onChange={openChange}></Nav>
+      </div> */}
+      <div className={open?`${styles.rightBody}`:`${styles.rightBody} ${styles.rightBody2}`}>
         <Nav onChange={openChange}></Nav>
       </div>
     </div>

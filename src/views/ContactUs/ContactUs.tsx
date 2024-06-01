@@ -225,8 +225,9 @@ export default function ContactUs() {
   return (
     <div className={ styles['contactUs-body'] }>
        <Header titleObj={{title:'联系我们',name:'CONTACT US'}}></Header>
+       <div className={ styles['contactUs-top'] }></div>
        <div className={ `${styles.contactUs} ${!selectIndex ? styles.hide : ''}` }>
-      { bgData.length > 0 && <div className={ `${styles['cu-container']} ${ selectIndex ? styles['cu-narrow'] : ''}` } style={{backgroundImage: 'url('+bgData[activeIndex]?.bg_cover+')'}}>
+       { bgData.length > 0 && <div className={ `${styles['cu-container']} ${ selectIndex ? styles['cu-narrow'] : ''}` } style={{backgroundImage: 'url('+bgData[activeIndex]?.bg_cover+')'}}>
         { bgData.map((item,index)=>(
           <div className={`${styles.itemBox} ${selectIndex && selectIndex !== index+1 ? styles.narrow : styles.selectDiv}`} key={index} onMouseEnter={()=>handleMouseEnter(index)}>
             { col===24 && <div className={styles.bgBox} style={{backgroundImage: 'url('+item.bg_cover+')'}}></div>}

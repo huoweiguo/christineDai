@@ -6,6 +6,7 @@
     background-position: center center;
     padding-bottom: 4.1rem;
     position: relative;
+    
     h5{
       font-family: "宋体",'宋体-简',"常规体";
       color: #fff;
@@ -26,7 +27,7 @@
     background: #000;
     position: relative;
     .content-box{
-      padding: 0 9%;
+      padding: 0 16%;
       display: grid;
       grid-template-columns: repeat(3, 1fr); /* 12 columns */
       gap: 20px; /* Grid gap */
@@ -44,7 +45,7 @@
           img{
             transition: 4s;
             width: 100%;
-            height: 3.48rem;
+            height: 2.69rem;
             vertical-align: middle;
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
@@ -52,7 +53,7 @@
         }
         h5{
           overflow: hidden;
-          height: 1.12rem;
+          height: 0.87rem;
           background-color: #fff;
           border-bottom-left-radius: 20px;
           border-bottom-right-radius: 20px;
@@ -61,7 +62,7 @@
           justify-content:center;
         }
         h5 p{
-          font-size: .18rem;
+          font-size: .14rem;
           color: #000;
           text-align: center;
           font-weight: normal;
@@ -280,7 +281,7 @@
         display: grid;
         grid-template-columns:repeat(2, 1fr) !important; /* 两列，每列自动宽度 */
         grid-gap: 20px; /* 格子间隔 */
-        padding: 10px; /* 容器内边距 */ 
+        padding: 10px 30px !important; /* 容器内边距 */ 
         .card{
           width: 100%;
           margin-right: 2% !important;

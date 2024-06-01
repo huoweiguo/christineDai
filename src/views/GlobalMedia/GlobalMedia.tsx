@@ -50,10 +50,8 @@ export default function GlobalMedia() {
         uniqueChildren.push(child);
       }
     });
-    console.log(uniqueChildren,'uniqueChildren')
     // 更新globalListBak
     uniqueChildren.forEach((child, i) => {
-      console.log(globalListBak[i].top,'globalListBak[i].top')
       globalListBak[i].top = child.offsetTop + 220;
     });
 
@@ -78,18 +76,23 @@ export default function GlobalMedia() {
     getMediaList().then(res=>{
       if(res.data.code===200){
         const list = res.data.data.list
-        const list2 = [...list,...list,...list,...list,...list]
-        setMediaData(list2)
-        for (let i = 0; i < list2.length; i += 3) {
+        var screenWidth = window.screen.width;
+        console.log(screenWidth,'screenWidth')
+        setMediaData(list)
+        for (let i = 0; i < list.length; i += 3) {
           globalListBak.push({
-            ...list2[i],
+            ...list[i],
             top:0
           });
         }
-        setTimeout(() => {
-          getElementPageY()
-          window.addEventListener('scroll', listenerULList, false)
-        },500)
+        if(screenWidth<900){
+
+        }else{
+          setTimeout(() => {
+            getElementPageY()
+            window.addEventListener('scroll', listenerULList, false)
+          },500)
+        }
       }
     })
   },[])

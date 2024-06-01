@@ -44,7 +44,7 @@ export default function Documentary() {
     console.log(docUI, 'docUI')
     const children  = docUI.querySelectorAll('li')
     for (let i = 0; i < children.length; i++ ) {
-      docListBak[i].top = children[i].offsetTop + 220
+      docListBak[i].top = children[i].offsetTop + 270
     }
 
     setDocList(docListBak)
@@ -59,7 +59,7 @@ export default function Documentary() {
       setIsFix(false)
     }
     for (let i = 0; i < len; i++) {
-      if (((docListBak[i].top) as number + 220) >= scrollY) {
+      if (((docListBak[i].top) as number + 270) >= scrollY) {
         setNavNumber(i)
         return false
       }

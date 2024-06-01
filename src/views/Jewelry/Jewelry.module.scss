@@ -136,9 +136,18 @@
   .jewe-txt{
     margin-right: 0.1rem;
   }
+  .jewe-top{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 750px) {
+  .jewe-top{
+    display: block;
+    height: 1.5rem;
+    width: 100vw;
+    background: #000;
+  }
   .JewelryBody{
     height: calc(100vh - 1.8rem);
   }
@@ -148,6 +157,9 @@
     .jewe-item{
       width: 100%;
       margin-bottom: 0.3rem;
+      .jewe-text{
+        margin:  0.5rem 1rem 1rem 1rem;
+      }
     }
     .jewe-item::after{
       display: none;
@@ -157,12 +169,21 @@
 }
 
 @media screen and (min-width: 750px) and (max-width: 768px) {
+  .jewe-top{
+    display: block;
+    height: 1.5rem;
+    width: 100vw;
+    background: #000;
+  }
   .JewelryBody{
     height: calc(100vh - 2.06rem);
   }
   
   .jewe-list{
     .jewe-item{
+      .jewe-text{
+        margin:  0.5rem 1rem 1rem 1rem;
+      }
       h5{
         font-size: 0.38rem;
         margin-top: 0.3rem;

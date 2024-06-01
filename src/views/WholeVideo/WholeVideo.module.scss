@@ -16,6 +16,9 @@
       font-size: .4rem;
       line-height: 1.4;
       box-sizing: border-box;
+      span{
+        color: #8D7249;
+      }
     }
   }
   .wv-main{
@@ -23,20 +26,20 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 12 columns */
     gap: 10px; /* Grid gap */
-    background: #fff;
+    background: #000;
   }
   .wv-container{
     padding: 1rem 4%;
-    background: #fff;
+    background: #000;
     .itemBox{
-      border-left: 1px solid #000;
+      border-left: 1px solid #fff;
       padding: 0.3rem 0 0.3rem 0.55rem;
       margin-bottom: 1rem;
       .title{
         padding: 0.2rem 0;
         position: relative;
         font-size: .4rem;
-        color: #000;
+        color: #fff;
         font-weight: bold;
         font-family: "宋体",'宋体-简',"常规体";
         &:before{
@@ -118,7 +121,7 @@
       
     }
     h5{
-      color: #000;
+      color: #fff;
       font-size: .16rem;
       white-space: nowrap;
       -o-text-overflow: ellipsis;
@@ -188,7 +191,7 @@
       
     }
     h5{
-      color: #000;
+      color: #fff;
       font-size: .16rem;
       white-space: nowrap;
       -o-text-overflow: ellipsis;

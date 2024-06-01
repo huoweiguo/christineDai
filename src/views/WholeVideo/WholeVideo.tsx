@@ -54,8 +54,9 @@ export default function WholeVideo() {
       <Header titleObj={{title:'品牌视频',name:'VIDEO'}}></Header>
       <div className={styles.banner}>
         <h5>
-          {bannerData.title}<br/>
-          {bannerData.word}
+          <span>{bannerData.word}</span>
+          <br/>
+          {bannerData.title}
         </h5>
       </div>
       {

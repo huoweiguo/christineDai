@@ -12,6 +12,7 @@ export default function Jewelry() {
   return (
     <div className={styles.Jewelry}>
       <Header></Header>
+      <div className={ styles['jewe-top'] }></div>
       <div className={styles.JewelryBody}>
         <div className={styles['jewe-box']}>
            <ul className={styles['jewe-list']}>
