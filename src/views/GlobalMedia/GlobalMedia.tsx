@@ -77,22 +77,22 @@ export default function GlobalMedia() {
       if(res.data.code===200){
         const list = res.data.data.list
         var screenWidth = window.screen.width;
-        console.log(screenWidth,'screenWidth')
+        // console.log(screenWidth,'screenWidth')
         setMediaData(list)
-        for (let i = 0; i < list.length; i += 3) {
-          globalListBak.push({
-            ...list[i],
-            top:0
-          });
-        }
-        if(screenWidth<900){
+        // for (let i = 0; i < list.length; i += 3) {
+        //   globalListBak.push({
+        //     ...list[i],
+        //     top:0
+        //   });
+        // }
+        // if(screenWidth<900){
 
-        }else{
-          setTimeout(() => {
-            getElementPageY()
-            window.addEventListener('scroll', listenerULList, false)
-          },500)
-        }
+        // }else{
+        //   setTimeout(() => {
+        //     getElementPageY()
+        //     window.addEventListener('scroll', listenerULList, false)
+        //   },500)
+        // }
       }
     })
   },[])
@@ -109,13 +109,13 @@ export default function GlobalMedia() {
       <div className={styles['gw-container']}>
       <div className={isFix?styles['global-nav-fix']:styles['global-nav']}>
         <div className={styles['nav-line']}></div>
-          <ul className={styles['nav-list']}>
+          {/* <ul className={styles['nav-list']}>
             {mediaData2.map((item,index)=>{
               return(<li onClick={()=>cutNav(index, item.top as number)} className={navNumber === index?styles.active:styles.navItem} key={item.id}>
                 <div className={styles.activeText} dangerouslySetInnerHTML={{ __html: item.title }}></div>
               </li>)
             })}
-          </ul>
+          </ul> */}
         </div>
         <div className={styles['w-1400']}>
           <ul className={styles['content-box']} id="docUI">

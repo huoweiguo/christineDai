@@ -269,7 +269,7 @@ export default function JewelryDetail() {
         </div>}
         <div className={styles['detail-txtBox']}>
             {DetailData.catname}
-            <p className={DetailData.brief_position!==0?'':styles['detail-title']}>{DetailData.title}</p>     
+            <p>{DetailData.title}</p>     
             {DetailData.brief_position !==0?<div className={styles['detail-text-brief']} dangerouslySetInnerHTML={{ __html: DetailData.brief }}></div>:''}
         </div>
       </div>

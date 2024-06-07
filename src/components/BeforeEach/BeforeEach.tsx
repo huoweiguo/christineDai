@@ -18,7 +18,7 @@ export default function BeforeEach(props: BeforeEachProps) {
   const ReactNode = ()=>{
     return (
       <div className={styles.ReactNode}>
-        <img className={styles.ReactImg} src={require('../../assets/images/header-logo.png')} alt="" />
+        {/* <img className={styles.ReactImg} src={require('../../assets/images/header-logo.png')} alt="" /> */}
       </div>
     )
   }
