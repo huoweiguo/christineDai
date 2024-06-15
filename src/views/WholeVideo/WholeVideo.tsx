@@ -47,6 +47,7 @@ export default function WholeVideo() {
       setNavNumber(i)
     }, 700)
   }
+  
   const getElementPageY = () => {
     const docUI: HTMLUListElement  = document.querySelector('#containerUI') as HTMLUListElement
     console.log(docUI, 'docUI')
@@ -115,29 +116,70 @@ export default function WholeVideo() {
 
   const RecordBody = () =>{ //纪事视频
     return (
-        <div className={styles['wv-container2']}>
-        { videoData.length > 0?videoData.map((item,index)=>(
-          <div className={styles.itemBox} key={index}>
-            <div className={styles.title}>{ item.catname }</div>
-              <div className={styles.listBox} >
-              { item.list.length > 0 ? item.list.map((em, i)=>(
-                <div onClick={()=>handleButtonClick(em.video_url)} className={styles.card2} key={i}>
-                  <div className={`${styles.imgBox} ${styles['m-b-2']}`}>
-                    <img src={em.cover_img} alt=""/>
-                  </div>
-                  <h5>{em.title}</h5>
-                </div>
-              )): <div  className={styles.card2}>
-              <h5>敬请期待</h5>
-            </div>}
-            </div>
-          </div>
-        )) :<div className={styles.itemBox}>
-        <div className={styles.title}>敬请期待</div>
-        </div>}
+      <div className={styles.ContainerBody}>
+        <div className={isFix?styles['doc-nav-fix']:styles['doc-nav']}>
+          <div className={styles['nav-line']}></div>
+          <ul className={styles['nav-list']}>
+            {docList.map((item,index)=>{
+              return(<li onClick={()=>cutNav(index, item.top as number)} key={index} className={navNumber === index?styles.active:styles.navItem}>
+                <div className={styles.activeText}>{item.catname}</div>
+              </li>)
+            })}
+          </ul>
+        </div>
+        <ul className={styles['wv-container2']} id="containerUI">
+          { videoData.length > 0?videoData.map((item,index)=>(
+            <li onClick={()=>{
+              if(item.list.length > 0){
+                handleButtonClick(item.list[0].video_url)
+              }else{
+                return false
+              }
+            }} className={styles.itemBox} key={index}>
+              <div className={styles['video-left']}>
+                {item.list.length > 0?
+                <img src={item.list[0].cover_img} alt=''/>:
+                <div className={styles['video-text']}>敬请期待</div>}
+              </div>
+              <div className={styles['video-right']}>
+                <div className={styles['video-title']} dangerouslySetInnerHTML={{ __html: item.catname }}></div>
+                <img className={styles['video-icon']} src={require('../../assets/images/rightIcon.png')} alt="" />
+              </div>
+            </li>
+          )) :
+          <li className={styles.itemBox}>
+              <div className={styles.title}>敬请期待</div>
+          </li>}
+        </ul>
       </div>
     ) 
   };
+
+  // const RecordBody = () =>{ //旧样式纪事视频
+  //   return (
+  //       <div className={styles['wv-container2']}>
+  //       { videoData.length > 0?videoData.map((item,index)=>(
+  //         <div className={styles.itemBox} key={index}>
+  //           <div className={styles.title}>{ item.catname }</div>
+  //             <div className={styles.listBox} >
+  //             { item.list.length > 0 ? item.list.map((em, i)=>(
+  //               <div onClick={()=>handleButtonClick(em.video_url)} className={styles.card2} key={i}>
+  //                 <div className={`${styles.imgBox} ${styles['m-b-2']}`}>
+  //                   <img src={em.cover_img} alt=""/>
+  //                 </div>
+  //                 <h5>{em.title}</h5>
+  //               </div>
+  //             )): <div  className={styles.card2}>
+  //             <h5>敬请期待</h5>
+  //           </div>}
+  //           </div>
+  //         </div>
+  //       )) :<div className={styles.itemBox}>
+  //       <div className={styles.title}>敬请期待</div>
+  //       </div>}
+  //     </div>
+  //   ) 
+  // };
   
   useEffect(()=>{
     getVideoList({id}).then(res=>{
@@ -150,12 +192,11 @@ export default function WholeVideo() {
           title,
           word: title_en
         })
-        if(id==='1'){
+        if(id==='1'||id==='3'){
           setTimeout(() => {
             getElementPageY()
             window.addEventListener('scroll', listenerULList, false)
           })
-
         }
       }
     })
