@@ -12,3 +12,7 @@ export const getVideoCat = () => {
 export const getVideoList = (data: InfosParams) => {
   return http.get('/video-list', data)
 }
+
+export const getVideoEventList = () => {
+  return http.get('/video-event',{})
+}
