@@ -10,7 +10,7 @@ export default function VideoDetail() {
        <Header></Header>
        <div className={styles.videoDetail}>
          <div className={styles.videoPlay}>
-         <video controls>
+         <video controls autoPlay loop muted>
             <source src={url} />
               您的浏览器不支持视频标签。
           </video>

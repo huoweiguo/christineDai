@@ -163,7 +163,7 @@ export default function WholeVideo() {
         </div>
         <ul className={styles['wv-container2']} id="containerUI2">
           { eventList.length > 0?eventList.map((item,index)=>(
-            <li onClick={()=>handleButtonClick(item.cover_img)} className={styles.itemBox} key={index}>
+            <li onClick={()=>handleButtonClick(item.video_url)} className={styles.itemBox} key={index}>
               <div className={styles['doc-left']}>
                 <img src={item.cover_img} alt="" />
               </div>
