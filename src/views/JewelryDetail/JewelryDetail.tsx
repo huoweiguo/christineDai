@@ -90,11 +90,11 @@ export default function JewelryDetail() {
   }
   const DetailDemo3 = (obj:TempItem)=>{
     return(
-      <div className={styles['detail-demo5']}>
-        <div className={styles['demo5-top']}>
+      <div className={styles['detail-demo30']}>
+        <div className={styles['demo30-top']}>
             <img src={obj.image[0]} alt="" />
           </div>
-        <div className={styles['demo5-txtBox']}>
+        <div className={styles['demo30-txtBox']}>
           <div className={styles['title']} dangerouslySetInnerHTML={{ __html: obj.title }}></div>
           <div className={styles['des']} dangerouslySetInnerHTML={{ __html: obj.content }}>
           </div>

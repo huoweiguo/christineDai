@@ -129,6 +129,9 @@
   margin-bottom: 7%;
   font-weight: 500;
   margin-top: 0.5rem;
+  word-wrap: break-word; /* 允许在单词内换行 */
+  overflow-wrap: break-word; /* 同上，现代浏览器推荐使用这个属性别名 */
+  white-space: normal; /* 允许自动换行 */
 }
 
 .detail-box{
@@ -165,14 +168,14 @@
   }
 }
 .title:before {
-    width: .92rem;
-    height: .04rem;
-    content: '';
-    background: #856B44;
-    position: absolute;
-    font-weight: bold;
-    left: 0;
-    bottom: 0;
+    // width: .92rem;
+    // height: .04rem;
+    // content: '';
+    // background: #856B44;
+    // position: absolute;
+    // font-weight: bold;
+    // left: 0;
+    // bottom: 0;
 }
 .des{
   font-size: .22rem;
@@ -180,6 +183,9 @@
   color: #666666;
   font-style: normal;
   font-family: "宋体",'宋体-简',"常规体";
+  word-wrap: break-word; /* 允许在单词内换行 */
+  overflow-wrap: break-word; /* 同上，现代浏览器推荐使用这个属性别名 */
+  white-space: normal; /* 允许自动换行 */
 }
 
 .detail-demo1{
@@ -272,6 +278,39 @@
   }
 }
 
+.detail-demo30{
+  margin: 3% 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  .demo30-txtBox{
+    word-wrap: break-word;
+    text-align: center;
+    width: 81%;
+  }
+  .title:before {
+    left: 50%;
+    margin-left: -.46rem;
+  }
+  .demo30-top{
+    width: 51%;
+    text-align: right;
+    img{
+      border: 0;
+      max-width: 100%;
+      vertical-align: middle;
+    }
+  }
+  .des{
+    text-align: center;
+    word-wrap: break-word; /* 允许在单词内换行 */
+    overflow-wrap: break-word; /* 同上，现代浏览器推荐使用这个属性别名 */
+    white-space: normal; /* 允许自动换行 */
+  }
+}
+
 .detail-demo5{
   margin: 3% 0;
   display: flex;
@@ -299,6 +338,9 @@
   }
   .des{
     text-align: center;
+    word-wrap: break-word; /* 允许在单词内换行 */
+    overflow-wrap: break-word; /* 同上，现代浏览器推荐使用这个属性别名 */
+    white-space: normal; /* 允许自动换行 */
   }
 }
 .detail-demo7{
@@ -368,10 +410,14 @@
     align-items: center;
   }
   .detail-brief{
+    font-family: Baskerville;
     font-size: .20rem !important;
     line-height: .38rem !important;
     color: #000;
     margin-bottom: 7%;
+    word-wrap: break-word; /* 允许在单词内换行 */
+    overflow-wrap: break-word; /* 同上，现代浏览器推荐使用这个属性别名 */
+    white-space: normal; /* 允许自动换行 */
   }
   .detail-demo1{
     display: flex;
@@ -380,15 +426,15 @@
     padding: 3% 0;
     .demo1-txtBox{
       width: 100%;
-      text-align: center;
+      // text-align: center;
     }
     .demo1-imgBox{
       width: 100%;
     }
-    .title:before {
-      left: 50%;
-      margin-left: -.46rem;
-    }
+    // .title:before {
+    //   left: 50%;
+    //   margin-left: -.46rem;
+    // }
   }
   .detail-demo3{
     display: flex;
@@ -450,6 +496,27 @@
     .demo7-right{
       width: 100%;
       margin: 5% 0;
+    }
+  }
+  .detail-demo30{
+    display: flex;
+    flex-direction: column;
+    padding: 3% 0;
+    .demo30-left{
+      width: 100%;
+    }
+    .demo30-right{
+      width: 100%;
+      margin: 5% 0;
+    }
+    .demo30-top{
+      width: 100%;
+      text-align: right;
+      img{
+        border: 0;
+        max-width: 100%;
+        vertical-align: middle;
+      }
     }
   }
   .Default{
